@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP - Sổ Chi Tiết Thanh Toán NCC | Công ty Điện lực Vũng Tàu</title>
+    <meta name="description" content="Bảng chi tiết thanh toán nhà cung cấp - Công ty Điện lực Vũng Tàu">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* === DARK MODE (default) === */
+        :root, [data-theme="dark"] {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a2236;
+            --bg-card-hover: #1e2a42;
+            --bg-input: #0f1629;
+            --border: #1e3a5f;
+            --border-light: #2a4a6f;
+            --text-primary: #e8edf5;
+            --text-secondary: #8b9dc3;
+            --text-muted: #5a6d8e;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.15);
+            --accent-hover: #2563eb;
+            --green: #10b981;
+            --green-bg: rgba(16, 185, 129, 0.1);
+            --orange: #f59e0b;
+            --orange-bg: rgba(245, 158, 11, 0.1);
+            --red: #ef4444;
+            --purple: #8b5cf6;
+            --purple-bg: rgba(139, 92, 246, 0.1);
+            --cyan: #06b6d4;
+            --cyan-bg: rgba(6, 182, 212, 0.08);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 24px rgba(0,0,0,0.3);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.4);
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --header-gradient: linear-gradient(135deg, #1a2236 0%, #162040 100%);
+            --header-text-gradient: linear-gradient(135deg, #e8edf5, #93b4f5);
+            --row-border: rgba(30, 58, 95, 0.3);
+        }
+
+        /* === LIGHT MODE === */
+        [data-theme="light"] {
+            --bg-primary: #f0f4f8;
+            --bg-secondary: #e2e8f0;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f7fafc;
+            --bg-input: #f7f9fc;
+            --border: #d1dce8;
+            --border-light: #b8c9dc;
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --text-muted: #8795a8;
+            --accent: #2563eb;
+            --accent-glow: rgba(37, 99, 235, 0.1);
+            --accent-hover: #1d4ed8;
+            --green: #059669;
+            --green-bg: rgba(5, 150, 105, 0.08);
+            --orange: #d97706;
+            --orange-bg: rgba(217, 119, 6, 0.08);
+            --red: #dc2626;
+            --purple: #7c3aed;
+            --purple-bg: rgba(124, 58, 237, 0.08);
+            --cyan: #0891b2;
+            --cyan-bg: rgba(8, 145, 178, 0.06);
+            --shadow: 0 4px 24px rgba(0,0,0,0.06);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.08);
+            --header-gradient: linear-gradient(135deg, #ffffff 0%, #eef2ff 100%);
+            --header-text-gradient: linear-gradient(135deg, #1e3a5f, #2563eb);
+            --row-border: rgba(209, 220, 232, 0.6);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Background effects */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+            transition: var(--transition);
+        }
+        [data-theme="light"] body::before,
+        [data-theme="light"]::before {
+            background: 
+                radial-gradient(ellipse at 20% 0%, rgba(37, 99, 235, 0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(124, 58, 237, 0.03) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding: 28px 32px;
+            background: var(--header-gradient);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--purple), var(--cyan));
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+        }
+        .header-logo {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            object-fit: contain;
+            border: 2px solid var(--border);
+            background: white;
+            flex-shrink: 0;
+        }
+        .header-text {
+            text-align: left;
+        }
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--header-text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+        .header p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            font-weight: 400;
+        }
+
+        /* Theme toggle */
+        .theme-toggle {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            width: 44px;
+            height: 24px;
+            border-radius: 12px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            padding: 2px;
+            z-index: 5;
+        }
+        .theme-toggle:hover {
+            border-color: var(--accent);
+        }
+        .theme-toggle .toggle-knob {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            transform: translateX(0);
+        }
+        [data-theme="light"] .theme-toggle .toggle-knob {
+            transform: translateX(20px);
+        }
+        .theme-toggle-label {
+            position: absolute;
+            top: 30px;
+            right: 0;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        /* Stats cards */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 22px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--border-light);
+            box-shadow: var(--shadow);
+        }
+        .stat-card .stat-icon {
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+        .stat-card .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+        .stat-card .stat-label {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .stat-card:nth-child(1) .stat-icon { background: var(--accent-glow); color: var(--accent); }
+        .stat-card:nth-child(2) .stat-icon { background: var(--green-bg); color: var(--green); }
+        .stat-card:nth-child(3) .stat-icon { background: var(--orange-bg); color: var(--orange); }
+        .stat-card:nth-child(4) .stat-icon { background: var(--purple-bg); color: var(--purple); }
+
+        /* Filter bar */
+        .filter-bar {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex: 1;
+            min-width: 160px;
+        }
+        .filter-group.search-group { flex: 2; min-width: 260px; }
+        .filter-group label {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        .filter-group input,
+        .filter-group select {
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 10px 14px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            outline: none;
+        }
+        .filter-group input:focus,
+        .filter-group select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+        .filter-group input::placeholder {
+            color: var(--text-muted);
+        }
+        .filter-group select option {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+        .btn-reset {
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 10px 20px;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .btn-reset:hover {
+            border-color: var(--red);
+            color: var(--red);
+            background: rgba(239, 68, 68, 0.08);
+        }
+
+        /* Table */
+        .table-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        .table-header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border);
+        }
+        .table-header-bar h2 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .table-header-bar .result-count {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            background: var(--bg-input);
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+        .table-scroll {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        thead th {
+            background: var(--bg-input);
+            padding: 12px 16px;
+            text-align: left;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-bottom: 1px solid var(--border);
+            white-space: nowrap;
+            cursor: pointer;
+            user-select: none;
+            transition: var(--transition);
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+        thead th:hover {
+            color: var(--accent);
+        }
+        thead th .sort-icon {
+            margin-left: 4px;
+            opacity: 0.4;
+            font-size: 0.65rem;
+        }
+        thead th.sorted .sort-icon {
+            opacity: 1;
+            color: var(--accent);
+        }
+        tbody tr {
+            transition: var(--transition);
+            border-bottom: 1px solid var(--row-border);
+        }
+        tbody tr:hover {
+            background: var(--bg-card-hover);
+        }
+        tbody td {
+            padding: 14px 16px;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            vertical-align: top;
+        }
+        
+        /* NCC cell with expand */
+        .ncc-cell {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .ncc-toggle {
+            width: 22px; height: 22px;
+            border-radius: 6px;
+            background: var(--accent-glow);
+            border: 1px solid rgba(59,130,246,0.2);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            flex-shrink: 0;
+            font-size: 0.65rem;
+            margin-top: 1px;
+        }
+        .ncc-toggle:hover {
+            background: var(--accent);
+            color: white;
+        }
+        .ncc-toggle.expanded {
+            transform: rotate(90deg);
+            background: var(--accent);
+            color: white;
+        }
+        .ncc-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+        .ncc-details {
+            display: none;
+            margin-top: 8px;
+            padding: 10px 14px;
+            background: var(--bg-input);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            font-size: 0.78rem;
+            animation: slideDown 0.2s ease;
+        }
+        .ncc-details.show {
+            display: block;
+        }
+        .ncc-details .detail-row {
+            display: flex;
+            gap: 8px;
+            padding: 3px 0;
+        }
+        .ncc-details .detail-label {
+            color: var(--text-muted);
+            min-width: 60px;
+            font-weight: 500;
+        }
+        .ncc-details .detail-value {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Amount column */
+        .amount {
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+            text-align: right;
+            white-space: nowrap;
+            color: var(--green);
+        }
+
+        /* Date column */
+        .date-cell {
+            white-space: nowrap;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Description */
+        .desc-cell {
+            max-width: 450px;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+
+        /* Group badge */
+        .nhom-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        .nhom-noibo { background: rgba(59,130,246,0.12); color: #60a5fa; }
+        .nhom-tuvan { background: rgba(139,92,246,0.12); color: #a78bfa; }
+        .nhom-xaylap { background: rgba(245,158,11,0.12); color: #fbbf24; }
+        .nhom-vttb { background: rgba(16,185,129,0.12); color: #34d399; }
+        .nhom-kiemtoan { background: rgba(236,72,153,0.12); color: #f472b6; }
+        .nhom-khac { background: rgba(107,114,128,0.12); color: #9ca3af; }
+        .nhom-chua { background: rgba(75,85,99,0.12); color: #6b7280; }
+
+        /* Light mode badge adjustments */
+        [data-theme="light"] .nhom-noibo { background: rgba(37,99,235,0.1); color: #1d4ed8; }
+        [data-theme="light"] .nhom-tuvan { background: rgba(124,58,237,0.1); color: #6d28d9; }
+        [data-theme="light"] .nhom-xaylap { background: rgba(217,119,6,0.1); color: #b45309; }
+        [data-theme="light"] .nhom-vttb { background: rgba(5,150,105,0.1); color: #047857; }
+        [data-theme="light"] .nhom-kiemtoan { background: rgba(219,39,119,0.1); color: #be185d; }
+        [data-theme="light"] .nhom-khac { background: rgba(107,114,128,0.1); color: #4b5563; }
+        [data-theme="light"] .nhom-chua { background: rgba(75,85,99,0.1); color: #374151; }
+
+        /* No results */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+        .no-results .icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+        .no-results h3 {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            padding: 20px;
+            border-top: 1px solid var(--border);
+        }
+        .page-btn {
+            padding: 8px 14px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .page-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .page-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+            font-weight: 600;
+        }
+        .page-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        .page-info {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            padding: 0 12px;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 900px) {
+            .container { padding: 12px 16px; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .filter-bar { flex-direction: column; }
+            .filter-group { min-width: 100%; }
+            .desc-cell { max-width: 200px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="theme-toggle" id="themeToggle" title="Chuyển đổi Dark/Light mode">
+                <div class="toggle-knob" id="toggleKnob">🌙</div>
+                <span class="theme-toggle-label" id="themeLabel">Dark</span>
+            </div>
+            <div class="header-content">
+                <img src="https://lh3.googleusercontent.com/d/1GAoEg3co_ypn1fpAz95tv8A3Zgg4GCfF" alt="Logo" class="header-logo">
+                <div class="header-text">
+                    <h1>SỔ CHI TIẾT THANH TOÁN NHÀ CUNG CẤP</h1>
+                    <p>Công ty Điện lực Vũng Tàu — Từ ngày 01/01/2026 đến 02/07/2026</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-value" id="statTotal">—</div>
+                <div class="stat-label">Tổng thanh toán</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📋</div>
+                <div class="stat-value" id="statCount">—</div>
+                <div class="stat-label">Giao dịch hiển thị</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏢</div>
+                <div class="stat-value" id="statNCC">—</div>
+                <div class="stat-label">Nhà cung cấp</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-value" id="statAvg">—</div>
+                <div class="stat-label">Trung bình / GD</div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filter-bar">
+            <div class="filter-group search-group">
+                <label>Tìm nhà cung cấp</label>
+                <input type="text" id="searchNCC" placeholder="Nhập tên NCC, mã NCC...">
+            </div>
+            <div class="filter-group">
+                <label>Nhóm</label>
+                <select id="filterNhom">
+                    <option value="">Tất cả nhóm</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Từ ngày</label>
+                <input type="date" id="filterDateFrom">
+            </div>
+            <div class="filter-group">
+                <label>Đến ngày</label>
+                <input type="date" id="filterDateTo">
+            </div>
+            <button class="btn-reset" id="btnReset">✕ Xóa lọc</button>
+        </div>
+
+        <!-- Table -->
+        <div class="table-wrapper">
+            <div class="table-header-bar">
+                <h2>Danh sách giao dịch</h2>
+                <span class="result-count" id="resultCount">0 kết quả</span>
+            </div>
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-sort="ncc" style="min-width:180px">Nhà cung cấp <span class="sort-icon">▼</span></th>
+                            <th data-sort="nhom" style="min-width:90px">Nhóm <span class="sort-icon">▼</span></th>
+                            <th data-sort="so_tien" style="min-width:140px; text-align:right">Thanh toán <span class="sort-icon">▼</span></th>
+                            <th data-sort="dien_giai" style="min-width:250px">Nội dung <span class="sort-icon">▼</span></th>
+                            <th data-sort="ngay" style="min-width:110px">Ngày TT <span class="sort-icon">▼</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+            </div>
+            <div id="noResults" class="no-results" style="display:none">
+                <div class="icon">🔍</div>
+                <h3>Không tìm thấy kết quả</h3>
+                <p>Thử thay đổi bộ lọc hoặc từ khóa tìm kiếm</p>
+            </div>
+            <div class="pagination" id="pagination"></div>
+        </div>
+    </div>
+
+    <script>
+    // ============================================
+    // DATA - embedded from erp_data.json
+    // ============================================
+    let DATA = null;
+    let filteredData = [];
+    let currentPage = 1;
+    const PAGE_SIZE = 30;
+    let sortCol = 'ngay';
+    let sortDir = 'desc';
+
+    // Load data
+    fetch('erp_data.json')
+        .then(r => r.json())
+        .then(data => {
+            DATA = data;
+            init();
+        })
+        .catch(err => {
+            console.error('Error loading data:', err);
+            document.getElementById('tableBody').innerHTML = '<tr><td colspan="5" style="text-align:center;padding:40px;color:var(--text-muted)">Lỗi tải dữ liệu. Đảm bảo file erp_data.json nằm cùng thư mục.</td></tr>';
+        });
+
+    function init() {
+        // Populate nhóm filter
+        const nhomSelect = document.getElementById('filterNhom');
+        DATA.nhom_list.forEach(n => {
+            const opt = document.createElement('option');
+            opt.value = n;
+            opt.textContent = n;
+            nhomSelect.appendChild(opt);
+        });
+
+        // Event listeners
+        document.getElementById('searchNCC').addEventListener('input', debounce(applyFilters, 200));
+        document.getElementById('filterNhom').addEventListener('change', applyFilters);
+        document.getElementById('filterDateFrom').addEventListener('change', applyFilters);
+        document.getElementById('filterDateTo').addEventListener('change', applyFilters);
+        document.getElementById('btnReset').addEventListener('click', resetFilters);
+
+        // Sort headers
+        document.querySelectorAll('thead th[data-sort]').forEach(th => {
+            th.addEventListener('click', () => {
+                const col = th.dataset.sort;
+                if (sortCol === col) {
+                    sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+                } else {
+                    sortCol = col;
+                    sortDir = col === 'so_tien' ? 'desc' : 'asc';
+                }
+                updateSortHeaders();
+                applyFilters();
+            });
+        });
+
+        applyFilters();
+    }
+
+    function parseDate(dateStr) {
+        if (!dateStr) return null;
+        // Format: dd/mm/yyyy
+        const parts = dateStr.split('/');
+        if (parts.length !== 3) return null;
+        return new Date(parts[2], parts[1] - 1, parts[0]);
+    }
+
+    function applyFilters() {
+        const search = document.getElementById('searchNCC').value.toLowerCase().trim();
+        const nhom = document.getElementById('filterNhom').value;
+        const dateFrom = document.getElementById('filterDateFrom').value;
+        const dateTo = document.getElementById('filterDateTo').value;
+
+        const fromDate = dateFrom ? new Date(dateFrom) : null;
+        const toDate = dateTo ? new Date(dateTo) : null;
+
+        filteredData = DATA.transactions.filter(t => {
+            // Search
+            if (search) {
+                const searchIn = (t.ncc + ' ' + t.ten + ' ' + t.ma + ' ' + t.dien_giai).toLowerCase();
+                if (!searchIn.includes(search)) return false;
+            }
+            // Nhóm
+            if (nhom && t.nhom !== nhom) return false;
+            // Date range
+            if (fromDate || toDate) {
+                const d = parseDate(t.ngay);
+                if (!d) return false;
+                if (fromDate && d < fromDate) return false;
+                if (toDate && d > toDate) return false;
+            }
+            return true;
+        });
+
+        // Sort
+        filteredData.sort((a, b) => {
+            let va, vb;
+            if (sortCol === 'so_tien') {
+                va = a.so_tien || 0;
+                vb = b.so_tien || 0;
+            } else if (sortCol === 'ngay') {
+                va = parseDate(a.ngay) || new Date(0);
+                vb = parseDate(b.ngay) || new Date(0);
+                return sortDir === 'asc' ? va - vb : vb - va;
+            } else {
+                va = (a[sortCol] || '').toLowerCase();
+                vb = (b[sortCol] || '').toLowerCase();
+            }
+            if (va < vb) return sortDir === 'asc' ? -1 : 1;
+            if (va > vb) return sortDir === 'asc' ? 1 : -1;
+            return 0;
+        });
+
+        currentPage = 1;
+        renderTable();
+        updateStats();
+    }
+
+    function renderTable() {
+        const tbody = document.getElementById('tableBody');
+        const totalPages = Math.ceil(filteredData.length / PAGE_SIZE);
+        const start = (currentPage - 1) * PAGE_SIZE;
+        const pageData = filteredData.slice(start, start + PAGE_SIZE);
+
+        if (filteredData.length === 0) {
+            tbody.innerHTML = '';
+            document.getElementById('noResults').style.display = 'block';
+            document.getElementById('pagination').innerHTML = '';
+            document.getElementById('resultCount').textContent = '0 kết quả';
+            return;
+        }
+
+        document.getElementById('noResults').style.display = 'none';
+        document.getElementById('resultCount').textContent = filteredData.length + ' kết quả';
+
+        tbody.innerHTML = pageData.map((t, i) => {
+            const id = 'ncc-' + (start + i);
+            const nhomClass = getNhomClass(t.nhom);
+            return `<tr>
+                <td>
+                    <div class="ncc-cell">
+                        <div class="ncc-toggle" onclick="toggleNCC('${id}')" id="toggle-${id}">▶</div>
+                        <div>
+                            <div class="ncc-name">${escHtml(t.ncc)}</div>
+                            <div class="ncc-details" id="details-${id}">
+                                <div class="detail-row">
+                                    <span class="detail-label">Mã NCC:</span>
+                                    <span class="detail-value">${escHtml(t.ma)}</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Tên đầy đủ:</span>
+                                    <span class="detail-value">${escHtml(t.ten)}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td><span class="nhom-badge ${nhomClass}">${escHtml(t.nhom)}</span></td>
+                <td class="amount">${formatMoney(t.so_tien)}</td>
+                <td class="desc-cell">${escHtml(t.dien_giai)}</td>
+                <td class="date-cell">${escHtml(t.ngay)}</td>
+            </tr>`;
+        }).join('');
+
+        renderPagination(totalPages);
+    }
+
+    function renderPagination(totalPages) {
+        if (totalPages <= 1) {
+            document.getElementById('pagination').innerHTML = '';
+            return;
+        }
+        let html = `<button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage===1?'disabled':''}>‹</button>`;
+        
+        const maxVisible = 7;
+        let startP = Math.max(1, currentPage - 3);
+        let endP = Math.min(totalPages, startP + maxVisible - 1);
+        if (endP - startP < maxVisible - 1) startP = Math.max(1, endP - maxVisible + 1);
+
+        if (startP > 1) {
+            html += `<button class="page-btn" onclick="goPage(1)">1</button>`;
+            if (startP > 2) html += `<span class="page-info">…</span>`;
+        }
+        for (let p = startP; p <= endP; p++) {
+            html += `<button class="page-btn ${p===currentPage?'active':''}" onclick="goPage(${p})">${p}</button>`;
+        }
+        if (endP < totalPages) {
+            if (endP < totalPages - 1) html += `<span class="page-info">…</span>`;
+            html += `<button class="page-btn" onclick="goPage(${totalPages})">${totalPages}</button>`;
+        }
+
+        html += `<button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage===totalPages?'disabled':''}>›</button>`;
+        document.getElementById('pagination').innerHTML = html;
+    }
+
+    function goPage(p) {
+        const totalPages = Math.ceil(filteredData.length / PAGE_SIZE);
+        if (p < 1 || p > totalPages) return;
+        currentPage = p;
+        renderTable();
+        document.querySelector('.table-wrapper').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function updateStats() {
+        const total = filteredData.reduce((s, t) => s + (t.so_tien || 0), 0);
+        const count = filteredData.length;
+        const nccSet = new Set(filteredData.map(t => t.ma));
+        const avg = count > 0 ? total / count : 0;
+
+        document.getElementById('statTotal').textContent = formatMoneyShort(total);
+        document.getElementById('statCount').textContent = count.toLocaleString('vi-VN');
+        document.getElementById('statNCC').textContent = nccSet.size;
+        document.getElementById('statAvg').textContent = formatMoneyShort(avg);
+    }
+
+    function updateSortHeaders() {
+        document.querySelectorAll('thead th[data-sort]').forEach(th => {
+            const isActive = th.dataset.sort === sortCol;
+            th.classList.toggle('sorted', isActive);
+            th.querySelector('.sort-icon').textContent = isActive ? (sortDir === 'asc' ? '▲' : '▼') : '▼';
+        });
+    }
+
+    function toggleNCC(id) {
+        const details = document.getElementById('details-' + id);
+        const toggle = document.getElementById('toggle-' + id);
+        const show = !details.classList.contains('show');
+        details.classList.toggle('show', show);
+        toggle.classList.toggle('expanded', show);
+    }
+
+    function resetFilters() {
+        document.getElementById('searchNCC').value = '';
+        document.getElementById('filterNhom').value = '';
+        document.getElementById('filterDateFrom').value = '';
+        document.getElementById('filterDateTo').value = '';
+        applyFilters();
+    }
+
+    function formatMoney(n) {
+        if (!n && n !== 0) return '—';
+        return Number(n).toLocaleString('vi-VN') + ' ₫';
+    }
+
+    function formatMoneyShort(n) {
+        if (n >= 1e12) return (n/1e12).toFixed(1) + ' nghìn tỷ';
+        if (n >= 1e9) return (n/1e9).toFixed(1) + ' tỷ';
+        if (n >= 1e6) return (n/1e6).toFixed(1) + ' tr';
+        return Number(n).toLocaleString('vi-VN');
+    }
+
+    function getNhomClass(nhom) {
+        const map = {
+            'Nội Bộ': 'nhom-noibo',
+            'Tư Vấn': 'nhom-tuvan',
+            'Xây Lắp': 'nhom-xaylap',
+            'VTTB': 'nhom-vttb',
+            'Kiểm Toán': 'nhom-kiemtoan',
+            'Khác': 'nhom-khac',
+            'Chưa': 'nhom-chua'
+        };
+        return map[nhom] || 'nhom-khac';
+    }
+
+    function escHtml(s) {
+        if (!s) return '';
+        return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    function debounce(fn, ms) {
+        let t;
+        return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+    }
+
+    // ============================================
+    // THEME TOGGLE
+    // ============================================
+    function initTheme() {
+        const saved = localStorage.getItem('erp-theme') || 'dark';
+        setTheme(saved);
+    }
+
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        const knob = document.getElementById('toggleKnob');
+        const label = document.getElementById('themeLabel');
+        if (knob) knob.textContent = theme === 'dark' ? '🌙' : '☀️';
+        if (label) label.textContent = theme === 'dark' ? 'Dark' : 'Light';
+        localStorage.setItem('erp-theme', theme);
+    }
+
+    function toggleTheme() {
+        const current = document.documentElement.getAttribute('data-theme') || 'dark';
+        setTheme(current === 'dark' ? 'light' : 'dark');
+    }
+
+    // Init theme immediately
+    initTheme();
+
+    // Bind toggle click
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+    </script>
+</body>
+</html>
