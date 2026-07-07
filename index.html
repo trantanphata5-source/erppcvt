@@ -298,6 +298,60 @@
             border-color: var(--accent);
             box-shadow: 0 0 0 3px var(--accent-glow);
         }
+        
+        /* Custom dropdown checkbox */
+        .dropdown-check { position: relative; }
+        .dropdown-check-header {
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 10px 14px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 38px;
+            user-select: none;
+            color: var(--text-primary);
+        }
+        .dropdown-check-list {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 100%;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            z-index: 10;
+            padding: 8px;
+            box-shadow: var(--shadow-lg);
+            margin-top: 4px;
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .dropdown-check-list label {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            padding: 6px 8px !important;
+            cursor: pointer !important;
+            margin-bottom: 0 !important;
+            text-transform: none !important;
+            font-size: 0.85rem !important;
+            letter-spacing: normal !important;
+            color: var(--text-primary) !important;
+            border-radius: 4px;
+        }
+        .dropdown-check-list label:hover {
+            background: var(--bg-primary);
+        }
+        .dropdown-check-list input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            padding: 0;
+        }
         .filter-group input::placeholder {
             color: var(--text-muted);
         }
@@ -712,7 +766,75 @@
             .stat-card .stat-value { font-size: 1rem; }
             .mobile-card-amount { font-size: 0.9rem; }
             .mobile-card-ncc .ncc-name { font-size: 0.82rem; }
+            .nhom-select { font-size: 0.65rem; padding: 3px 6px; }
         }
+
+        /* Nhom inline select */
+        .nhom-select {
+            padding: 4px 8px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--bg-input);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.72rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            text-align: center;
+        }
+        .nhom-select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px var(--accent-glow);
+        }
+        .nhom-select.nhom-noibo { background: var(--green-bg); color: var(--green); border-color: rgba(16,185,129,0.3); }
+        .nhom-select.nhom-tuvan { background: rgba(59,130,246,0.1); color: var(--accent); border-color: rgba(59,130,246,0.3); }
+        .nhom-select.nhom-xaylap { background: rgba(168,85,247,0.1); color: var(--purple); border-color: rgba(168,85,247,0.3); }
+        .nhom-select.nhom-vttb { background: rgba(245,158,11,0.1); color: var(--orange); border-color: rgba(245,158,11,0.3); }
+        .nhom-select.nhom-kiemtoan { background: rgba(6,182,212,0.1); color: var(--cyan); border-color: rgba(6,182,212,0.3); }
+        .nhom-select.nhom-khac { background: rgba(107,114,128,0.1); color: var(--text-muted); border-color: rgba(107,114,128,0.3); }
+        .nhom-select.nhom-chua { background: rgba(239,68,68,0.08); color: var(--red); border-color: rgba(239,68,68,0.2); }
+
+        /* Save notification */
+        .save-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--green);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            z-index: 9999;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        .save-toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .unsaved-indicator {
+            display: none;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 8px;
+            background: rgba(245,158,11,0.12);
+            border: 1px solid rgba(245,158,11,0.3);
+            color: var(--orange);
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 12px;
+        }
+        .unsaved-indicator.show { display: inline-flex; }
     </style>
 </head>
 <body>
@@ -727,7 +849,7 @@
                 <img src="https://lh3.googleusercontent.com/d/1GAoEg3co_ypn1fpAz95tv8A3Zgg4GCfF" alt="Logo" class="header-logo">
                 <div class="header-text">
                     <h1>SỔ CHI TIẾT THANH TOÁN NHÀ CUNG CẤP</h1>
-                    <p>Công ty Điện lực Vũng Tàu — Từ ngày 01/01/2026 đến 02/07/2026</p>
+                    <p>Công ty Điện lực Vũng Tàu — Từ ngày 01/07/2025 đến 07/07/2026</p>
                 </div>
             </div>
         </div>
@@ -768,6 +890,16 @@
                     <option value="">Tất cả nhóm</option>
                 </select>
             </div>
+            <div class="filter-group dropdown-check" id="yearDropdown">
+                <label>Năm</label>
+                <div class="dropdown-check-header" onclick="toggleYearDropdown()">
+                    <span id="yearSelectText">2025, 2026</span> <span style="font-size: 0.7em">▼</span>
+                </div>
+                <div class="dropdown-check-list" id="yearDropdownList">
+                    <label><input type="checkbox" id="cbYear2025" value="2025" checked onchange="applyFilters()"> 2025</label>
+                    <label><input type="checkbox" id="cbYear2026" value="2026" checked onchange="applyFilters()"> 2026</label>
+                </div>
+            </div>
             <div class="filter-group">
                 <label>Từ ngày</label>
                 <input type="date" id="filterDateFrom">
@@ -783,6 +915,7 @@
         <div class="table-wrapper">
             <div class="table-header-bar">
                 <h2>Danh sách giao dịch</h2>
+                <span class="unsaved-indicator" id="unsavedIndicator">⚠ Có thay đổi chưa lưu (F5 để lưu)</span>
                 <span class="result-count" id="resultCount">0 kết quả</span>
             </div>
             <div class="table-scroll">
@@ -808,6 +941,7 @@
             <div class="pagination" id="pagination"></div>
         </div>
     </div>
+    <div class="save-toast" id="saveToast">✅ Đã lưu thay đổi Nhóm!</div>
 
     <script>
     // ============================================
@@ -820,11 +954,27 @@
     let sortCol = 'ngay';
     let sortDir = 'desc';
 
+    let nhomChanges = {};  // Track changed nhom: { 'ma|ngay|dien_giai': 'NewNhom' }
+    let hasUnsavedChanges = false;
+
     // Load data
     fetch('erp_data.json')
         .then(r => r.json())
         .then(data => {
             DATA = data;
+            // Apply saved nhom changes from localStorage
+            const saved = localStorage.getItem('erp-nhom-changes');
+            if (saved) {
+                try {
+                    nhomChanges = JSON.parse(saved);
+                    DATA.transactions.forEach(t => {
+                        const key = t.ma + '|' + t.ngay + '|' + t.dien_giai.substring(0, 50);
+                        if (nhomChanges[key]) {
+                            t.nhom = nhomChanges[key];
+                        }
+                    });
+                } catch(e) {}
+            }
             init();
         })
         .catch(err => {
@@ -848,6 +998,14 @@
         document.getElementById('filterDateFrom').addEventListener('change', applyFilters);
         document.getElementById('filterDateTo').addEventListener('change', applyFilters);
         document.getElementById('btnReset').addEventListener('click', resetFilters);
+
+        // Click outside to close year dropdown
+        document.addEventListener('click', (e) => {
+            const dropdown = document.getElementById('yearDropdown');
+            if (dropdown && !dropdown.contains(e.target)) {
+                document.getElementById('yearDropdownList').style.display = 'none';
+            }
+        });
 
         // Sort headers
         document.querySelectorAll('thead th[data-sort]').forEach(th => {
@@ -875,11 +1033,25 @@
         return new Date(parts[2], parts[1] - 1, parts[0]);
     }
 
+    function toggleYearDropdown() {
+        const list = document.getElementById('yearDropdownList');
+        list.style.display = list.style.display === 'flex' ? 'none' : 'flex';
+    }
+
     function applyFilters() {
         const search = document.getElementById('searchNCC').value.toLowerCase().trim();
         const nhom = document.getElementById('filterNhom').value;
         const dateFrom = document.getElementById('filterDateFrom').value;
         const dateTo = document.getElementById('filterDateTo').value;
+        
+        const y25 = document.getElementById('cbYear2025').checked;
+        const y26 = document.getElementById('cbYear2026').checked;
+
+        // Update year label
+        let yLabels = [];
+        if(y25) yLabels.push('2025');
+        if(y26) yLabels.push('2026');
+        document.getElementById('yearSelectText').textContent = yLabels.length > 0 ? yLabels.join(', ') : 'Không chọn';
 
         const fromDate = dateFrom ? new Date(dateFrom) : null;
         const toDate = dateTo ? new Date(dateTo) : null;
@@ -892,10 +1064,14 @@
             }
             // Nhóm
             if (nhom && t.nhom !== nhom) return false;
+            // Year filter
+            const d = parseDate(t.ngay);
+            if (!d) return false;
+            const yr = d.getFullYear();
+            if (yr === 2025 && !y25) return false;
+            if (yr === 2026 && !y26) return false;
             // Date range
             if (fromDate || toDate) {
-                const d = parseDate(t.ngay);
-                if (!d) return false;
                 if (fromDate && d < fromDate) return false;
                 if (toDate && d > toDate) return false;
             }
@@ -966,7 +1142,7 @@
                         </div>
                     </div>
                 </td>
-                <td><span class="nhom-badge ${nhomClass}">${escHtml(t.nhom)}</span></td>
+                <td>${renderNhomSelect(t, start + i)}</td>
                 <td class="amount">${formatMoney(t.so_tien)}</td>
                 <td class="desc-cell">${escHtml(t.dien_giai)}</td>
                 <td class="date-cell">${escHtml(t.ngay)}</td>
@@ -1007,7 +1183,7 @@
                 <div class="mobile-card-desc">${escHtml(t.dien_giai)}</div>
                 <div class="mobile-card-footer">
                     <span class="mobile-card-date">📅 ${escHtml(t.ngay)}</span>
-                    <span class="nhom-badge ${nhomClass}">${escHtml(t.nhom)}</span>
+                    ${renderNhomSelect(t, start + i, true)}
                 </div>
             </div>`;
         }).join('');
@@ -1084,6 +1260,8 @@
         document.getElementById('filterNhom').value = '';
         document.getElementById('filterDateFrom').value = '';
         document.getElementById('filterDateTo').value = '';
+        document.getElementById('cbYear2025').checked = true;
+        document.getElementById('cbYear2026').checked = true;
         applyFilters();
     }
 
@@ -1110,6 +1288,42 @@
             'Chưa': 'nhom-chua'
         };
         return map[nhom] || 'nhom-khac';
+    }
+
+    const NHOM_OPTIONS = ['Nội Bộ', 'Tư Vấn', 'Xây Lắp', 'VTTB', 'Kiểm Toán', 'Khác', 'Chưa'];
+
+    function renderNhomSelect(t, idx, isMobile) {
+        const nhomClass = getNhomClass(t.nhom);
+        const prefix = isMobile ? 'msel' : 'sel';
+        const opts = NHOM_OPTIONS.map(n =>
+            `<option value="${escHtml(n)}"${n === t.nhom ? ' selected' : ''}>${escHtml(n)}</option>`
+        ).join('');
+        return `<select class="nhom-select ${nhomClass}" id="${prefix}-${idx}" onchange="changeNhom(${idx}, this.value, this)">${opts}</select>`;
+    }
+
+    function changeNhom(idx, newNhom, el) {
+        // Find the actual transaction in filteredData
+        const t = filteredData[idx];
+        if (!t) return;
+        // Update in DATA.transactions
+        const orig = DATA.transactions.find(x => x.ma === t.ma && x.ngay === t.ngay && x.dien_giai === t.dien_giai);
+        if (orig) orig.nhom = newNhom;
+        t.nhom = newNhom;
+        // Track change
+        const key = t.ma + '|' + t.ngay + '|' + t.dien_giai.substring(0, 50);
+        nhomChanges[key] = newNhom;
+        hasUnsavedChanges = true;
+        // Update select styling
+        el.className = 'nhom-select ' + getNhomClass(newNhom);
+        // Sync desktop/mobile counterpart
+        const otherId = el.id.startsWith('msel') ? 'sel-' + idx : 'msel-' + idx;
+        const other = document.getElementById(otherId);
+        if (other) {
+            other.value = newNhom;
+            other.className = 'nhom-select ' + getNhomClass(newNhom);
+        }
+        // Show unsaved indicator
+        document.getElementById('unsavedIndicator').classList.add('show');
     }
 
     function escHtml(s) {
@@ -1149,6 +1363,24 @@
 
     // Bind toggle click
     document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+    // ============================================
+    // F5 SAVE NHOM CHANGES
+    // ============================================
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'F5' && hasUnsavedChanges) {
+            e.preventDefault();
+            // Save to localStorage
+            localStorage.setItem('erp-nhom-changes', JSON.stringify(nhomChanges));
+            hasUnsavedChanges = false;
+            document.getElementById('unsavedIndicator').classList.remove('show');
+            // Show toast
+            const toast = document.getElementById('saveToast');
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+    });
+
     </script>
 </body>
 </html>
