@@ -1792,6 +1792,15 @@
       "ngay": "30/12/2025"
     },
     {
+      "ma": "15287",
+      "ten": "CN Tổng công ty Điện lực miền Nam TNHH - Công ty Dịch vụ điện lực miền Nam",
+      "ncc": "Dịch Vụ ĐLMN",
+      "nhom": "Nội Bộ",
+      "so_tien": 372247781,
+      "dien_giai": "Thanh toán 10% còn lại của CP tư vấn năm 2024 hóa đơn 996/17.12.24 CT24011 + Thanh toán 10% còn lại của CP tư vấn năm 2024 hóa đơn 998/17.12.24 CT2400",
+      "ngay": "21/07/2026"
+    },
+    {
       "ma": "15290",
       "ten": "Công ty Cổ phần Ứng dụng và Phát triển Công nghệ thông tin",
       "ncc": "Phát Triển CNTT",
@@ -3416,15 +3425,6 @@
       "ten": "Công ty TNHH Tâm Tiến",
       "ncc": "XDD Tâm Tiến",
       "nhom": "Xây Lắp",
-      "so_tien": 1264600,
-      "dien_giai": "Hạch toán cấn trừ công nợ do Cty Tâm Tiến đền tiền vật tư A cấp CT24007 theo biên bản ngày 30/06/2025 -PX 03.VH9.52.007/23.09.2025",
-      "ngay": "30/09/2025"
-    },
-    {
-      "ma": "20392",
-      "ten": "Công ty TNHH Tâm Tiến",
-      "ncc": "XDD Tâm Tiến",
-      "nhom": "Xây Lắp",
       "so_tien": 18372500,
       "dien_giai": "Hạch toán cấn trừ công nợ do Cty Tâm Tiến đền tiền vật tư A cấp CT24007 theo biên bản ngày 30/06/2025 -PX 03.VH9.52.007/23.09.2025",
       "ngay": "30/09/2025"
@@ -3435,6 +3435,15 @@
       "ncc": "XDD Tâm Tiến",
       "nhom": "Xây Lắp",
       "so_tien": 3927420,
+      "dien_giai": "Hạch toán cấn trừ công nợ do Cty Tâm Tiến đền tiền vật tư A cấp CT24007 theo biên bản ngày 30/06/2025 -PX 03.VH9.52.007/23.09.2025",
+      "ngay": "30/09/2025"
+    },
+    {
+      "ma": "20392",
+      "ten": "Công ty TNHH Tâm Tiến",
+      "ncc": "XDD Tâm Tiến",
+      "nhom": "Xây Lắp",
+      "so_tien": 1264600,
       "dien_giai": "Hạch toán cấn trừ công nợ do Cty Tâm Tiến đền tiền vật tư A cấp CT24007 theo biên bản ngày 30/06/2025 -PX 03.VH9.52.007/23.09.2025",
       "ngay": "30/09/2025"
     },
@@ -3677,7 +3686,7 @@
       "ten": "CÔNG TY CỔ PHẦN DỊCH VỤ XÂY DỰNG QUANG VŨ",
       "ncc": "XDD Quang Vũ",
       "nhom": "Xây Lắp",
-      "so_tien": 7612000,
+      "so_tien": 1522400,
       "dien_giai": "Hạch toán cấn trừ công nợ do Cty Quang Vũ đền tiền vật tư A cấp CT24012 theo biên bản ngày 16/07/2025 -PX 03.VH9.52.004/23.09.2025",
       "ngay": "30/09/2025"
     },
@@ -3686,7 +3695,7 @@
       "ten": "CÔNG TY CỔ PHẦN DỊCH VỤ XÂY DỰNG QUANG VŨ",
       "ncc": "XDD Quang Vũ",
       "nhom": "Xây Lắp",
-      "so_tien": 1522400,
+      "so_tien": 7612000,
       "dien_giai": "Hạch toán cấn trừ công nợ do Cty Quang Vũ đền tiền vật tư A cấp CT24012 theo biên bản ngày 16/07/2025 -PX 03.VH9.52.004/23.09.2025",
       "ngay": "30/09/2025"
     },
@@ -3875,7 +3884,7 @@
       "ten": "Cty TNHH Xây Lắp Điện Quang Huy",
       "ncc": "XDD Quang Huy",
       "nhom": "Xây Lắp",
-      "so_tien": 2695470,
+      "so_tien": 545719,
       "dien_giai": "Cấn trừ công nợ Cty Quang Huy đền tiền theo BBLV ngày 30/05/2025_CT23009",
       "ngay": "24/10/2025"
     },
@@ -3884,7 +3893,7 @@
       "ten": "Cty TNHH Xây Lắp Điện Quang Huy",
       "ncc": "XDD Quang Huy",
       "nhom": "Xây Lắp",
-      "so_tien": 545719,
+      "so_tien": 2695470,
       "dien_giai": "Cấn trừ công nợ Cty Quang Huy đền tiền theo BBLV ngày 30/05/2025_CT23009",
       "ngay": "24/10/2025"
     },
@@ -5428,6 +5437,15 @@
       "ngay": "31/12/2025"
     },
     {
+      "ma": "20554",
+      "ten": "CÔNG TY TNHH DỊCH VỤ BẢO VỆ CHÍNH TÍN NGHĨA",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 138240000,
+      "dien_giai": "Chuyển TT tiền dịch vụ bảo vệ T6/26 theo HĐồng 2895/HĐ-PCBRVT-27/6/24, Hđơn 67-30/06/26",
+      "ngay": "07/07/2026"
+    },
+    {
       "ma": "20557",
       "ten": "Ngân Hàng TMCP Ngoại Thương Việt Nam - Chi nhánh Vũng Tàu",
       "ncc": "Ngân Hàng Ngoại Thương",
@@ -5462,6 +5480,15 @@
       "so_tien": 3879958076,
       "dien_giai": "Thanh toán lãi vay VCB từ ngày 21/01/26 đến ngày 20/04/26 CT24010 + Thanh toán lãi vay VCB từ ngày 21/01/26 đến ngày 20/04/26 CT25006 + Thanh toán lãi",
       "ngay": "21/04/2026"
+    },
+    {
+      "ma": "20557",
+      "ten": "Ngân Hàng TMCP Ngoại Thương Việt Nam - Chi nhánh Vũng Tàu",
+      "ncc": "Ngân Hàng Ngoại Thương",
+      "nhom": "Khác",
+      "so_tien": 2096056144,
+      "dien_giai": "Thanh toán lãi vay từ ngày 21/4/26 đến ngày 10/5/26 NHVCB CT24010 + Thanh toán lãi vay từ ngày 21/4/26 đến ngày 25/5/26 NHVCB CT25006 + Thanh toán lãi",
+      "ngay": "21/07/2026"
     },
     {
       "ma": "20566",
@@ -5702,15 +5729,6 @@
       "ten": "Công ty TNHH xây lắp 168",
       "ncc": "Xây Lắp 168",
       "nhom": "Xây Lắp",
-      "so_tien": 6993980,
-      "dien_giai": "Hạch toán cấn trừ công nợ do Cty 168 đền tiền vật tư A cấp CT24008 theo biên bản ngày 30/06/25 -Điều chỉnh PX quyết toán 02.N4B.52.0070 và 72 Tháng 12/2024",
-      "ngay": "30/09/2025"
-    },
-    {
-      "ma": "20587",
-      "ten": "Công ty TNHH xây lắp 168",
-      "ncc": "Xây Lắp 168",
-      "nhom": "Xây Lắp",
       "so_tien": 34969900,
       "dien_giai": "Hạch toán cấn trừ công nợ do Cty 168 đền tiền vật tư A cấp CT24008 theo biên bản ngày 30/06/25 -Điều chỉnh PX quyết toán 02.N4B.52.0070 và 72 Tháng 12/2024",
       "ngay": "30/09/2025"
@@ -5720,8 +5738,8 @@
       "ten": "Công ty TNHH xây lắp 168",
       "ncc": "Xây Lắp 168",
       "nhom": "Xây Lắp",
-      "so_tien": 3857080,
-      "dien_giai": "Hạch toán cấn trừ công nợ do Cty 168 đền tiền vật tư A cấp CT24009 theo biên bản ngày 30/06/25 -Điều chỉnh PX quyết toán 03.N4B.52.0051 và 03.N4B.52.0091 ngày 31/12/2024",
+      "so_tien": 6993980,
+      "dien_giai": "Hạch toán cấn trừ công nợ do Cty 168 đền tiền vật tư A cấp CT24008 theo biên bản ngày 30/06/25 -Điều chỉnh PX quyết toán 02.N4B.52.0070 và 72 Tháng 12/2024",
       "ngay": "30/09/2025"
     },
     {
@@ -5730,6 +5748,15 @@
       "ncc": "Xây Lắp 168",
       "nhom": "Xây Lắp",
       "so_tien": 19285400,
+      "dien_giai": "Hạch toán cấn trừ công nợ do Cty 168 đền tiền vật tư A cấp CT24009 theo biên bản ngày 30/06/25 -Điều chỉnh PX quyết toán 03.N4B.52.0051 và 03.N4B.52.0091 ngày 31/12/2024",
+      "ngay": "30/09/2025"
+    },
+    {
+      "ma": "20587",
+      "ten": "Công ty TNHH xây lắp 168",
+      "ncc": "Xây Lắp 168",
+      "nhom": "Xây Lắp",
+      "so_tien": 3857080,
       "dien_giai": "Hạch toán cấn trừ công nợ do Cty 168 đền tiền vật tư A cấp CT24009 theo biên bản ngày 30/06/25 -Điều chỉnh PX quyết toán 03.N4B.52.0051 và 03.N4B.52.0091 ngày 31/12/2024",
       "ngay": "30/09/2025"
     },
@@ -5747,7 +5774,7 @@
       "ten": "Công ty TNHH xây lắp 168",
       "ncc": "Xây Lắp 168",
       "nhom": "Xây Lắp",
-      "so_tien": 3664000,
+      "so_tien": 732800,
       "dien_giai": "Hạch toán cấn trừ công nợ do Cty 168 đền tiền vật tư A cấp CT24016 theo biên bản ngày 30/06/2025 -PX 03.VH9.52.005/23.09.2025",
       "ngay": "30/09/2025"
     },
@@ -5756,7 +5783,7 @@
       "ten": "Công ty TNHH xây lắp 168",
       "ncc": "Xây Lắp 168",
       "nhom": "Xây Lắp",
-      "so_tien": 732800,
+      "so_tien": 3664000,
       "dien_giai": "Hạch toán cấn trừ công nợ do Cty 168 đền tiền vật tư A cấp CT24016 theo biên bản ngày 30/06/2025 -PX 03.VH9.52.005/23.09.2025",
       "ngay": "30/09/2025"
     },
@@ -6643,6 +6670,15 @@
       "ngay": "04/06/2026"
     },
     {
+      "ma": "20840",
+      "ten": "Cty TNHH Kim Minh",
+      "ncc": "Kim Minh",
+      "nhom": "Chưa",
+      "so_tien": 21180000,
+      "dien_giai": "Chuyển TT tiền mua máy lạnh Cty Kim Minh theo HĐơn 371-22/06/26",
+      "ngay": "07/07/2026"
+    },
+    {
       "ma": "20852",
       "ten": "Công ty Cổ phần Xây lắp An Nhơn",
       "ncc": "XDD An Nhơn",
@@ -7325,6 +7361,15 @@
       "so_tien": 299376000,
       "dien_giai": "Thanh toán CP thuê tàu chở VTTB ra Côn Đảo hóa đơn 6408/18.06.26 CT25038 + Thanh toán VAT CP thuê tàu chở VTTB ra Côn Đảo hóa đơn 6408/18.06.26 CT2503",
       "ngay": "29/06/2026"
+    },
+    {
+      "ma": "21191",
+      "ten": "Công ty TNHH vận tải Duy Tung",
+      "ncc": "Vận Tải Duy Tung",
+      "nhom": "VTTB",
+      "so_tien": 99792000,
+      "dien_giai": "Thanh toán hóa đơn 6602/24.06.26 CP Vận chuyển cáp ra Công Đảo _CT25038 + Thanh toán VAT hóa đơn 6602/24.06.26 CP Vận chuyển cáp ra Công Đảo _CT25038",
+      "ngay": "21/07/2026"
     },
     {
       "ma": "21192",
