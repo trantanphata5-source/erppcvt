@@ -109,6 +109,15 @@
       "ngay": "22/05/2026"
     },
     {
+      "ma": "13849",
+      "ten": "CN Tổng công ty Điện lực TPHCM TNHH - Công ty Thí Nghiệm Điện lực TpHCM",
+      "ncc": "Thí Nghiệm Điện",
+      "nhom": "Nội Bộ",
+      "so_tien": 2754248,
+      "dien_giai": "Thanh toán tiền thử nghiệm VTTB hóa đơn 7198/30.12.25",
+      "ngay": "28/07/2026"
+    },
+    {
       "ma": "13873",
       "ten": "Công ty CP Đầu tư Kinh doanh Điện lực Tp. HCM",
       "ncc": "NCC Khác",
@@ -134,6 +143,15 @@
       "so_tien": 725604060,
       "dien_giai": "Thanh toán 10% còn lại hợp đồng 4501/Trandincorp CT25001 + Thanh toán 10% còn lại hợp đồng 4501/Trandincorp CT25002 + Thanh toán 10% còn lại hợp đồng",
       "ngay": "20/11/2025"
+    },
+    {
+      "ma": "13873",
+      "ten": "Công ty CP Đầu tư Kinh doanh Điện lực Tp. HCM",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 240210539,
+      "dien_giai": "Thanh toán đợt 1 CP khảo sát lập BCNCKT + Thanh toán thuế GTGT (hóa đơn 202) CT25041",
+      "ngay": "02/07/2026"
     },
     {
       "ma": "13876",
@@ -640,6 +658,42 @@
       "ngay": "24/06/2026"
     },
     {
+      "ma": "13883",
+      "ten": "Vãng lai",
+      "ncc": "Vãng lai",
+      "nhom": "Khác",
+      "so_tien": 20640000,
+      "dien_giai": "Chuyển TT tiền Hộp bảng quảng cáo cho CTy CP Mộc Đại theo HĐơn 108-30/06/26",
+      "ngay": "21/07/2026"
+    },
+    {
+      "ma": "13883",
+      "ten": "Vãng lai",
+      "ncc": "Vãng lai",
+      "nhom": "Khác",
+      "so_tien": 10584000,
+      "dien_giai": "Chuyển TT tiền mua máy quét mã vạch CTy Công Nghệ Huynh Đệ theo HĐơn 44-17/07/26",
+      "ngay": "12/08/2026"
+    },
+    {
+      "ma": "13883",
+      "ten": "Vãng lai",
+      "ncc": "Vãng lai",
+      "nhom": "Khác",
+      "so_tien": 4900001,
+      "dien_giai": "Thanh toán tiền thuê xe máy cuốc xử lý sự cố - Hóa đơn 19/27.11.2025",
+      "ngay": "22/09/2026"
+    },
+    {
+      "ma": "13883",
+      "ten": "Vãng lai",
+      "ncc": "Vãng lai",
+      "nhom": "Khác",
+      "so_tien": 1141235,
+      "dien_giai": "Thanh toán tiền Điện MTMN KHCN T01-2026",
+      "ngay": "27/10/2026"
+    },
+    {
       "ma": "13886",
       "ten": "Lương năm nay - SX Điện",
       "ncc": "NCC Khác",
@@ -710,6 +764,33 @@
       "so_tien": 242620917,
       "dien_giai": "VTAD2605001_Thanh toán 90% gói TVTK_SCL ĐD&TBA năm2026",
       "ngay": "17/06/2026"
+    },
+    {
+      "ma": "13891",
+      "ten": "Công ty CP Tư vấn Xây dựng Điện lực TP. HCM",
+      "ncc": "Tư Vấn XDD",
+      "nhom": "Tư Vấn",
+      "so_tien": 352270906,
+      "dien_giai": "Thanh toán đợt 1 CP TVKS, lập BCNCKT + Thanh toán thuế GTGT (hóa đơn 45/18.06.26) CT25038",
+      "ngay": "02/07/2026"
+    },
+    {
+      "ma": "13891",
+      "ten": "Công ty CP Tư vấn Xây dựng Điện lực TP. HCM",
+      "ncc": "Tư Vấn XDD",
+      "nhom": "Tư Vấn",
+      "so_tien": 221477540,
+      "dien_giai": "Thanh toán đợt 1 CP tư vấn KS, lập BCNCKT + Thanh toán thuế GTGT (Hóa đơn 46/18.06.26) CT25035",
+      "ngay": "02/07/2026"
+    },
+    {
+      "ma": "13891",
+      "ten": "Công ty CP Tư vấn Xây dựng Điện lực TP. HCM",
+      "ncc": "Tư Vấn XDD",
+      "nhom": "Tư Vấn",
+      "so_tien": 380108776,
+      "dien_giai": "TT 95% CP giám sát CTr SCL Lưới (VTAD2605001) theo Hđồng số 12 ngày 27/03/2026",
+      "ngay": "25/09/2026"
     },
     {
       "ma": "13910",
@@ -829,6 +910,87 @@
       "ngay": "19/05/2026"
     },
     {
+      "ma": "13912",
+      "ten": "Công ty CP Thiết bị điện Sài Gòn",
+      "ncc": "SEE",
+      "nhom": "VTTB",
+      "so_tien": 18257400,
+      "dien_giai": "Chuyển TT tiền mua VTTB CTy Thiết Bị Điện Sài Gòn theo HĐơn 1001-22/07/26",
+      "ngay": "20/08/2026"
+    },
+    {
+      "ma": "13912",
+      "ten": "Công ty CP Thiết bị điện Sài Gòn",
+      "ncc": "SEE",
+      "nhom": "VTTB",
+      "so_tien": 40051800,
+      "dien_giai": "Chuyển TT tiền VTTB CTy Thiết Bị Điện Sài Gòn theo HĐơn 1000-22/07/26",
+      "ngay": "21/08/2026"
+    },
+    {
+      "ma": "13912",
+      "ten": "Công ty CP Thiết bị điện Sài Gòn",
+      "ncc": "SEE",
+      "nhom": "VTTB",
+      "so_tien": 44189280,
+      "dien_giai": "Chuyển TT tiền VTTB CTy Thiết Bị Điện Sài Gòn theo HĐơn 917-10/07/26",
+      "ngay": "21/08/2026"
+    },
+    {
+      "ma": "13912",
+      "ten": "Công ty CP Thiết bị điện Sài Gòn",
+      "ncc": "SEE",
+      "nhom": "VTTB",
+      "so_tien": 38512800,
+      "dien_giai": "Chuyển TT tiền mua VTTB CTy Thiết Bị Điện Sài Gòn theo HĐơn 916-10/07/26",
+      "ngay": "21/08/2026"
+    },
+    {
+      "ma": "13912",
+      "ten": "Công ty CP Thiết bị điện Sài Gòn",
+      "ncc": "SEE",
+      "nhom": "VTTB",
+      "so_tien": 48816000,
+      "dien_giai": "Chuyển TT tiền mua VTTB (băng keo CĐ trung thế) CTy CP Thiết Bị Điện Sài Gòn theo Hđơn 1002-22/07/26",
+      "ngay": "26/08/2026"
+    },
+    {
+      "ma": "13912",
+      "ten": "Công ty CP Thiết bị điện Sài Gòn",
+      "ncc": "SEE",
+      "nhom": "VTTB",
+      "so_tien": 353609814,
+      "dien_giai": "Chuyển TT tiền VTTB đợt 1 gói thầu:\"Mua sắm LBFCO, FCO...ngăn ngừa sự cố 2026\", HĐồng 3354/2026/HĐ-PCVT-SEE-25/06/26, HĐơn 977-20/07/26 + Chuyển TT ti",
+      "ngay": "19/10/2026"
+    },
+    {
+      "ma": "13912",
+      "ten": "Công ty CP Thiết bị điện Sài Gòn",
+      "ncc": "SEE",
+      "nhom": "VTTB",
+      "so_tien": 24353014,
+      "dien_giai": "Chuyển TT tiền VTTB đợt 2 gói thầu:\"Mua sắm LBFCO, FCO...ngăn ngừa sự cố 2026\", Hđồng 3354/2026/HĐ-PCVT-SEE-25/06/26, HĐơn 1296-09/09/26 (phần SXKD+VT",
+      "ngay": "19/10/2026"
+    },
+    {
+      "ma": "13912",
+      "ten": "Công ty CP Thiết bị điện Sài Gòn",
+      "ncc": "SEE",
+      "nhom": "VTTB",
+      "so_tien": 17496000,
+      "dien_giai": "Chuyển TT tiền  mua VTTB CTy Thiết Bị Điện Sài Gòn theo HĐơn 1370-23/09/26",
+      "ngay": "22/10/2026"
+    },
+    {
+      "ma": "13912",
+      "ten": "Công ty CP Thiết bị điện Sài Gòn",
+      "ncc": "SEE",
+      "nhom": "VTTB",
+      "so_tien": 45684000,
+      "dien_giai": "Chuyển TT tiền mua VTTB CTy Thiết Bị Điện Sài Gòn theo HĐơn 1364-22/09/26",
+      "ngay": "23/10/2026"
+    },
+    {
       "ma": "13916",
       "ten": "CN Tổng công ty Điện lực TPHCM TNHH - Công ty Dịch vụ Điện lực TP.HCM",
       "ncc": "Dịch Vụ Điện lực",
@@ -883,6 +1045,24 @@
       "ngay": "31/12/2025"
     },
     {
+      "ma": "13991",
+      "ten": "Công ty CP Tư vấn Xây dựng Điện 4",
+      "ncc": "Tư Vấn XDD 4",
+      "nhom": "Tư Vấn",
+      "so_tien": 4685484,
+      "dien_giai": "Điều chỉnh loại hình TK của AP253155/31.12.25 chuyển công nợ thẩm tra CT22002 qua Ban A SPC",
+      "ngay": "01/10/2026"
+    },
+    {
+      "ma": "13991",
+      "ten": "Công ty CP Tư vấn Xây dựng Điện 4",
+      "ncc": "Tư Vấn XDD 4",
+      "nhom": "Tư Vấn",
+      "so_tien": 67499102,
+      "dien_giai": "Điều chỉnh số công nợ thẩm tra Điện 4 về đúng các công trình CT",
+      "ngay": "02/10/2026"
+    },
+    {
       "ma": "14025",
       "ten": "Công Ty Cổ Phần Cáp Điện Và Hệ Thống Ls-Vina",
       "ncc": "Cáp LS Vina",
@@ -910,6 +1090,15 @@
       "ngay": "31/03/2026"
     },
     {
+      "ma": "14025",
+      "ten": "Công Ty Cổ Phần Cáp Điện Và Hệ Thống Ls-Vina",
+      "ncc": "Cáp LS Vina",
+      "nhom": "VTTB",
+      "so_tien": -241220400,
+      "dien_giai": "",
+      "ngay": "31/03/2026"
+    },
+    {
       "ma": "14049",
       "ten": "Công ty TNHH TV XD Nguyên Việt",
       "ncc": "NCC Khác",
@@ -928,6 +1117,24 @@
       "ngay": "30/06/2026"
     },
     {
+      "ma": "14049",
+      "ten": "Công ty TNHH TV XD Nguyên Việt",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 222870370,
+      "dien_giai": "Thanh toán đợt 1 CP khảo sát lập BCKTKT CT25039",
+      "ngay": "02/07/2026"
+    },
+    {
+      "ma": "14049",
+      "ten": "Công ty TNHH TV XD Nguyên Việt",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 277336841,
+      "dien_giai": "Thanh toán đợt 1 CP thiết kế BVTC DT CT25039",
+      "ngay": "02/07/2026"
+    },
+    {
       "ma": "14056",
       "ten": "Công ty TNHH XL Điện Hưng Thịnh Phát",
       "ncc": "XDD Hưng Thịnh Phát",
@@ -944,6 +1151,24 @@
       "so_tien": 215995511,
       "dien_giai": "Thanh toán 5% còn lại HĐ 006/28.02.23 HTK và HĐ 007/28.02.23 đường Trục phía Bắc",
       "ngay": "02/12/2025"
+    },
+    {
+      "ma": "14076",
+      "ten": "Công ty Cổ phần Nam Đô Group",
+      "ncc": "Nam Đô",
+      "nhom": "Chưa",
+      "so_tien": 17385798,
+      "dien_giai": "Thanh toán 5% Hđơn 000051/06.12.2022 - DD lưới THT & TBA đường từ trạm Y tế đến cầu ông Hem, xã Lộc An, Đất Đỏ",
+      "ngay": "14/08/2026"
+    },
+    {
+      "ma": "14076",
+      "ten": "Công ty Cổ phần Nam Đô Group",
+      "ncc": "Nam Đô",
+      "nhom": "Chưa",
+      "so_tien": 7432860,
+      "dien_giai": "Thanh toán 5% còn lại H.đơn 000050/06.12.2022 - DD lưới THT đường tránh QL55 đoạn qua xã An Nhứt, L.Điền",
+      "ngay": "14/08/2026"
     },
     {
       "ma": "14100",
@@ -1007,6 +1232,15 @@
       "so_tien": 122442300,
       "dien_giai": "Chuyển TT tiền mua dây cáp Muller CTy CP Dây Cáp Điện Việt Nam theo Hđồng HD2600008550-2601150907/2026/HĐ-PCVT-CADIVI (đợt 4), Hđơn 2417-08/06/26",
       "ngay": "24/06/2026"
+    },
+    {
+      "ma": "14100",
+      "ten": "Công ty Cổ phần dây cáp điện Việt Nam",
+      "ncc": "CADIVI",
+      "nhom": "VTTB",
+      "so_tien": 775008000,
+      "dien_giai": "Chuyển TT tiền mua dây cáp cho CT CP Dây Cáp Điện VN theo Hđồng HD2600008550-2601150907/2026/HD-PCVT-CADIVI-20/01/26 (đợt 5), HĐơn 2951-01/07/26",
+      "ngay": "17/09/2026"
     },
     {
       "ma": "14107",
@@ -1252,6 +1486,33 @@
       "ngay": "29/04/2026"
     },
     {
+      "ma": "14135",
+      "ten": "Công ty Cổ phần thiết bị kỹ thuật Hiệp Minh Phát",
+      "ncc": "Hiệp Minh Phát",
+      "nhom": "VTTB",
+      "so_tien": 1808562800,
+      "dien_giai": "Chuyển TT tiền VTTB cho CTy Hiệp Minh Phát theo HĐồng 601/2026/HĐ-PCVT-HMP-10/2/26, HĐơn 22-28/5/26 + Chuyển TT tiền VTTB cho CTy Hiệp Minh Phát theo",
+      "ngay": "22/07/2026"
+    },
+    {
+      "ma": "14135",
+      "ten": "Công ty Cổ phần thiết bị kỹ thuật Hiệp Minh Phát",
+      "ncc": "Hiệp Minh Phát",
+      "nhom": "VTTB",
+      "so_tien": 47535120,
+      "dien_giai": "Chuyển TT tiền vật tư bảo hộ lao động CTy Hiệp Minh Phát theo HĐơn 33-20/07/26",
+      "ngay": "12/08/2026"
+    },
+    {
+      "ma": "14135",
+      "ten": "Công ty Cổ phần thiết bị kỹ thuật Hiệp Minh Phát",
+      "ncc": "Hiệp Minh Phát",
+      "nhom": "VTTB",
+      "so_tien": 49302000,
+      "dien_giai": "Chuyển TT tiền mua dụng cụ an toàn CTy Hiệp Minh Phát theo HĐơn 35-12/08/26",
+      "ngay": "28/08/2026"
+    },
+    {
       "ma": "14146",
       "ten": "Công ty TNHH Công nghệ kỹ thuật điện An Đức Thịnh",
       "ncc": "NCC Khác",
@@ -1403,6 +1664,24 @@
       "so_tien": 26077355,
       "dien_giai": "Thanh toán thuế GTGT hóa đơn 17/09.06.26",
       "ngay": "30/06/2026"
+    },
+    {
+      "ma": "14530",
+      "ten": "Công ty TNHH TV XDĐ & TM Hưng Phát",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 290762514,
+      "dien_giai": "Thanh toán đợt 1 CP khảo sát lập BCKTKT (hóa đơn 11)",
+      "ngay": "02/07/2026"
+    },
+    {
+      "ma": "14579",
+      "ten": "Công Ty TNHH Sản Xuất Ngọc Lan",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 110108160,
+      "dien_giai": "Chuyển TT tiền mua Cáp Muller (đợt 1) CTy Ngọc Lan theo Hđồng 4771/2026/HĐ-PCVT-NGOCLAN-9/9/26, Hđơn 709-22/09/26",
+      "ngay": "27/10/2026"
     },
     {
       "ma": "14595",
@@ -1594,6 +1873,24 @@
       "ngay": "27/05/2026"
     },
     {
+      "ma": "14615",
+      "ten": "Công ty TNHH Lạc Thành",
+      "ncc": "Lạc Thành",
+      "nhom": "Chưa",
+      "so_tien": 991487312,
+      "dien_giai": "VTAD2605001_Phải trả HĐ0028_210826_SCL ĐD THT&TBA",
+      "ngay": "01/09/2026"
+    },
+    {
+      "ma": "14615",
+      "ten": "Công ty TNHH Lạc Thành",
+      "ncc": "Lạc Thành",
+      "nhom": "Chưa",
+      "so_tien": 3761512022,
+      "dien_giai": "TT 95% giá trị trước thuế Hđơn 028_21/8/26_Ctr SCL Lưới 2026_VTAD2605001",
+      "ngay": "25/09/2026"
+    },
+    {
       "ma": "14630",
       "ten": "Công ty CP Năng Lượng Viễn Đông",
       "ncc": "Năng Lượng Viễn Đông",
@@ -1769,6 +2066,15 @@
       "ten": "CN Tổng công ty Điện lực miền Nam TNHH - Công ty Dịch vụ điện lực miền Nam",
       "ncc": "Dịch Vụ ĐLMN",
       "nhom": "Nội Bộ",
+      "so_tien": -624114963,
+      "dien_giai": "",
+      "ngay": "01/10/2025"
+    },
+    {
+      "ma": "15287",
+      "ten": "CN Tổng công ty Điện lực miền Nam TNHH - Công ty Dịch vụ điện lực miền Nam",
+      "ncc": "Dịch Vụ ĐLMN",
+      "nhom": "Nội Bộ",
       "so_tien": 624114963,
       "dien_giai": "",
       "ngay": "01/10/2025"
@@ -1904,6 +2210,15 @@
       "ten": "Công ty TNHH SX TM Điện Sài Gòn TTL",
       "ncc": "Điện Sài Gòn TTL",
       "nhom": "VTTB",
+      "so_tien": -121936500,
+      "dien_giai": "",
+      "ngay": "01/10/2025"
+    },
+    {
+      "ma": "15421",
+      "ten": "Công ty TNHH SX TM Điện Sài Gòn TTL",
+      "ncc": "Điện Sài Gòn TTL",
+      "nhom": "VTTB",
       "so_tien": 121936500,
       "dien_giai": "",
       "ngay": "01/10/2025"
@@ -1970,6 +2285,15 @@
       "so_tien": 237007944,
       "dien_giai": "Thanh toán tiền mua VTTB hóa đơn số 91/20.01.26 CT25033 + Thanh toán VAT tiền mua VTTB hóa đơn số 91/20.01.26 CT25033",
       "ngay": "12/06/2026"
+    },
+    {
+      "ma": "15421",
+      "ten": "Công ty TNHH SX TM Điện Sài Gòn TTL",
+      "ncc": "Điện Sài Gòn TTL",
+      "nhom": "VTTB",
+      "so_tien": 16170000,
+      "dien_giai": "Chuyển TT tiền mua VTTB (khuôn hàn hóa nhiệt) theo Hđơn 1293-10/07/26",
+      "ngay": "14/08/2026"
     },
     {
       "ma": "15439",
@@ -2143,6 +2467,15 @@
       "ngay": "13/04/2026"
     },
     {
+      "ma": "16703",
+      "ten": "Công ty Cổ Phần Đầu Tư EPT",
+      "ncc": "EPT",
+      "nhom": "Chưa",
+      "so_tien": 79380000,
+      "dien_giai": "Chuyển TT tiền mua VTTB đợt 2  (Hộp bốn công tơ 1 pha) theo Hđồng HD2600012911-2601201605/HĐ-PCVT-EPT-26/01/26, HĐơn 876-24//06/26",
+      "ngay": "09/07/2026"
+    },
+    {
       "ma": "16756",
       "ten": "Công Ty TNHH Kỹ Thuật Tin Học NLT",
       "ncc": "Tin Học NLT",
@@ -2150,6 +2483,33 @@
       "so_tien": 28242000,
       "dien_giai": "Chuyển TT tiền mua máy tính xách tay CTy NLT theo Hđơn 360-27/05/26",
       "ngay": "17/06/2026"
+    },
+    {
+      "ma": "16756",
+      "ten": "Công Ty TNHH Kỹ Thuật Tin Học NLT",
+      "ncc": "Tin Học NLT",
+      "nhom": "VTTB",
+      "so_tien": 49987800,
+      "dien_giai": "Chuyển TT tiền mua VTTB (máy đo khoảng cách, máy tính xách tay) CTY NLT theo HĐơn 389-10/06/26",
+      "ngay": "09/07/2026"
+    },
+    {
+      "ma": "16756",
+      "ten": "Công Ty TNHH Kỹ Thuật Tin Học NLT",
+      "ncc": "Tin Học NLT",
+      "nhom": "VTTB",
+      "so_tien": 20243520,
+      "dien_giai": "Chuyển TT tiền mua màn hình vi tính + ổ cứng theo HĐơn 511-17/07/26",
+      "ngay": "20/08/2026"
+    },
+    {
+      "ma": "16756",
+      "ten": "Công Ty TNHH Kỹ Thuật Tin Học NLT",
+      "ncc": "Tin Học NLT",
+      "nhom": "VTTB",
+      "so_tien": 47849400,
+      "dien_giai": "Chuyển TT tiền mua máy tính + máy đo khoảng cách cho CTy NLT theo Hđơn 388-10/06/26 (CP ĐTXD CT25006)",
+      "ngay": "28/08/2026"
     },
     {
       "ma": "16776",
@@ -2557,6 +2917,15 @@
       "ngay": "29/06/2026"
     },
     {
+      "ma": "17159",
+      "ten": "CÔNG TY TNHH KIỂM TOÁN QUỐC TẾ PNT",
+      "ncc": "Kiểm Toán PNT",
+      "nhom": "Kiểm Toán",
+      "so_tien": 72721000,
+      "dien_giai": "Thanh toán CP kiểm toán BCQT CT23010 + Thanh toán thuế GTGT CP kiểm toán BCQT CT23010",
+      "ngay": "29/09/2026"
+    },
+    {
       "ma": "17192",
       "ten": "CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ VIỄN THÔNG HAI KẾT NỐI",
       "ncc": "NCC Khác",
@@ -2575,6 +2944,78 @@
       "ngay": "24/06/2026"
     },
     {
+      "ma": "17192",
+      "ten": "CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ VIỄN THÔNG HAI KẾT NỐI",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 29950560,
+      "dien_giai": "Chuyển TT tiền mua máy tính để bàn CTy Viễn Thông Hai Kết Nối theo HĐơn 39-10/07/26",
+      "ngay": "12/08/2026"
+    },
+    {
+      "ma": "17192",
+      "ten": "CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ VIỄN THÔNG HAI KẾT NỐI",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 29950560,
+      "dien_giai": "Chuyển TT tiền mua máy tính để bàn CTy Viễn Thông Hai Kết Nối theo HĐơn 40-13/07/26",
+      "ngay": "12/08/2026"
+    },
+    {
+      "ma": "17192",
+      "ten": "CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ VIỄN THÔNG HAI KẾT NỐI",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 29474280,
+      "dien_giai": "Chuyển TT tiền mua máy tính xách tay theo HĐơn 35-26/06/26",
+      "ngay": "21/08/2026"
+    },
+    {
+      "ma": "17192",
+      "ten": "CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ VIỄN THÔNG HAI KẾT NỐI",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 28252800,
+      "dien_giai": "Chuyển TT tiền mua máy tính để bàn + ổ cứng CTy Viễn Thông Hai Kết Nối theo HĐơn 46-28/07/26",
+      "ngay": "21/08/2026"
+    },
+    {
+      "ma": "17192",
+      "ten": "CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ VIỄN THÔNG HAI KẾT NỐI",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 48254400,
+      "dien_giai": "Chuyển TT tiền mua máy tính để bàn Cty Hai Kết Nối theo HĐơn 48-07/08/26",
+      "ngay": "26/08/2026"
+    },
+    {
+      "ma": "17192",
+      "ten": "CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ VIỄN THÔNG HAI KẾT NỐI",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 22874400,
+      "dien_giai": "Chuyển TT tiền mua máy tính để bàn CTy Chấn Huỳnh theo Hđơn 43-21/07/26",
+      "ngay": "11/09/2026"
+    },
+    {
+      "ma": "17222",
+      "ten": "CÔNG TY CỔ PHẦN ỨNG DỤNG BẢN ĐỒ VIỆT",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 48420000,
+      "dien_giai": "Chuyển TT tiền thiết bị giám sát hành trình cho CT CP Ứng Dụng Bản Đồ Việt theo Hđơn 35902-28/08/26",
+      "ngay": "17/09/2026"
+    },
+    {
+      "ma": "17222",
+      "ten": "CÔNG TY CỔ PHẦN ỨNG DỤNG BẢN ĐỒ VIỆT",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 26631000,
+      "dien_giai": "Chuyển TT tiền mua thiết bị giám sát hành trình theo HĐơn 40203-29/09/26 + Chuyển TT tiền mua thiết bị giám sát hành trình theo HĐơn 40206-29/09/26",
+      "ngay": "13/10/2026"
+    },
+    {
       "ma": "17263",
       "ten": "CÔNG TY CỔ PHẦN NĂNG LƯỢNG LIÊN KẾT",
       "ncc": "NCC Khác",
@@ -2582,6 +3023,24 @@
       "so_tien": 32800000,
       "dien_giai": "Chuyển TT đợt 2 tiền tủ sạc ắquy, HĐồng 4516-HĐ-PCBRVT-24/10/23, Hđơn 0066-28/11/2023",
       "ngay": "23/12/2025"
+    },
+    {
+      "ma": "17373",
+      "ten": "CÔNG TY CỔ PHẦN TƯ VẤN XÂY DỰNG IN.CI.VI",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 14222224,
+      "dien_giai": "Thanh toán thuế GTGT CP tư vấn thẩm tra BCNCKT",
+      "ngay": "29/09/2026"
+    },
+    {
+      "ma": "17373",
+      "ten": "CÔNG TY CỔ PHẦN TƯ VẤN XÂY DỰNG IN.CI.VI",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 158577776,
+      "dien_giai": "Thanh toán đợt 1 CP tư vấn thẩm tra BCNCKT",
+      "ngay": "29/09/2026"
     },
     {
       "ma": "17428",
@@ -2638,6 +3097,15 @@
       "ngay": "29/05/2026"
     },
     {
+      "ma": "17549",
+      "ten": "Công ty TNHH Kiểm toán Việt Úc",
+      "ncc": "Kiểm Toán Việt Úc",
+      "nhom": "Kiểm Toán",
+      "so_tien": 71921000,
+      "dien_giai": "Thanh toán CP kiểm toán + Thanh toán thuế GTGT (hóa đơn 464) CT21007",
+      "ngay": "02/07/2026"
+    },
+    {
       "ma": "17552",
       "ten": "Công ty TNHH Thương mại Công nghệ Việt Chuyên SG",
       "ncc": "NCC Khác",
@@ -2674,6 +3142,15 @@
       "ngay": "29/04/2026"
     },
     {
+      "ma": "17639",
+      "ten": "CÔNG TY TNHH THƯƠNG MẠI KỸ THUẬT CHẤN HUỲNH",
+      "ncc": "Chấn Huỳnh",
+      "nhom": "VTTB",
+      "so_tien": 128300976,
+      "dien_giai": "Chuyển TT tiền mua bình acquy theo HĐồng 4541/2026/HĐ-PCVT-CHANHUYNH-24/08/26, Hđơn 131-07/09/26",
+      "ngay": "25/09/2026"
+    },
+    {
       "ma": "17675",
       "ten": "Công ty TNHH Kiểm toán NVA",
       "ncc": "Kiểm Toán NVA",
@@ -2690,6 +3167,15 @@
       "so_tien": 409090909,
       "dien_giai": "Bù trừ công nợ Công ty TNHH Kinh Bố do EVN SPC đã thanh toán theo CV 8746/EVNSPC-TCKT ngày 17/09/2025",
       "ngay": "26/12/2025"
+    },
+    {
+      "ma": "17813",
+      "ten": "CÔNG TY CỔ PHẦN THIẾT BỊ ĐIỆN VI-NA-SI-NO",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 34560000,
+      "dien_giai": "Chuyển TT tiền mua Bộ test PLC theo HĐơn 1609-21/09/26",
+      "ngay": "23/10/2026"
     },
     {
       "ma": "17862",
@@ -2753,6 +3239,15 @@
       "so_tien": 29550000,
       "dien_giai": "Chuyển TT tiền mua máy lọc nước cho CTy Tiến Thành Water theo HĐơn 221-13/05/26",
       "ngay": "26/05/2026"
+    },
+    {
+      "ma": "18249",
+      "ten": "CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ TIẾN THÀNH WATER",
+      "ncc": "Tiến Thành Water",
+      "nhom": "VTTB",
+      "so_tien": 14900000,
+      "dien_giai": "Chuyển tiền mua máy lọc nước cho CTy Tiến Thành Water theo Hđơn 343-21/07/26",
+      "ngay": "27/07/2026"
     },
     {
       "ma": "18280",
@@ -2852,6 +3347,15 @@
       "so_tien": 633165404,
       "dien_giai": "Hạch toán bàn giao CT21016 qua Ban QLDA điện lực miền Nam CP tư vấn",
       "ngay": "31/12/2025"
+    },
+    {
+      "ma": "18523",
+      "ten": "CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ HỒNG THUYÊN",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 102742694,
+      "dien_giai": "Thanh toán đợt 1 CP khảo sát lập BCKTKT + Thanh toán thuế GTGT (hóa đơn 270) CT24024",
+      "ngay": "02/07/2026"
     },
     {
       "ma": "18550",
@@ -3007,6 +3511,33 @@
       "ngay": "30/06/2026"
     },
     {
+      "ma": "18932",
+      "ten": "CÔNG TY TNHH THU PHÍ TỰ ĐỘNG VETC",
+      "ncc": "VETC",
+      "nhom": "Khác",
+      "so_tien": 10000000,
+      "dien_giai": "Phải chi tạm ứng phí cầu đường xe 72A-34141",
+      "ngay": "21/07/2026"
+    },
+    {
+      "ma": "18932",
+      "ten": "CÔNG TY TNHH THU PHÍ TỰ ĐỘNG VETC",
+      "ncc": "VETC",
+      "nhom": "Khác",
+      "so_tien": 10000000,
+      "dien_giai": "Phải chi tạm ứng phí cầu đường xe 72A-341.41",
+      "ngay": "29/09/2026"
+    },
+    {
+      "ma": "18932",
+      "ten": "CÔNG TY TNHH THU PHÍ TỰ ĐỘNG VETC",
+      "ncc": "VETC",
+      "nhom": "Khác",
+      "so_tien": 10000000,
+      "dien_giai": "Phải chi tạm ứng tiền phí đường bộ VETC, CÔNG TY TNHH THU PHÍ TỰ ĐỘNG VETC",
+      "ngay": "30/10/2026"
+    },
+    {
       "ma": "19366",
       "ten": "TẬP ĐOÀN CÔNG NGHIỆP - VIỄN THÔNG QUÂN ĐỘI",
       "ncc": "NCC Khác",
@@ -3050,6 +3581,15 @@
       "so_tien": 2339911878,
       "dien_giai": "Phải trả CP xây lắp CT21016",
       "ngay": "31/12/2025"
+    },
+    {
+      "ma": "19668",
+      "ten": "CÔNG TY CỔ PHẦN SỬA CHỮA Ô TÔ TIẾN PHÁT",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 297696750,
+      "dien_giai": "TT 95% giá trị Hđồng 27_12/5/26_Ctr SCL Công xa 2026_VTAD2608001",
+      "ngay": "25/09/2026"
     },
     {
       "ma": "19775",
@@ -3133,6 +3673,15 @@
       "ngay": "30/06/2026"
     },
     {
+      "ma": "20021",
+      "ten": "CÔNG TY TNHH TƯ VẤN XÂY DỰNG 78",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 451481481,
+      "dien_giai": "Thanh toán đợt 1 CP khảo sát lập BCNCKT CT25043",
+      "ngay": "02/07/2026"
+    },
+    {
       "ma": "20074",
       "ten": "CÔNG TY TNHH CƠ KHÍ ÔTÔ Á CHÂU",
       "ncc": "Cơ Khí Ô Tô Châu Á",
@@ -3187,6 +3736,24 @@
       "ngay": "14/11/2025"
     },
     {
+      "ma": "20347",
+      "ten": "CÔNG TY CP TƯ VẤN DỊCH VỤ XÂY DỰNG THÁI BÌNH",
+      "ncc": "XDD Thái Bình",
+      "nhom": "Xây Lắp",
+      "so_tien": 162332894,
+      "dien_giai": "VTAD2607001_Tạm ứng 20% HĐ 0022_20/08/26_SCL NMĐ An Hội",
+      "ngay": "20/08/2026"
+    },
+    {
+      "ma": "20347",
+      "ten": "CÔNG TY CP TƯ VẤN DỊCH VỤ XÂY DỰNG THÁI BÌNH",
+      "ncc": "XDD Thái Bình",
+      "nhom": "Xây Lắp",
+      "so_tien": 162332894,
+      "dien_giai": "VTAD2607001_Thanh toán cho nhà thầu theo HĐ số 0026 ngày 14/10/2026_Công trình SC NMĐ Anh Hội Côn đảo",
+      "ngay": "14/10/2026"
+    },
+    {
       "ma": "20363",
       "ten": "Công ty TNHH Khách Đế",
       "ncc": "Khách Đế",
@@ -3221,6 +3788,24 @@
       "so_tien": 25380000,
       "dien_giai": "Chuyển TT tiền mua máy tính để bàn CTy Khách Đế theo Hđơn 80-14/05/26",
       "ngay": "04/06/2026"
+    },
+    {
+      "ma": "20363",
+      "ten": "Công ty TNHH Khách Đế",
+      "ncc": "Khách Đế",
+      "nhom": "Chưa",
+      "so_tien": 49896000,
+      "dien_giai": "Chuyển TT  tiền mua máy tính để bàn + Màn hình vi tính Dell theo Hđơn 114-12/6/26",
+      "ngay": "08/07/2026"
+    },
+    {
+      "ma": "20363",
+      "ten": "Công ty TNHH Khách Đế",
+      "ncc": "Khách Đế",
+      "nhom": "Chưa",
+      "so_tien": 49896000,
+      "dien_giai": "Chuyển TT tiền mua máy tính + màn hình máy tính CTy Khách Đế theo HĐơn 112-11/06/26",
+      "ngay": "09/07/2026"
     },
     {
       "ma": "20368",
@@ -3367,6 +3952,24 @@
       "ngay": "29/06/2026"
     },
     {
+      "ma": "20368",
+      "ten": "CÔNG TY TNHH TƯ VẤN XÂY DỰNG ĐIỆN VĂN LANG",
+      "ncc": "XDD Văn Lang",
+      "nhom": "Xây Lắp",
+      "so_tien": 16238300,
+      "dien_giai": "25005_Cấn trừ công nợ vật tư A cấp do ĐVTC đền tiền theo BBLV 28/07/26",
+      "ngay": "10/08/2026"
+    },
+    {
+      "ma": "20368",
+      "ten": "CÔNG TY TNHH TƯ VẤN XÂY DỰNG ĐIỆN VĂN LANG",
+      "ncc": "XDD Văn Lang",
+      "nhom": "Xây Lắp",
+      "so_tien": 3247660,
+      "dien_giai": "25005_Cấn trừ công nợ vật tư A cấp do ĐVTC đền tiền theo BBLV 28/07/26 (chi phí lưu kho bãi)",
+      "ngay": "10/08/2026"
+    },
+    {
       "ma": "20370",
       "ten": "VTA06-Vãng lai Công ty Điện lực BRVT - Xuyên Mộc",
       "ncc": "NCC Khác",
@@ -3376,6 +3979,15 @@
       "ngay": "31/12/2025"
     },
     {
+      "ma": "20377",
+      "ten": "CN Công ty TNHH Cao Phong tại Vũng Tàu - Siêu thị Điện máy nội thất chợ lớn",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 5490000,
+      "dien_giai": "Chuyển TT tiền mua tủ lạnh CTy TNHH Cao Phong theo Hđơn 53886-22/07/26",
+      "ngay": "22/09/2026"
+    },
+    {
       "ma": "20383",
       "ten": "Công Ty TNHH Thương Mại Và Dịch Vụ Kỹ Thuật Đức Toàn",
       "ncc": "NCC Khác",
@@ -3383,6 +3995,15 @@
       "so_tien": 29514100,
       "dien_giai": "Chuyển TT tiền mua Laptop phòng KHVT theo hoá đơn  49-21/06/25",
       "ngay": "05/09/2025"
+    },
+    {
+      "ma": "20383",
+      "ten": "Công Ty TNHH Thương Mại Và Dịch Vụ Kỹ Thuật Đức Toàn",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 5990000,
+      "dien_giai": "Chuyển TT tiền mua máy đếm tiền theo HĐơn 104-21/07/26",
+      "ngay": "26/08/2026"
     },
     {
       "ma": "20392",
@@ -3425,7 +4046,7 @@
       "ten": "Công ty TNHH Tâm Tiến",
       "ncc": "XDD Tâm Tiến",
       "nhom": "Xây Lắp",
-      "so_tien": 18372500,
+      "so_tien": 3927420,
       "dien_giai": "Hạch toán cấn trừ công nợ do Cty Tâm Tiến đền tiền vật tư A cấp CT24007 theo biên bản ngày 30/06/2025 -PX 03.VH9.52.007/23.09.2025",
       "ngay": "30/09/2025"
     },
@@ -3434,7 +4055,7 @@
       "ten": "Công ty TNHH Tâm Tiến",
       "ncc": "XDD Tâm Tiến",
       "nhom": "Xây Lắp",
-      "so_tien": 3927420,
+      "so_tien": 18372500,
       "dien_giai": "Hạch toán cấn trừ công nợ do Cty Tâm Tiến đền tiền vật tư A cấp CT24007 theo biên bản ngày 30/06/2025 -PX 03.VH9.52.007/23.09.2025",
       "ngay": "30/09/2025"
     },
@@ -3452,7 +4073,7 @@
       "ten": "Công ty TNHH Tâm Tiến",
       "ncc": "XDD Tâm Tiến",
       "nhom": "Xây Lắp",
-      "so_tien": 30589100,
+      "so_tien": 6117820,
       "dien_giai": "Hạch toán cấn trừ công nợ do Cty Tâm Tiến đền tiền vật tư A cấp CT24011 theo biên bản ngày 30/06/2025 -PX 03.VH9.52.003/23.09.2025",
       "ngay": "30/09/2025"
     },
@@ -3461,7 +4082,7 @@
       "ten": "Công ty TNHH Tâm Tiến",
       "ncc": "XDD Tâm Tiến",
       "nhom": "Xây Lắp",
-      "so_tien": 6117820,
+      "so_tien": 30589100,
       "dien_giai": "Hạch toán cấn trừ công nợ do Cty Tâm Tiến đền tiền vật tư A cấp CT24011 theo biên bản ngày 30/06/2025 -PX 03.VH9.52.003/23.09.2025",
       "ngay": "30/09/2025"
     },
@@ -3581,6 +4202,42 @@
       "so_tien": 5940110,
       "dien_giai": "25009_Cấn trừ công nợ cty Tâm Tiến do đền tiền vật tư A cấp thừa PX03VH9.44.0016-chi phí kho bãi",
       "ngay": "30/06/2026"
+    },
+    {
+      "ma": "20392",
+      "ten": "Công ty TNHH Tâm Tiến",
+      "ncc": "XDD Tâm Tiến",
+      "nhom": "Xây Lắp",
+      "so_tien": 210394857,
+      "dien_giai": "25001_Cấn trừ công nợ do ĐVTC đền tiền vật tư A cấp-(PX03.VH9.44.0020; 21-16.09.26)",
+      "ngay": "30/09/2026"
+    },
+    {
+      "ma": "20392",
+      "ten": "Công ty TNHH Tâm Tiến",
+      "ncc": "XDD Tâm Tiến",
+      "nhom": "Xây Lắp",
+      "so_tien": 21039486,
+      "dien_giai": "25001_Cấn trừ công nợ do ĐVTC đền tiền vật tư A cấp-thuế, phí (PX03.VH9.44.0020; 21-16.09.26)",
+      "ngay": "30/09/2026"
+    },
+    {
+      "ma": "20392",
+      "ten": "Công ty TNHH Tâm Tiến",
+      "ncc": "XDD Tâm Tiến",
+      "nhom": "Xây Lắp",
+      "so_tien": 686250,
+      "dien_giai": "24011_Cấn trừ công nợ vật tư A cấp do ĐVTC đền tiền theo biên bản ngày 05.1026",
+      "ngay": "05/10/2026"
+    },
+    {
+      "ma": "20392",
+      "ten": "Công ty TNHH Tâm Tiến",
+      "ncc": "XDD Tâm Tiến",
+      "nhom": "Xây Lắp",
+      "so_tien": 68625,
+      "dien_giai": "24011_Cấn trừ công nợ vật tư A cấp do ĐVTC đền tiền theo biên bản ngày 05.1026",
+      "ngay": "05/10/2026"
     },
     {
       "ma": "20395",
@@ -3806,6 +4463,60 @@
       "so_tien": 660853804,
       "dien_giai": "VTAD2605001_Tạm ứng 20% SCL lưới Trung hạ thế và TBA 2026",
       "ngay": "27/05/2026"
+    },
+    {
+      "ma": "20402",
+      "ten": "CÔNG TY CỔ PHẦN DỊCH VỤ XÂY DỰNG QUANG VŨ",
+      "ncc": "XDD Quang Vũ",
+      "nhom": "Xây Lắp",
+      "so_tien": 2498244349,
+      "dien_giai": "TT 95% giá trị trước thuế Hđơn 017_21/8/26_Ctr SCL Lưới 2026_VTAD2605001",
+      "ngay": "25/09/2026"
+    },
+    {
+      "ma": "20402",
+      "ten": "CÔNG TY CỔ PHẦN DỊCH VỤ XÂY DỰNG QUANG VŨ",
+      "ncc": "XDD Quang Vũ",
+      "nhom": "Xây Lắp",
+      "so_tien": 46455560,
+      "dien_giai": "25006_Cấn trừ công nợ do ĐVTC đền tiền vật tư A cấp (PX03.VH9.44.0019-14.09.26)",
+      "ngay": "30/09/2026"
+    },
+    {
+      "ma": "20402",
+      "ten": "CÔNG TY CỔ PHẦN DỊCH VỤ XÂY DỰNG QUANG VŨ",
+      "ncc": "XDD Quang Vũ",
+      "nhom": "Xây Lắp",
+      "so_tien": 8362001,
+      "dien_giai": "25006_Cấn trừ công nợ do ĐVTC đền tiền vật tư A cấp-thuế, kho bãi- (PX03.VH9.44.0019-14.09.26)",
+      "ngay": "30/09/2026"
+    },
+    {
+      "ma": "20402",
+      "ten": "CÔNG TY CỔ PHẦN DỊCH VỤ XÂY DỰNG QUANG VŨ",
+      "ncc": "XDD Quang Vũ",
+      "nhom": "Xây Lắp",
+      "so_tien": 152993490,
+      "dien_giai": "25010_Cấn trừ công nợ do ĐVTC đền tiền vật tư A cấp (PX03.VH9.44.0018-14.09.26)",
+      "ngay": "30/09/2026"
+    },
+    {
+      "ma": "20402",
+      "ten": "CÔNG TY CỔ PHẦN DỊCH VỤ XÂY DỰNG QUANG VŨ",
+      "ncc": "XDD Quang Vũ",
+      "nhom": "Xây Lắp",
+      "so_tien": 27538828,
+      "dien_giai": "25010_Cấn trừ công nợ do ĐVTC đền tiền vật tư A cấp-thuế, kho bãi- (PX03.VH9.44.0018-14.09.26)",
+      "ngay": "30/09/2026"
+    },
+    {
+      "ma": "20402",
+      "ten": "CÔNG TY CỔ PHẦN DỊCH VỤ XÂY DỰNG QUANG VŨ",
+      "ncc": "XDD Quang Vũ",
+      "nhom": "Xây Lắp",
+      "so_tien": 660853804,
+      "dien_giai": "VTAD2605001_Phải trả HD0017_21/08/26_SCL ĐDTHT&TBA",
+      "ngay": "30/09/2026"
     },
     {
       "ma": "20409",
@@ -4069,6 +4780,24 @@
       "ngay": "29/06/2026"
     },
     {
+      "ma": "20426",
+      "ten": "Cty TNHH Xây Lắp Điện Quang Huy",
+      "ncc": "XDD Quang Huy",
+      "nhom": "Xây Lắp",
+      "so_tien": 197263930,
+      "dien_giai": "Thanh toán đợt cuối KLXL hoàn thành CT23009",
+      "ngay": "02/07/2026"
+    },
+    {
+      "ma": "20426",
+      "ten": "Cty TNHH Xây Lắp Điện Quang Huy",
+      "ncc": "XDD Quang Huy",
+      "nhom": "Xây Lắp",
+      "so_tien": 258422033,
+      "dien_giai": "Thanh toán đợt cuối KLXL CT23010",
+      "ngay": "26/08/2026"
+    },
+    {
       "ma": "20428",
       "ten": "CÔNG TY TNHH ELECTRICAL EQUIPMENT ABB VIỆT NAM",
       "ncc": "NCC Khác",
@@ -4235,6 +4964,24 @@
       "ten": "CÔNG TY CỔ PHẦN ĐIỆN LỰC THANH HÓA",
       "ncc": "XDD Thanh Hoá",
       "nhom": "Xây Lắp",
+      "so_tien": -2396971388,
+      "dien_giai": "CT25007_Phải trả cty Thanh Hóa (hóa đơn 172/28.11.25) KLHT đợt 2",
+      "ngay": "08/01/2026"
+    },
+    {
+      "ma": "20437",
+      "ten": "CÔNG TY CỔ PHẦN ĐIỆN LỰC THANH HÓA",
+      "ncc": "XDD Thanh Hoá",
+      "nhom": "Xây Lắp",
+      "so_tien": -1198485694,
+      "dien_giai": "Điều chỉnh AP25044/28.11.25 số dư do áp tạm ứng SDĐK",
+      "ngay": "08/01/2026"
+    },
+    {
+      "ma": "20437",
+      "ten": "CÔNG TY CỔ PHẦN ĐIỆN LỰC THANH HÓA",
+      "ncc": "XDD Thanh Hoá",
+      "nhom": "Xây Lắp",
       "so_tien": 1298716045,
       "dien_giai": "25007_Thanh toán cho CTy Trung Lâm KLXLHT (vốn vay VCB)",
       "ngay": "29/06/2026"
@@ -4247,6 +4994,15 @@
       "so_tien": 1198485694,
       "dien_giai": "CT25007_Phải trả cty Thanh Hóa (hóa đơn 172/28.11.25) KLHT đợt 2",
       "ngay": "30/06/2026"
+    },
+    {
+      "ma": "20437",
+      "ten": "CÔNG TY CỔ PHẦN ĐIỆN LỰC THANH HÓA",
+      "ncc": "XDD Thanh Hoá",
+      "nhom": "Xây Lắp",
+      "so_tien": 109365562,
+      "dien_giai": "Thanh toán thuế GTGT hóa đơn 71_CT25007",
+      "ngay": "26/08/2026"
     },
     {
       "ma": "20438",
@@ -4283,6 +5039,15 @@
       "so_tien": 52102049,
       "dien_giai": "Thanh toán lãi vay NH Lộc Phát từ ngày 26/02/26 đến ngày 25/05/26 CT25018",
       "ngay": "25/05/2026"
+    },
+    {
+      "ma": "20438",
+      "ten": "Ngân Hàng TMCP Lộc Phát Việt Nam - Chi nhánh Vũng Tàu",
+      "ncc": "Ngân Hàng Lộc Phát",
+      "nhom": "Khác",
+      "so_tien": 63436596,
+      "dien_giai": "Thanh toán lãi vay NH Lộc Phát từ ngày 25/05/26 đến ngày 30/6/26 CT25018 + Thanh toán lãi vay NH Lộc Phát từ ngày 01/7/26 đến ngày 24/8/26 CT25018",
+      "ngay": "25/08/2026"
     },
     {
       "ma": "20439",
@@ -4535,6 +5300,15 @@
       "so_tien": 88000000,
       "dien_giai": "Thanh toán CP kiểm toán CT23018 + Thanh toán thuế GTGT (hóa đơn 220/13.05.26)",
       "ngay": "29/06/2026"
+    },
+    {
+      "ma": "20521",
+      "ten": "CÔNG TY TNHH KIỂM TOÁN VÀ TƯ VẤN THUẾ ATAX",
+      "ncc": "Kiểm Toán ATAX",
+      "nhom": "Kiểm Toán",
+      "so_tien": 111000000,
+      "dien_giai": "Thanh toán CP kiểm toán BCQT + Thanh toán thuế GTGT CP kiểm toán BCQT",
+      "ngay": "29/09/2026"
     },
     {
       "ma": "20522",
@@ -4811,7 +5585,7 @@
       "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
       "ncc": "MTMN",
       "nhom": "Khác",
-      "so_tien": 1027768848,
+      "so_tien": 91777755,
       "dien_giai": "Chuyển tiền NLMT Khách hàng Công ty Vũng Tàu + Chuyển tiền thuế NLMT Khách hàng Công ty Vũng Tàu",
       "ngay": "17/09/2025"
     },
@@ -4820,7 +5594,7 @@
       "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
       "ncc": "MTMN",
       "nhom": "Khác",
-      "so_tien": 91777755,
+      "so_tien": 1027768848,
       "dien_giai": "Chuyển tiền NLMT Khách hàng Công ty Vũng Tàu + Chuyển tiền thuế NLMT Khách hàng Công ty Vũng Tàu",
       "ngay": "17/09/2025"
     },
@@ -5054,7 +5828,7 @@
       "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
       "ncc": "MTMN",
       "nhom": "Khác",
-      "so_tien": 6172498319,
+      "so_tien": 16784693582,
       "dien_giai": "Chuyển tiền điện MTMN Phú Mỹ + Thuế GTGT Điện MTMN",
       "ngay": "23/10/2025"
     },
@@ -5063,7 +5837,7 @@
       "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
       "ncc": "MTMN",
       "nhom": "Khác",
-      "so_tien": 16784693582,
+      "so_tien": 6172498319,
       "dien_giai": "Chuyển tiền điện MTMN Phú Mỹ + Thuế GTGT Điện MTMN",
       "ngay": "23/10/2025"
     },
@@ -5365,6 +6139,285 @@
       "ngay": "26/06/2026"
     },
     {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 2494377446,
+      "dien_giai": "Thanh toán tiền Điện MTMN KHCN T06-2026 kỳ thanh toán T07-2026",
+      "ngay": "16/07/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 2734493294,
+      "dien_giai": "Thanh toán tiền Điện MTMN KHDN T06-2026 - Đợt 1 kỳ thanh toán T07-2026",
+      "ngay": "16/07/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 32915885,
+      "dien_giai": "Thanh toán tiền Điện MTMN HKD T06-2026 - Đợt 2 kỳ thanh toán T07-2026",
+      "ngay": "21/07/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 6317105,
+      "dien_giai": "Thanh toán tiền Điện MTMN KHCN T06-2026 Đợt 2 kỳ thanh toán T07-2026",
+      "ngay": "21/07/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 18492748284,
+      "dien_giai": "Thanh toán tiền Điện MTMN KHDN T06-2026 Đợt 2 kỳ thanh toán T07-2026",
+      "ngay": "21/07/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 1650488,
+      "dien_giai": "Thanh toán tiền Điện MTMN T06-2026 Côn Đảo, ký thanh toán T07-2026",
+      "ngay": "21/07/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 31036120,
+      "dien_giai": "Thanh toán tiền mua điện NLMT T06-2026 KH PB15020080026 và PB15020067581",
+      "ngay": "29/07/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 4312352319,
+      "dien_giai": "Thanh toán thuế GTGT T07-2026 Đợt 1 + Thanh toán tiền Điện MTMN T07-2026 Đợt 1",
+      "ngay": "18/08/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 1646947941,
+      "dien_giai": "Thanh toán tiền Điện MTMN KHCN Đợt 1 sản lượng T07-2026 kỳ thanh toán T08-2026",
+      "ngay": "19/08/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 19703957999,
+      "dien_giai": "Thanh toán tiền Điện MTMN KHDN Đợt 1 sản lượng T07-2026 kỳ thanh toán T08-2026",
+      "ngay": "19/08/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 1416328,
+      "dien_giai": "Thanh toán tiền điện MTMN KHDN Côn Đảo sản lượng T07-2026",
+      "ngay": "19/08/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 1171672121,
+      "dien_giai": "Thanh toán tiền Điện MTMN KHCN Đợt 2 sản lượng T07-2026 kỳ thanh toán T08-2026",
+      "ngay": "21/08/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 52625,
+      "dien_giai": "Đ/c giảm CP Điện MTMN sản lượng T08-2026 KH PB15020066860 thanh lý hợp động năm 2026",
+      "ngay": "31/08/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 649935211,
+      "dien_giai": "Thanh toán tiền Điện MTMN HKD Đợt 2 T08-2026",
+      "ngay": "21/09/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 1775291592,
+      "dien_giai": "Thanh toán tiền Điện MTMN KHCN T08-2026",
+      "ngay": "21/09/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 9204991080,
+      "dien_giai": "Thanh toán tiền Điện MTMN KHDN sản lượng T08-2026",
+      "ngay": "21/09/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 16911570,
+      "dien_giai": "Thanh toán tiền Điện MTMN HKD Đợt 2 T08-2026",
+      "ngay": "25/09/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 1432242,
+      "dien_giai": "Thanh toán tiền Điện MTMN KHDN Côn Đảo sản lượng T08-2026",
+      "ngay": "25/09/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 13491555081,
+      "dien_giai": "Thanh toán tiền Điện MTMN KHDN sản lượng T08-2026 Đợt 2",
+      "ngay": "28/09/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 12630,
+      "dien_giai": "Đ/c công nợ KH PBI 5010027465 Công ty Rượu Phương Nam cam kết không nhận tiền sản lượng T07-2026",
+      "ngay": "30/09/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 650993899,
+      "dien_giai": "Thanh toán tiền Điện MTMN HKD Đợt 1 T09-2026",
+      "ngay": "20/10/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 1991001897,
+      "dien_giai": "Thanh toán tiền Điện MTMN KHCN T09-2026",
+      "ngay": "20/10/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 9270627934,
+      "dien_giai": "Thanh toán tiền Điện MTMN KHDN T09-2026 Đợt 1",
+      "ngay": "20/10/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 89643848,
+      "dien_giai": "Thanh toán tiền mua điện NLMT HKD T09/26 Đợt 2",
+      "ngay": "23/10/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 3938400,
+      "dien_giai": "Thanh toán tiền Điện MTMN KHCN T09-2026 Đợt 2",
+      "ngay": "23/10/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 9108175148,
+      "dien_giai": "Thanh toán tiền Điện MTMN KHDN T09-2026 Đợt 2",
+      "ngay": "23/10/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 1857367,
+      "dien_giai": "Thanh toán tiền Điện MTMN T09-2026 Ban QL Vườn QG Côn Đảo",
+      "ngay": "23/10/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 23710720,
+      "dien_giai": "Bù trừ tiền Điện MTMN với tiề điện phải thu T09-2026 ( hđơn 2294200 ngày 02.10.26) MKH PB15020071777 THUẾ CƠ SỞ 21 THÀNH PHỐ HỒ CHÍ MINH",
+      "ngay": "29/10/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 27596051,
+      "dien_giai": "Khách hàng cam kết không nhận tiền Điện MTMN sản lượng T05/2026 đến T09-2026 MKH PB15040065923 - Giáo xứ Đông Hải",
+      "ngay": "29/10/2026"
+    },
+    {
+      "ma": "20533",
+      "ten": "VTA04_Phải trả NCC điện MTMN_ĐL TP Vũng Tàu",
+      "ncc": "MTMN",
+      "nhom": "Khác",
+      "so_tien": 454680,
+      "dien_giai": "Đ/c AP262455 Phải trả tiền Điện MTMN MKH PB15010095639 T09-2026",
+      "ngay": "29/10/2026"
+    },
+    {
+      "ma": "20535",
+      "ten": "Thu hộ đoàn phí công đoàn",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 53979357,
+      "dien_giai": "Chuyển tiền đoàn phí T5/26 + Chuyển tiền đoàn phí T6/26 + Chuyển tiền đoàn phí T7/26",
+      "ngay": "10/08/2026"
+    },
+    {
       "ma": "20553",
       "ten": "VTA10-Vãng lai XNDV",
       "ncc": "NCC Khác",
@@ -5444,6 +6497,15 @@
       "so_tien": 138240000,
       "dien_giai": "Chuyển TT tiền dịch vụ bảo vệ T6/26 theo HĐồng 2895/HĐ-PCBRVT-27/6/24, Hđơn 67-30/06/26",
       "ngay": "07/07/2026"
+    },
+    {
+      "ma": "20554",
+      "ten": "CÔNG TY TNHH DỊCH VỤ BẢO VỆ CHÍNH TÍN NGHĨA",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 138240000,
+      "dien_giai": "Chuyển TT tiền thuê dịch vụ bảo vệ T9/26 theo HĐơn 100-30/09/26",
+      "ngay": "13/10/2026"
     },
     {
       "ma": "20557",
@@ -5549,6 +6611,15 @@
       "ten": "Công ty TNHH XD-TM- Kỹ Thuật T&T",
       "ncc": "T&T",
       "nhom": "Chưa",
+      "so_tien": -806171757,
+      "dien_giai": "",
+      "ngay": "31/12/2025"
+    },
+    {
+      "ma": "20566",
+      "ten": "Công ty TNHH XD-TM- Kỹ Thuật T&T",
+      "ncc": "T&T",
+      "nhom": "Chưa",
       "so_tien": 806171757,
       "dien_giai": "",
       "ngay": "31/12/2025"
@@ -5558,7 +6629,7 @@
       "ten": "Công ty TNHH XD-TM- Kỹ Thuật T&T",
       "ncc": "T&T",
       "nhom": "Chưa",
-      "so_tien": 44086018,
+      "so_tien": 8817204,
       "dien_giai": "CT21012_Cấn trừ công nợ do trừ tiền vật tư A cấp theo PX02.VH9.44.0004/20.02.26",
       "ngay": "10/02/2026"
     },
@@ -5567,7 +6638,7 @@
       "ten": "Công ty TNHH XD-TM- Kỹ Thuật T&T",
       "ncc": "T&T",
       "nhom": "Chưa",
-      "so_tien": 8817204,
+      "so_tien": 44086018,
       "dien_giai": "CT21012_Cấn trừ công nợ do trừ tiền vật tư A cấp theo PX02.VH9.44.0004/20.02.26",
       "ngay": "10/02/2026"
     },
@@ -5707,6 +6778,24 @@
       "ngay": "24/06/2026"
     },
     {
+      "ma": "20577",
+      "ten": "Doanh Nghiệp Tư Nhân Thương Mại & Xây Dựng Diệu Hiền",
+      "ncc": "Diệu Hiền",
+      "nhom": "Chưa",
+      "so_tien": 9374400,
+      "dien_giai": "Chuyển TT tiền mua bột nở foam + giẻ lau theo Hđơn 340-06/08/26",
+      "ngay": "22/09/2026"
+    },
+    {
+      "ma": "20577",
+      "ten": "Doanh Nghiệp Tư Nhân Thương Mại & Xây Dựng Diệu Hiền",
+      "ncc": "Diệu Hiền",
+      "nhom": "Chưa",
+      "so_tien": 37377680,
+      "dien_giai": "Chuyển TT tiền VTTB Cty Diệu Hiền theo HĐơn 385-08/09/26",
+      "ngay": "25/09/2026"
+    },
+    {
       "ma": "20587",
       "ten": "Công ty TNHH xây lắp 168",
       "ncc": "Xây Lắp 168",
@@ -5729,7 +6818,7 @@
       "ten": "Công ty TNHH xây lắp 168",
       "ncc": "Xây Lắp 168",
       "nhom": "Xây Lắp",
-      "so_tien": 34969900,
+      "so_tien": 6993980,
       "dien_giai": "Hạch toán cấn trừ công nợ do Cty 168 đền tiền vật tư A cấp CT24008 theo biên bản ngày 30/06/25 -Điều chỉnh PX quyết toán 02.N4B.52.0070 và 72 Tháng 12/2024",
       "ngay": "30/09/2025"
     },
@@ -5738,7 +6827,7 @@
       "ten": "Công ty TNHH xây lắp 168",
       "ncc": "Xây Lắp 168",
       "nhom": "Xây Lắp",
-      "so_tien": 6993980,
+      "so_tien": 34969900,
       "dien_giai": "Hạch toán cấn trừ công nợ do Cty 168 đền tiền vật tư A cấp CT24008 theo biên bản ngày 30/06/25 -Điều chỉnh PX quyết toán 02.N4B.52.0070 và 72 Tháng 12/2024",
       "ngay": "30/09/2025"
     },
@@ -5774,7 +6863,7 @@
       "ten": "Công ty TNHH xây lắp 168",
       "ncc": "Xây Lắp 168",
       "nhom": "Xây Lắp",
-      "so_tien": 732800,
+      "so_tien": 3664000,
       "dien_giai": "Hạch toán cấn trừ công nợ do Cty 168 đền tiền vật tư A cấp CT24016 theo biên bản ngày 30/06/2025 -PX 03.VH9.52.005/23.09.2025",
       "ngay": "30/09/2025"
     },
@@ -5783,7 +6872,7 @@
       "ten": "Công ty TNHH xây lắp 168",
       "ncc": "Xây Lắp 168",
       "nhom": "Xây Lắp",
-      "so_tien": 3664000,
+      "so_tien": 732800,
       "dien_giai": "Hạch toán cấn trừ công nợ do Cty 168 đền tiền vật tư A cấp CT24016 theo biên bản ngày 30/06/2025 -PX 03.VH9.52.005/23.09.2025",
       "ngay": "30/09/2025"
     },
@@ -5914,6 +7003,24 @@
       "ngay": "16/06/2026"
     },
     {
+      "ma": "20587",
+      "ten": "Công ty TNHH xây lắp 168",
+      "ncc": "Xây Lắp 168",
+      "nhom": "Xây Lắp",
+      "so_tien": 1563750,
+      "dien_giai": "24014_Cấn trừ công nợ vật tư A cấp do ĐVTC đền tiền theo biên bản ngày 05.1026",
+      "ngay": "05/10/2026"
+    },
+    {
+      "ma": "20587",
+      "ten": "Công ty TNHH xây lắp 168",
+      "ncc": "Xây Lắp 168",
+      "nhom": "Xây Lắp",
+      "so_tien": 156375,
+      "dien_giai": "24014_Cấn trừ công nợ vật tư A cấp do ĐVTC đền tiền theo biên bản ngày 05.1026",
+      "ngay": "05/10/2026"
+    },
+    {
       "ma": "20590",
       "ten": "CÔNG TY CỔ PHẦN MÁY BIẾN THẾ VIỆT NAM",
       "ncc": "NCC Khác",
@@ -5945,7 +7052,7 @@
       "ten": "Công ty TNHH Trung Lâm",
       "ncc": "Trung Lâm",
       "nhom": "Chưa",
-      "so_tien": 5451460,
+      "so_tien": 1090292,
       "dien_giai": "Cấn trừ công nợ Cty Trung Lâm đền tiền theo BBLV ngày 23.10/2025_PX03.VH9.52.0022/24.10.25CT25003",
       "ngay": "24/10/2025"
     },
@@ -5954,7 +7061,7 @@
       "ten": "Công ty TNHH Trung Lâm",
       "ncc": "Trung Lâm",
       "nhom": "Chưa",
-      "so_tien": 1090292,
+      "so_tien": 5451460,
       "dien_giai": "Cấn trừ công nợ Cty Trung Lâm đền tiền theo BBLV ngày 23.10/2025_PX03.VH9.52.0022/24.10.25CT25003",
       "ngay": "24/10/2025"
     },
@@ -6094,6 +7201,15 @@
       "ngay": "29/06/2026"
     },
     {
+      "ma": "20593",
+      "ten": "Công ty TNHH Trung Lâm",
+      "ncc": "Trung Lâm",
+      "nhom": "Chưa",
+      "so_tien": 99626691,
+      "dien_giai": "Thanh toán thuế GTGT hóa đơn 03_CT25007",
+      "ngay": "26/08/2026"
+    },
+    {
       "ma": "20601",
       "ten": "HỘ KINH DOANH THIẾT BỊ PHƯƠNG TIỆN PCCC ĐẠI AN",
       "ncc": "NCC Khác",
@@ -6220,6 +7336,15 @@
       "ngay": "29/06/2026"
     },
     {
+      "ma": "20697",
+      "ten": "Công ty TNHH tư vấn xây dựng Hoàng Minh",
+      "ncc": "Tư Vấn Hoàng Minh",
+      "nhom": "Tư Vấn",
+      "so_tien": 95700000,
+      "dien_giai": "Thanh toán đợt cuối CP giám sát thi công CT21007 + Thanh toán đợt cuối CP giám sát thi công CT21012 + Thanh toán đợt cuối CP giám sát thi công CT23005",
+      "ngay": "02/07/2026"
+    },
+    {
       "ma": "20749",
       "ten": "Công ty TNHH A Hò",
       "ncc": "NCC Khác",
@@ -6323,6 +7448,15 @@
       "ten": "CÔNG TY ĐIỆN LỰC BÀ RỊA VŨNG TÀU",
       "ncc": "NCC Khác",
       "nhom": "Chưa",
+      "so_tien": -5373041,
+      "dien_giai": "CẤN TRỪ CÔNG NỢ",
+      "ngay": "24/10/2025"
+    },
+    {
+      "ma": "20757",
+      "ten": "CÔNG TY ĐIỆN LỰC BÀ RỊA VŨNG TÀU",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
       "so_tien": 5373041,
       "dien_giai": "CẤN TRỪ CÔNG NỢ",
       "ngay": "24/10/2025"
@@ -6389,6 +7523,15 @@
       "so_tien": 5059279,
       "dien_giai": "Điều chỉnh giảm thoái hoàn vô công AP25861",
       "ngay": "30/09/2025"
+    },
+    {
+      "ma": "20811",
+      "ten": "VTA04-Phải trả khác Công ty Điện lực BRVT - Vũng Tàu",
+      "ncc": "Phải trả khác",
+      "nhom": "Khác",
+      "so_tien": -5059279,
+      "dien_giai": "CẤN TRỪ CÔNG NỢ",
+      "ngay": "28/10/2025"
     },
     {
       "ma": "20811",
@@ -6497,6 +7640,15 @@
       "so_tien": 966354956,
       "dien_giai": "Thanh toán lãi vay từ 26/11/25 đến 31/12/25 CT24030 + Thanh toán lãi vay từ 01/01/26 đến 25/02/26 CT24030 + Thanh toán lãi vay từ 26/11/25 đến 31/12/2",
       "ngay": "26/02/2026"
+    },
+    {
+      "ma": "20828",
+      "ten": "Ngân Hàng Thương Mại Cổ Phần Quân Đội - Chi Nhánh Bà Rịa",
+      "ncc": "Ngân Hàng Quân Đội",
+      "nhom": "Khác",
+      "so_tien": -7603009148,
+      "dien_giai": "",
+      "ngay": "31/03/2026"
     },
     {
       "ma": "20828",
@@ -6742,6 +7894,42 @@
       "ngay": "30/12/2025"
     },
     {
+      "ma": "20852",
+      "ten": "Công ty Cổ phần Xây lắp An Nhơn",
+      "ncc": "XDD An Nhơn",
+      "nhom": "Xây Lắp",
+      "so_tien": 54508792,
+      "dien_giai": "25002_Cấn trừ công nợ do ĐVTC đền tiền vật tư A cấp (PX03.VH9.44.0022-16.09.26)",
+      "ngay": "30/09/2026"
+    },
+    {
+      "ma": "20852",
+      "ten": "Công ty Cổ phần Xây lắp An Nhơn",
+      "ncc": "XDD An Nhơn",
+      "nhom": "Xây Lắp",
+      "so_tien": 9811582,
+      "dien_giai": "25002_Cấn trừ công nợ do ĐVTC đền tiền vật tư A cấp (PX03.VH9.44.0022-16.09.26) thuế, phí kho bãi",
+      "ngay": "30/09/2026"
+    },
+    {
+      "ma": "20852",
+      "ten": "Công ty Cổ phần Xây lắp An Nhơn",
+      "ncc": "XDD An Nhơn",
+      "nhom": "Xây Lắp",
+      "so_tien": 215328718,
+      "dien_giai": "25004_Cấn trừ công nợ do ĐVTC đền tiền vật tư A cấp (PX03.VH9.44.0023-16.09.26)",
+      "ngay": "30/09/2026"
+    },
+    {
+      "ma": "20852",
+      "ten": "Công ty Cổ phần Xây lắp An Nhơn",
+      "ncc": "XDD An Nhơn",
+      "nhom": "Xây Lắp",
+      "so_tien": 38759169,
+      "dien_giai": "25004_Cấn trừ công nợ do ĐVTC đền tiền vật tư A cấp (PX03.VH9.44.0023-16.09.26) thuế, phí kho bãi",
+      "ngay": "30/09/2026"
+    },
+    {
       "ma": "20853",
       "ten": "Công ty Cổ phần Cơ Điện Đại Dũng",
       "ncc": "NCC Khác",
@@ -6767,6 +7955,15 @@
       "so_tien": 47714400,
       "dien_giai": "Chuyển trả tiền quan trắc môi trường năm 2025 theo HĐ số 132/25.6.2025",
       "ngay": "08/08/2025"
+    },
+    {
+      "ma": "20856",
+      "ten": "Ngân hàng TMCP Quân Đội – Chi nhánh TP. Hồ Chí Minh",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 87132734,
+      "dien_giai": "Giảm  phải trả Lãi vay Ngân hàng MB CT22003 từ ngày 26/5/26 đến ngày 30/6/26 do TCty đã trả tiền theo TB4456/04.09.26 (AP261726/30.06.26 treo nhầm NCC)",
+      "ngay": "25/08/2026"
     },
     {
       "ma": "20859",
@@ -7246,6 +8443,15 @@
       "ngay": "25/02/2026"
     },
     {
+      "ma": "20954",
+      "ten": "Ngân hàng TMCP Đầu tư và Phát triển Việt Nam - Chi nhánh Bà Rịa - Vũng Tàu",
+      "ncc": "BIDV",
+      "nhom": "Khác",
+      "so_tien": 18380507,
+      "dien_giai": "Thanh toán phí ủy thác vốn đầu tư + Thanh toán thuế GTGT phí ủy thác vốn đầu tư",
+      "ngay": "03/08/2026"
+    },
+    {
       "ma": "21005",
       "ten": "CÔNG TY TNHH ĐẦU TƯ XÂY DỰNG GIA PHÚC",
       "ncc": "NCC Khác",
@@ -7444,6 +8650,15 @@
       "ngay": "06/02/2026"
     },
     {
+      "ma": "21266",
+      "ten": "HỘ KINH DOANH CỬA HÀNG DCYK TUYẾT NGA",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 27810000,
+      "dien_giai": "Chuyển TT tiền mua dụng cụ y khoa HKD CH DCYK Tuyết Nga theo HĐơn 556-24/08/26",
+      "ngay": "17/09/2026"
+    },
+    {
       "ma": "21358",
       "ten": "CÔNG TY TNHH XÂY DỰNG LAVITA",
       "ncc": "NCC Khác",
@@ -7451,6 +8666,15 @@
       "so_tien": 409785307,
       "dien_giai": "24024_Phải tạm ứng hợp đồng thi công PCCC 23-2026/29.04.26",
       "ngay": "10/06/2026"
+    },
+    {
+      "ma": "21483",
+      "ten": "CÔNG TY TNHH DUY LỘC",
+      "ncc": "NCC Khác",
+      "nhom": "Chưa",
+      "so_tien": 6800000,
+      "dien_giai": "Chuyển TT tiền mua ĐTDĐ HMD 105 4G theo HĐơn 1-24/08/26",
+      "ngay": "14/09/2026"
     }
   ]
 }
