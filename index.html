@@ -893,6 +893,17 @@
         .nhom-select.nhom-chua { background: rgba(239,68,68,0.08); color: var(--red); border-color: rgba(239,68,68,0.2); }
 
         /* Save notification */
+        .data-source {
+            display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 999px;
+            font-size: 0.72em; font-weight: 600; vertical-align: middle;
+            background: var(--green-bg); color: var(--green);
+        }
+        .data-source.offline { background: var(--orange-bg); color: var(--orange); }
+        .data-source.loading { background: var(--accent-glow); color: var(--accent); }
+        .btn-refresh {
+            background: none; border: none; cursor: pointer; color: inherit; font: inherit; padding: 0 0 0 4px;
+        }
+        .nhom-select.saving { opacity: 0.55; pointer-events: none; }
         .save-toast {
             position: fixed;
             bottom: 24px;
@@ -943,7 +954,7 @@
                 <img src="https://lh3.googleusercontent.com/d/1GAoEg3co_ypn1fpAz95tv8A3Zgg4GCfF" alt="Logo" class="header-logo">
                 <div class="header-text">
                     <h1>SỔ CHI TIẾT THANH TOÁN NHÀ CUNG CẤP</h1>
-                    <p>Công ty Điện lực Vũng Tàu — Từ ngày 01/07/2025 đến 03/11/2026</p>
+                    <p>Công ty Điện lực Vũng Tàu — <span id="periodText">Từ ngày 01/07/2025 đến 03/11/2026</span> <span id="dataSource" class="data-source loading">Đang tải…</span></p>
                 </div>
             </div>
         </div>
@@ -1001,12 +1012,9 @@
             <div class="filter-group dropdown-check" id="yearDropdown">
                 <label>Năm</label>
                 <div class="dropdown-check-header" onclick="toggleYearDropdown()">
-                    <span id="yearSelectText">2025, 2026</span> <span style="font-size: 0.7em">▼</span>
+                    <span id="yearSelectText">Tất cả</span> <span style="font-size: 0.7em">▼</span>
                 </div>
-                <div class="dropdown-check-list" id="yearDropdownList">
-                    <label><input type="checkbox" id="cbYear2025" value="2025" checked onchange="applyFilters()"> 2025</label>
-                    <label><input type="checkbox" id="cbYear2026" value="2026" checked onchange="applyFilters()"> 2026</label>
-                </div>
+                <div class="dropdown-check-list" id="yearDropdownList"></div>
             </div>
             <div class="filter-group">
                 <label>Từ ngày</label>
@@ -1055,8 +1063,17 @@
 
     <script>
     // ============================================
-    // DATA - embedded from erp_data.json
+    // DATA — đọc online từ Google Sheet (Apps Script Web App)
+    //   Dán URL Web App (kết thúc bằng /exec) vào API_URL.
+    //   Để trống → web đọc file tĩnh erp_data.json như trước (chế độ offline).
     // ============================================
+    const API_URL = 'https://script.google.com/macros/s/AKfycbxl41JQ6BrR6Uyfek5UEuqq8MBAZBH6NfZEazkVQ3wBRxmgIBG8pyk3e9mqED1t2Mg/exec';
+    const STATIC_URL = 'erp_data.json';
+    const NHOM_DEFAULT = ['Nội Bộ', 'Tư Vấn', 'Xây Lắp', 'VTTB', 'Kiểm Toán', 'Khác', 'Chưa'];
+    let NHOM_OPTIONS = NHOM_DEFAULT.slice();
+    let ONLINE = false;
+    let lastLoad = 0;
+
     let DATA = null;
     let filteredData = [];
     let currentPage = 1;
@@ -1064,48 +1081,194 @@
     let sortCol = 'ngay';
     let sortDir = 'desc';
 
-    // Nhóm overrides, saved to localStorage immediately on change
-    const NHOM_NCC_KEY = 'erp-nhom-ncc';         // { 'maNCC': 'Nhóm' }  — đổi đồng loạt theo NCC
-    const NHOM_LEGACY_KEY = 'erp-nhom-changes';  // { 'ma|ngay|dien_giai': 'Nhóm' } — bản cũ, đổi từng giao dịch
+    // Bản cũ lưu đổi nhóm trong localStorage (chỉ máy đó thấy) — nay chỉ dùng khi offline,
+    // khi online sẽ được đề nghị đẩy lên Google Sheet một lần.
+    const NHOM_NCC_KEY = 'erp-nhom-ncc';         // { 'maNCC': 'Nhóm' }
+    const NHOM_LEGACY_KEY = 'erp-nhom-changes';  // { 'ma|ngay|dien_giai': 'Nhóm' }
+    const MIGRATED_KEY = 'erp-nhom-migrated';
     let nhomByNcc = {};
     let nhomChanges = {};
 
     function loadJSON(key) {
         try { return JSON.parse(localStorage.getItem(key) || '{}') || {}; } catch (e) { return {}; }
     }
+    function lsSet(key, val) { try { localStorage.setItem(key, val); return true; } catch (e) { return false; } }
 
-    // Load data
-    fetch('erp_data.json')
-        .then(r => r.json())
-        .then(data => {
-            DATA = data;
-            // 1) legacy per-transaction changes (kept for backward compatibility)
+    function setSource(text, cls) {
+        const el = document.getElementById('dataSource');
+        el.className = 'data-source' + (cls ? ' ' + cls : '');
+        el.innerHTML = text;
+    }
+
+    function formatPeriod(p) {
+        // 'Từ ngày 01-07-2025 đến ngày 03-11-2026' → 'Từ ngày 01/07/2025 đến 03/11/2026'
+        const m = String(p || '').match(/(\d{2})-(\d{2})-(\d{4}).*?(\d{2})-(\d{2})-(\d{4})/);
+        return m ? `Từ ngày ${m[1]}/${m[2]}/${m[3]} đến ${m[4]}/${m[5]}/${m[6]}` : '';
+    }
+
+    function prepareData(data) {
+        data.transactions.forEach(t => {
+            t.ma = String(t.ma);
+            if (!t.ncc || t.ncc === 'NCC Khác') {         // NCC chưa có trong thư viện → tự đặt tên
+                const a = autoNcc(t.ten);
+                t.ncc = a.ncc;
+                if (!t.nhom || t.nhom === 'Chưa') t.nhom = a.nhom;
+            }
+        });
+        if (Array.isArray(data.nhom_options) && data.nhom_options.length) NHOM_OPTIONS = data.nhom_options;
+        return data;
+    }
+
+    async function loadData(silent) {
+        let data = null;
+        if (API_URL) {
+            try {
+                const r = await fetch(API_URL + (API_URL.includes('?') ? '&' : '?') + 't=' + Date.now(), { cache: 'no-store' });
+                data = await r.json();
+                if (!data.ok) throw new Error(data.error || 'API lỗi');
+                ONLINE = true;
+            } catch (err) {
+                console.error('Không đọc được Google Sheet:', err);
+                if (silent) return;                       // giữ dữ liệu đang hiển thị
+                data = null;
+            }
+        }
+        if (!data) {
+            const r = await fetch(STATIC_URL);
+            data = await r.json();
+            ONLINE = false;
+        }
+        DATA = prepareData(data);
+        lastLoad = Date.now();
+
+        if (!ONLINE) {
+            // Offline: áp các thay đổi nhóm đã lưu trên máy này (như bản cũ)
             nhomChanges = loadJSON(NHOM_LEGACY_KEY);
             DATA.transactions.forEach(t => {
                 const key = t.ma + '|' + t.ngay + '|' + t.dien_giai.substring(0, 50);
                 if (nhomChanges[key]) t.nhom = nhomChanges[key];
             });
-            // 2) per-supplier changes override everything for that supplier
             nhomByNcc = loadJSON(NHOM_NCC_KEY);
-            DATA.transactions.forEach(t => {
-                if (nhomByNcc[t.ma]) t.nhom = nhomByNcc[t.ma];
-            });
-            init();
-        })
+            DATA.transactions.forEach(t => { if (nhomByNcc[t.ma]) t.nhom = nhomByNcc[t.ma]; });
+            setSource(API_URL ? '⚠ Không kết nối được Google Sheet — đang xem dữ liệu tĩnh' : 'Dữ liệu tĩnh', 'offline');
+        } else {
+            const time = new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+            setSource(`● Google Sheet · ${time} <button class="btn-refresh" title="Tải lại dữ liệu" onclick="refreshData()">↻</button>`);
+        }
+        const period = formatPeriod(DATA.period);
+        if (period) document.getElementById('periodText').textContent = period;
+    }
+
+    async function refreshData() {
+        setSource('Đang tải…', 'loading');
+        await loadData(true);
+        refreshNhomFilter();
+        initExclude(true);
+        applyFilters(true);
+    }
+
+    // Khi quay lại tab sau ≥ 60 giây → tự tải lại để thấy thay đổi từ máy khác
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible' && ONLINE && Date.now() - lastLoad > 60000) refreshData();
+    });
+
+    loadData(false)
+        .then(() => { init(); if (ONLINE) offerMigrate(); })
         .catch(err => {
             console.error('Error loading data:', err);
-            document.getElementById('tableBody').innerHTML = '<tr><td colspan="5" style="text-align:center;padding:40px;color:var(--text-muted)">Lỗi tải dữ liệu. Đảm bảo file erp_data.json nằm cùng thư mục.</td></tr>';
+            setSource('Lỗi tải dữ liệu', 'offline');
+            document.getElementById('tableBody').innerHTML = '<tr><td colspan="5" style="text-align:center;padding:40px;color:var(--text-muted)">Lỗi tải dữ liệu. Kiểm tra API_URL (Google Sheet) hoặc file erp_data.json.</td></tr>';
         });
 
+    // POST lên Apps Script (text/plain để tránh CORS preflight)
+    async function apiPost(body) {
+        const r = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(body) });
+        const res = await r.json();
+        if (!res.ok) throw new Error(res.error || 'Ghi thất bại');
+        return res;
+    }
+
+    // Đẩy các thay đổi nhóm cũ (localStorage) của máy này lên Google Sheet — hỏi 1 lần
+    async function offerMigrate() {
+        try { if (localStorage.getItem(MIGRATED_KEY)) return; } catch (e) { return; }
+        const local = loadJSON(NHOM_NCC_KEY);
+        const current = {};
+        DATA.transactions.forEach(t => { current[t.ma] = t.nhom; });
+        const items = {};
+        Object.keys(local).forEach(ma => { if (current[ma] && current[ma] !== local[ma] && NHOM_OPTIONS.includes(local[ma])) items[ma] = local[ma]; });
+        const n = Object.keys(items).length;
+        if (!n) { lsSet(MIGRATED_KEY, '1'); return; }
+        if (!confirm(`Máy này còn ${n} thay đổi Nhóm lưu riêng (bản cũ) khác với Google Sheet.\nĐẩy lên Google Sheet để mọi máy cùng thấy?\n\n(OK = đẩy lên · Cancel = bỏ, dùng theo Google Sheet)`)) {
+            lsSet(MIGRATED_KEY, '1'); return;
+        }
+        try {
+            await apiPost({ action: 'setNhomBatch', items });
+            DATA.transactions.forEach(t => { if (items[t.ma]) t.nhom = items[t.ma]; });
+            lsSet(MIGRATED_KEY, '1');
+            applyFilters(true);
+            showToast(`✅ Đã đẩy ${n} thay đổi Nhóm lên Google Sheet`);
+        } catch (e) {
+            showToast('⚠ Không đẩy được lên Google Sheet: ' + e.message, true);
+        }
+    }
+
+    // Tự đặt tên rút gọn + đoán nhóm (cùng quy tắc với Code.gs / ncc_auto.py)
+    const NCC_DROP = ['doanh nghiệp tư nhân', 'trách nhiệm hữu hạn', 'xuất nhập khẩu', 'hộ kinh doanh', 'một thành viên',
+        'tổng công ty', 'chi nhánh', 'công ty', 'cổ phần', 'tập đoàn', 'thương mại', 'dịch vụ', 'sản xuất', 'kỹ thuật',
+        'đầu tư', 'tư vấn', 'xây dựng', 'xây lắp', 'kiểm toán', 'ngân hàng',
+        'cửa hàng', 'việt nam', 'dntn', 'tnhh', 'mtv', 'tmcp', 'cty', 'tct', 'hkd', 'xnk', 'cn', 'cp', 'tm', 'dv', 'sx',
+        'kt', 'đt', 'tv', 'xd', 'xl', 'tại', 'thuế', 'và', 'and'];
+    const NCC_LEGAL = ['trách nhiệm hữu hạn', 'một thành viên', 'tổng công ty', 'chi nhánh', 'công ty', 'tnhh', 'mtv', 'cty', 'tct', 'cn', 'và'];
+    function guessNhom(ten) {
+        const t = ' ' + String(ten || '').toLowerCase() + ' ';
+        if (t.includes('kiểm toán')) return 'Kiểm Toán';
+        if (t.includes('tư vấn') || / tv /.test(t)) return 'Tư Vấn';
+        if (t.includes('lương')) return 'Nội Bộ';
+        if (t.includes('ngân hàng') || t.includes('vãng lai')) return 'Khác';
+        if (/^ (tổng công ty điện lực|công ty điện lực|vta)/.test(t) ||
+            (t.includes('điện lực') && (/ (tổng công ty|tct) /.test(t) || /^ cn /.test(t)))) return 'Nội Bộ';
+        if (t.includes('xây lắp') || t.includes('xây dựng') || / xl /.test(t)) return 'Xây Lắp';
+        return 'Chưa';
+    }
+    function autoNcc(ten) {
+        ten = String(ten || '').trim();
+        const low = ten.toLowerCase();
+        const nhom = guessNhom(ten);
+        if (!ten) return { ncc: 'Chưa rõ', nhom: 'Chưa' };
+        if (low.includes('lương')) return { ncc: 'Tiền Lương', nhom: 'Nội Bộ' };
+        const parts = ten.split(/\s*[-–]\s*(?=(công ty|trung tâm|ban )\s)/i).filter((p, i) => i % 2 === 0);
+        let core = parts[parts.length - 1];
+        core = core.replace(/\s+[-–]?\s*(chi nhánh|cn)\s.*$/i, '');
+        core = ' ' + core.replace(/\(.*?\)/g, ' ').replace(/[,;&_–\-]|\.(?=\s|$)/g, ' ').replace(/\s+/g, ' ') + ' ';
+        (nhom === 'Nội Bộ' ? NCC_LEGAL : NCC_DROP).forEach(p => { core = core.replace(new RegExp(' ' + p + '(?= )', 'gi'), ' '); });
+        const allUpper = ten === ten.toUpperCase();
+        const words = core.trim().split(/\s+/).filter(Boolean).slice(0, 6).map(w =>
+            ((!allUpper && w === w.toUpperCase() && w.length <= 5) || /\d/.test(w)) ? w : w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
+        let short = words.length ? words.join(' ') : ten.slice(0, 25);
+        let prefix = { 'Tư Vấn': 'Tư Vấn ', 'Kiểm Toán': 'Kiểm Toán ', 'Xây Lắp': 'XDD ' }[nhom] || '';
+        if (low.includes('ngân hàng')) prefix = 'Ngân Hàng ';
+        if (prefix && !short.toLowerCase().startsWith(prefix.trim().toLowerCase())) short = prefix + short;
+        return { ncc: short.trim(), nhom };
+    }
+
+    function refreshNhomFilter() {
+        const sel = document.getElementById('filterNhom');
+        const cur = sel.value;
+        const list = Array.from(new Set([...(DATA.nhom_list || []), ...DATA.transactions.map(t => t.nhom)]));
+        sel.innerHTML = '<option value="">Tất cả nhóm</option>' +
+            list.map(n => `<option value="${escHtml(n)}">${escHtml(n)}</option>`).join('');
+        if (list.includes(cur)) sel.value = cur;
+    }
+
+    function buildYearList() {
+        const years = Array.from(new Set(DATA.transactions.map(t => (t.ngay || '').split('/')[2]).filter(Boolean))).sort();
+        document.getElementById('yearDropdownList').innerHTML = years.map(y =>
+            `<label><input type="checkbox" class="cbYear" value="${y}" checked onchange="applyFilters()"> ${y}</label>`).join('');
+    }
+
     function init() {
-        // Populate nhóm filter
-        const nhomSelect = document.getElementById('filterNhom');
-        DATA.nhom_list.forEach(n => {
-            const opt = document.createElement('option');
-            opt.value = n;
-            opt.textContent = n;
-            nhomSelect.appendChild(opt);
-        });
+        refreshNhomFilter();
+        buildYearList();
 
         // Event listeners
         document.getElementById('searchNCC').addEventListener('input', debounce(applyFilters, 200));
@@ -1167,7 +1330,7 @@
         return n.ncc && n.ncc !== 'NCC Khác' && n.ncc !== n.ten ? n.ncc + ' — ' + n.ten : n.ten;
     }
 
-    function initExclude() {
+    function initExclude(reloadOnly) {
         const map = new Map();
         DATA.transactions.forEach(t => {
             if (!map.has(t.ma)) map.set(t.ma, { ma: t.ma, ten: t.ten, ncc: t.ncc });
@@ -1178,6 +1341,7 @@
             const saved = JSON.parse(localStorage.getItem(EXCLUDE_KEY) || '[]');
             excludeItems = saved.filter(x => map.has(x.ma));
         } catch (e) { excludeItems = []; }
+        if (reloadOnly) { renderExcludeList(); return; }
 
         const input = document.getElementById('excludeInput');
         input.addEventListener('input', () => renderSuggest(input.value));
@@ -1378,20 +1542,16 @@
         renderExcludeHeader();
     }
 
-    function applyFilters() {
+    function applyFilters(keepPage) {
         const search = document.getElementById('searchNCC').value.toLowerCase().trim();
         const nhom = document.getElementById('filterNhom').value;
         const dateFrom = document.getElementById('filterDateFrom').value;
         const dateTo = document.getElementById('filterDateTo').value;
         
-        const y25 = document.getElementById('cbYear2025').checked;
-        const y26 = document.getElementById('cbYear2026').checked;
-
-        // Update year label
-        let yLabels = [];
-        if(y25) yLabels.push('2025');
-        if(y26) yLabels.push('2026');
-        document.getElementById('yearSelectText').textContent = yLabels.length > 0 ? yLabels.join(', ') : 'Không chọn';
+        const yearBoxes = [...document.querySelectorAll('#yearDropdownList .cbYear')];
+        const yearsOn = new Set(yearBoxes.filter(c => c.checked).map(c => c.value));
+        document.getElementById('yearSelectText').textContent = yearsOn.size === 0 ? 'Không chọn'
+            : (yearsOn.size === yearBoxes.length && yearBoxes.length > 2 ? 'Tất cả' : [...yearsOn].join(', '));
 
         const fromDate = dateFrom ? new Date(dateFrom) : null;
         const toDate = dateTo ? new Date(dateTo) : null;
@@ -1410,9 +1570,7 @@
             // Year filter
             const d = parseDate(t.ngay);
             if (!d) return false;
-            const yr = d.getFullYear();
-            if (yr === 2025 && !y25) return false;
-            if (yr === 2026 && !y26) return false;
+            if (!yearsOn.has(String(d.getFullYear()))) return false;
             // Date range
             if (fromDate || toDate) {
                 if (fromDate && d < fromDate) return false;
@@ -1440,7 +1598,9 @@
             return 0;
         });
 
-        currentPage = 1;
+        if (keepPage === true) {
+            currentPage = Math.min(currentPage, Math.max(1, Math.ceil(filteredData.length / PAGE_SIZE)));
+        } else currentPage = 1;
         renderTable();
         updateStats();
     }
@@ -1603,8 +1763,7 @@
         document.getElementById('filterNhom').value = '';
         document.getElementById('filterDateFrom').value = '';
         document.getElementById('filterDateTo').value = '';
-        document.getElementById('cbYear2025').checked = true;
-        document.getElementById('cbYear2026').checked = true;
+        document.querySelectorAll('#yearDropdownList .cbYear').forEach(c => c.checked = true);
         // Bỏ chọn loại trừ nhưng vẫn giữ danh sách NCC đã thêm
         excludeItems.forEach(x => x.checked = false);
         saveExclude();
@@ -1640,8 +1799,6 @@
         return map[nhom] || 'nhom-khac';
     }
 
-    const NHOM_OPTIONS = ['Nội Bộ', 'Tư Vấn', 'Xây Lắp', 'VTTB', 'Kiểm Toán', 'Khác', 'Chưa'];
-
     function renderNhomSelect(t, idx, isMobile) {
         const nhomClass = getNhomClass(t.nhom);
         const prefix = isMobile ? 'msel' : 'sel';
@@ -1651,30 +1808,37 @@
         return `<select class="nhom-select ${nhomClass}" id="${prefix}-${idx}" onchange="changeNhom(${idx}, this.value, this)">${opts}</select>`;
     }
 
-    function changeNhom(idx, newNhom, el) {
+    async function changeNhom(idx, newNhom, el) {
         const t = filteredData[idx];
         if (!t) return;
         const ma = t.ma;
+        const oldNhom = t.nhom;
+        const label = t.ncc || t.ten;
 
         // Đổi đồng loạt: mọi giao dịch của cùng nhà cung cấp (theo mã NCC)
-        let count = 0;
-        DATA.transactions.forEach(x => {
-            if (x.ma === ma) { x.nhom = newNhom; count++; }
-        });
+        const setAll = v => { let c = 0; DATA.transactions.forEach(x => { if (x.ma === ma) { x.nhom = v; c++; } }); return c; };
+        const count = setAll(newNhom);
 
-        // Lưu ngay vào localStorage
-        nhomByNcc[ma] = newNhom;
-        // bỏ các thay đổi lẻ (bản cũ) của NCC này để không bị lệch
-        Object.keys(nhomChanges).forEach(k => { if (k.startsWith(ma + '|')) delete nhomChanges[k]; });
-        try {
-            localStorage.setItem(NHOM_NCC_KEY, JSON.stringify(nhomByNcc));
-            localStorage.setItem(NHOM_LEGACY_KEY, JSON.stringify(nhomChanges));
-            showToast(`✅ Đã đổi nhóm "${t.ncc && t.ncc !== 'NCC Khác' ? t.ncc : t.ten}" → ${newNhom} (${count} giao dịch)`);
-        } catch (e) {
-            showToast('⚠ Không lưu được vào bộ nhớ trình duyệt', true);
+        if (ONLINE) {
+            // Ghi lên Google Sheet → mọi máy cùng thấy
+            if (el) el.classList.add('saving');
+            try {
+                await apiPost({ action: 'setNhom', ma, nhom: newNhom });
+                showToast(`✅ Đã lưu lên Google Sheet: "${label}" → ${newNhom} (${count} giao dịch)`);
+            } catch (e) {
+                setAll(oldNhom);
+                showToast('⚠ Không lưu được lên Google Sheet: ' + e.message, true);
+            }
+        } else {
+            // Offline: lưu trong trình duyệt (chỉ máy này thấy)
+            nhomByNcc[ma] = newNhom;
+            Object.keys(nhomChanges).forEach(k => { if (k.startsWith(ma + '|')) delete nhomChanges[k]; });
+            const ok = lsSet(NHOM_NCC_KEY, JSON.stringify(nhomByNcc)) && lsSet(NHOM_LEGACY_KEY, JSON.stringify(nhomChanges));
+            showToast(ok ? `💾 Đã lưu trên máy này: "${label}" → ${newNhom} (chưa kết nối Google Sheet)`
+                         : '⚠ Không lưu được vào bộ nhớ trình duyệt', !ok);
         }
 
-        // Vẽ lại bảng ở trang hiện tại để các dòng cùng NCC cập nhật theo
+        refreshNhomFilter();
         renderTable();
     }
 
