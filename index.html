@@ -1024,7 +1024,6 @@
         <div class="table-wrapper">
             <div class="table-header-bar">
                 <h2>Danh sách giao dịch</h2>
-                <span class="unsaved-indicator" id="unsavedIndicator">⚠ Có thay đổi chưa lưu (F5 để lưu)</span>
                 <span class="result-count" id="resultCount">0 kết quả</span>
             </div>
             <div class="table-scroll">
@@ -1063,27 +1062,32 @@
     let sortCol = 'ngay';
     let sortDir = 'desc';
 
-    let nhomChanges = {};  // Track changed nhom: { 'ma|ngay|dien_giai': 'NewNhom' }
-    let hasUnsavedChanges = false;
+    // Nhóm overrides, saved to localStorage immediately on change
+    const NHOM_NCC_KEY = 'erp-nhom-ncc';         // { 'maNCC': 'Nhóm' }  — đổi đồng loạt theo NCC
+    const NHOM_LEGACY_KEY = 'erp-nhom-changes';  // { 'ma|ngay|dien_giai': 'Nhóm' } — bản cũ, đổi từng giao dịch
+    let nhomByNcc = {};
+    let nhomChanges = {};
+
+    function loadJSON(key) {
+        try { return JSON.parse(localStorage.getItem(key) || '{}') || {}; } catch (e) { return {}; }
+    }
 
     // Load data
     fetch('erp_data.json')
         .then(r => r.json())
         .then(data => {
             DATA = data;
-            // Apply saved nhom changes from localStorage
-            const saved = localStorage.getItem('erp-nhom-changes');
-            if (saved) {
-                try {
-                    nhomChanges = JSON.parse(saved);
-                    DATA.transactions.forEach(t => {
-                        const key = t.ma + '|' + t.ngay + '|' + t.dien_giai.substring(0, 50);
-                        if (nhomChanges[key]) {
-                            t.nhom = nhomChanges[key];
-                        }
-                    });
-                } catch(e) {}
-            }
+            // 1) legacy per-transaction changes (kept for backward compatibility)
+            nhomChanges = loadJSON(NHOM_LEGACY_KEY);
+            DATA.transactions.forEach(t => {
+                const key = t.ma + '|' + t.ngay + '|' + t.dien_giai.substring(0, 50);
+                if (nhomChanges[key]) t.nhom = nhomChanges[key];
+            });
+            // 2) per-supplier changes override everything for that supplier
+            nhomByNcc = loadJSON(NHOM_NCC_KEY);
+            DATA.transactions.forEach(t => {
+                if (nhomByNcc[t.ma]) t.nhom = nhomByNcc[t.ma];
+            });
             init();
         })
         .catch(err => {
@@ -1644,28 +1648,39 @@
     }
 
     function changeNhom(idx, newNhom, el) {
-        // Find the actual transaction in filteredData
         const t = filteredData[idx];
         if (!t) return;
-        // Update in DATA.transactions
-        const orig = DATA.transactions.find(x => x.ma === t.ma && x.ngay === t.ngay && x.dien_giai === t.dien_giai);
-        if (orig) orig.nhom = newNhom;
-        t.nhom = newNhom;
-        // Track change
-        const key = t.ma + '|' + t.ngay + '|' + t.dien_giai.substring(0, 50);
-        nhomChanges[key] = newNhom;
-        hasUnsavedChanges = true;
-        // Update select styling
-        el.className = 'nhom-select ' + getNhomClass(newNhom);
-        // Sync desktop/mobile counterpart
-        const otherId = el.id.startsWith('msel') ? 'sel-' + idx : 'msel-' + idx;
-        const other = document.getElementById(otherId);
-        if (other) {
-            other.value = newNhom;
-            other.className = 'nhom-select ' + getNhomClass(newNhom);
+        const ma = t.ma;
+
+        // Đổi đồng loạt: mọi giao dịch của cùng nhà cung cấp (theo mã NCC)
+        let count = 0;
+        DATA.transactions.forEach(x => {
+            if (x.ma === ma) { x.nhom = newNhom; count++; }
+        });
+
+        // Lưu ngay vào localStorage
+        nhomByNcc[ma] = newNhom;
+        // bỏ các thay đổi lẻ (bản cũ) của NCC này để không bị lệch
+        Object.keys(nhomChanges).forEach(k => { if (k.startsWith(ma + '|')) delete nhomChanges[k]; });
+        try {
+            localStorage.setItem(NHOM_NCC_KEY, JSON.stringify(nhomByNcc));
+            localStorage.setItem(NHOM_LEGACY_KEY, JSON.stringify(nhomChanges));
+            showToast(`✅ Đã đổi nhóm "${t.ncc && t.ncc !== 'NCC Khác' ? t.ncc : t.ten}" → ${newNhom} (${count} giao dịch)`);
+        } catch (e) {
+            showToast('⚠ Không lưu được vào bộ nhớ trình duyệt', true);
         }
-        // Show unsaved indicator
-        document.getElementById('unsavedIndicator').classList.add('show');
+
+        // Vẽ lại bảng ở trang hiện tại để các dòng cùng NCC cập nhật theo
+        renderTable();
+    }
+
+    function showToast(msg, isError) {
+        const toast = document.getElementById('saveToast');
+        toast.textContent = msg;
+        toast.style.background = isError ? 'var(--red)' : '';
+        toast.classList.add('show');
+        clearTimeout(showToast._t);
+        showToast._t = setTimeout(() => toast.classList.remove('show'), 3000);
     }
 
     function escHtml(s) {
@@ -1705,23 +1720,6 @@
 
     // Bind toggle click
     document.getElementById('themeToggle').addEventListener('click', toggleTheme);
-
-    // ============================================
-    // F5 SAVE NHOM CHANGES
-    // ============================================
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'F5' && hasUnsavedChanges) {
-            e.preventDefault();
-            // Save to localStorage
-            localStorage.setItem('erp-nhom-changes', JSON.stringify(nhomChanges));
-            hasUnsavedChanges = false;
-            document.getElementById('unsavedIndicator').classList.remove('show');
-            // Show toast
-            const toast = document.getElementById('saveToast');
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2500);
-        }
-    });
 
     </script>
 </body>
