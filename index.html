@@ -264,7 +264,7 @@
             display: flex;
             gap: 14px;
             flex-wrap: wrap;
-            align-items: flex-end;
+            align-items: flex-start;
         }
         .filter-group {
             display: flex;
@@ -377,6 +377,98 @@
             color: var(--red);
             background: rgba(239, 68, 68, 0.08);
         }
+        .filter-group.btn-group { flex: 0 0 auto; min-width: auto; }
+
+        /* Exclude NCC */
+        .filter-group label.sub-label { margin-top: 8px; }
+        .exclude-row { display: flex; gap: 8px; }
+        .exclude-input-wrap { position: relative; flex: 1; display: flex; flex-direction: column; }
+        .btn-add {
+            background: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: var(--radius-sm);
+            padding: 0 14px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+        .btn-add:hover { filter: brightness(1.1); box-shadow: 0 0 0 3px var(--accent-glow); }
+        .exclude-suggest {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 100%;
+            width: max-content;
+            max-width: min(620px, 90vw);
+            margin-top: 4px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-lg);
+            max-height: 280px;
+            overflow-y: auto;
+            z-index: 20;
+            padding: 6px;
+            display: none;
+        }
+        .exclude-suggest.show { display: block; }
+        .exclude-suggest-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 7px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+        }
+        .exclude-suggest-item:hover,
+        .exclude-suggest-item.active { background: var(--bg-primary); }
+        .exclude-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .exclude-code { color: var(--text-muted); font-size: 0.75rem; flex-shrink: 0; }
+        .exclude-empty { padding: 8px; font-size: 0.82rem; color: var(--text-muted); }
+        .exclude-dropdown { margin-top: 8px; }
+        .exclude-dropdown .dropdown-check-header.active {
+            border-color: var(--red);
+            color: var(--red);
+            background: rgba(239, 68, 68, 0.06);
+        }
+        .exclude-list { max-height: 300px; overflow-y: auto; }
+        .exclude-actions {
+            display: flex;
+            gap: 6px;
+            padding: 2px 2px 8px;
+            margin-bottom: 4px;
+            border-bottom: 1px solid var(--border);
+        }
+        .exclude-actions button {
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 4px 10px;
+            font-family: inherit;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+        .exclude-actions button:hover { border-color: var(--accent); color: var(--accent); }
+        .exclude-actions button.danger:hover { border-color: var(--red); color: var(--red); }
+        .exclude-item { display: flex; align-items: center; gap: 4px; }
+        .exclude-item label { flex: 1; min-width: 0; }
+        .exclude-remove {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.85rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        .exclude-remove:hover { color: var(--red); background: rgba(239, 68, 68, 0.08); }
 
         /* Table */
         .table-wrapper {
@@ -883,6 +975,20 @@
             <div class="filter-group search-group">
                 <label>Tìm nhà cung cấp</label>
                 <input type="text" id="searchNCC" placeholder="Nhập tên NCC, mã NCC...">
+                <label class="sub-label">Loại trừ nhà cung cấp</label>
+                <div class="exclude-row">
+                    <div class="exclude-input-wrap" id="excludeInputWrap">
+                        <input type="text" id="excludeInput" placeholder="Nhập tên/mã NCC cần loại trừ..." autocomplete="off">
+                        <div class="exclude-suggest" id="excludeSuggest"></div>
+                    </div>
+                    <button type="button" class="btn-add" id="btnExcludeAdd">＋ Thêm</button>
+                </div>
+                <div class="dropdown-check exclude-dropdown" id="excludeDropdown">
+                    <div class="dropdown-check-header" id="excludeHeader">
+                        <span id="excludeSelectText">Chưa có NCC loại trừ</span> <span style="font-size: 0.7em">▼</span>
+                    </div>
+                    <div class="dropdown-check-list exclude-list" id="excludeList"></div>
+                </div>
             </div>
             <div class="filter-group">
                 <label>Nhóm</label>
@@ -908,7 +1014,10 @@
                 <label>Đến ngày</label>
                 <input type="date" id="filterDateTo">
             </div>
-            <button class="btn-reset" id="btnReset">✕ Xóa lọc</button>
+            <div class="filter-group btn-group">
+                <label>&nbsp;</label>
+                <button class="btn-reset" id="btnReset">✕ Xóa lọc</button>
+            </div>
         </div>
 
         <!-- Table -->
@@ -998,6 +1107,7 @@
         document.getElementById('filterDateFrom').addEventListener('change', applyFilters);
         document.getElementById('filterDateTo').addEventListener('change', applyFilters);
         document.getElementById('btnReset').addEventListener('click', resetFilters);
+        initExclude();
 
         // Click outside to close year dropdown
         document.addEventListener('click', (e) => {
@@ -1038,6 +1148,230 @@
         list.style.display = list.style.display === 'flex' ? 'none' : 'flex';
     }
 
+    // ============================================
+    // EXCLUDE NCC (loại trừ nhà cung cấp)
+    // ============================================
+    const EXCLUDE_KEY = 'erp-exclude-ncc';
+    let nccIndex = [];          // [{ma, ten, ncc}] unique suppliers
+    let excludeItems = [];      // [{ma, checked}] suppliers added to exclude list
+    let suggestItems = [];      // current suggestion list
+    let suggestActive = -1;     // highlighted suggestion index
+
+    function nccDisplayName(n) {
+        return n.ncc && n.ncc !== 'NCC Khác' && n.ncc !== n.ten ? n.ncc + ' — ' + n.ten : n.ten;
+    }
+
+    function initExclude() {
+        const map = new Map();
+        DATA.transactions.forEach(t => {
+            if (!map.has(t.ma)) map.set(t.ma, { ma: t.ma, ten: t.ten, ncc: t.ncc });
+        });
+        nccIndex = [...map.values()].sort((a, b) => a.ten.localeCompare(b.ten, 'vi'));
+
+        try {
+            const saved = JSON.parse(localStorage.getItem(EXCLUDE_KEY) || '[]');
+            excludeItems = saved.filter(x => map.has(x.ma));
+        } catch (e) { excludeItems = []; }
+
+        const input = document.getElementById('excludeInput');
+        input.addEventListener('input', () => renderSuggest(input.value));
+        input.addEventListener('focus', () => { if (input.value.trim()) renderSuggest(input.value); });
+        input.addEventListener('keydown', e => {
+            const box = document.getElementById('excludeSuggest');
+            if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+                if (!box.classList.contains('show')) renderSuggest(input.value);
+                if (!suggestItems.length) return;
+                e.preventDefault();
+                const step = e.key === 'ArrowDown' ? 1 : -1;
+                suggestActive = (suggestActive + step + suggestItems.length) % suggestItems.length;
+                highlightSuggest();
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                addExcludeFromInput();
+            } else if (e.key === 'Escape') {
+                hideSuggest();
+            }
+        });
+        document.getElementById('btnExcludeAdd').addEventListener('click', addExcludeFromInput);
+
+        document.getElementById('excludeSuggest').addEventListener('mousedown', e => {
+            const item = e.target.closest('.exclude-suggest-item');
+            if (!item) return;
+            e.preventDefault();
+            addExclude(item.dataset.ma);
+        });
+
+        document.getElementById('excludeHeader').addEventListener('click', () => {
+            const list = document.getElementById('excludeList');
+            list.style.display = list.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        document.getElementById('excludeList').addEventListener('click', e => {
+            const btn = e.target.closest('button');
+            if (!btn) return;
+            e.preventDefault();
+            if (btn.dataset.remove) removeExclude(btn.dataset.remove);
+            else if (btn.dataset.action === 'all') setAllExclude(true);
+            else if (btn.dataset.action === 'none') setAllExclude(false);
+            else if (btn.dataset.action === 'clear') clearExclude();
+        });
+        document.getElementById('excludeList').addEventListener('change', e => {
+            if (e.target.type !== 'checkbox') return;
+            const item = excludeItems.find(x => x.ma === e.target.dataset.ma);
+            if (item) item.checked = e.target.checked;
+            saveExclude();
+            renderExcludeHeader();
+            applyFilters();
+        });
+
+        document.addEventListener('click', e => {
+            // composedPath() still contains nodes removed by a re-render during this click
+            const path = e.composedPath();
+            if (!path.includes(document.getElementById('excludeInputWrap')) &&
+                !path.includes(document.getElementById('btnExcludeAdd'))) hideSuggest();
+            if (!path.includes(document.getElementById('excludeDropdown')))
+                document.getElementById('excludeList').style.display = 'none';
+        });
+
+        renderExcludeList();
+    }
+
+    function findNccMatches(q) {
+        q = q.toLowerCase().trim();
+        if (!q) return [];
+        const added = new Set(excludeItems.map(x => x.ma));
+        return nccIndex.filter(n => !added.has(n.ma) &&
+            (n.ma.includes(q) || n.ten.toLowerCase().includes(q) || (n.ncc || '').toLowerCase().includes(q)));
+    }
+
+    function renderSuggest(q) {
+        const box = document.getElementById('excludeSuggest');
+        if (!q.trim()) { hideSuggest(); return; }
+        suggestItems = findNccMatches(q).slice(0, 50);
+        suggestActive = suggestItems.length ? 0 : -1;
+        box.innerHTML = suggestItems.length
+            ? suggestItems.map((n, i) =>
+                `<div class="exclude-suggest-item${i === 0 ? ' active' : ''}" data-ma="${escHtml(n.ma)}">
+                    <span class="exclude-name">${escHtml(nccDisplayName(n))}</span>
+                    <span class="exclude-code">${escHtml(n.ma)}</span>
+                </div>`).join('')
+            : '<div class="exclude-empty">Không tìm thấy NCC (hoặc đã có trong danh sách loại trừ)</div>';
+        box.classList.add('show');
+    }
+
+    function highlightSuggest() {
+        const items = document.querySelectorAll('#excludeSuggest .exclude-suggest-item');
+        items.forEach((el, i) => el.classList.toggle('active', i === suggestActive));
+        if (items[suggestActive]) items[suggestActive].scrollIntoView({ block: 'nearest' });
+    }
+
+    function hideSuggest() {
+        document.getElementById('excludeSuggest').classList.remove('show');
+        suggestItems = [];
+        suggestActive = -1;
+    }
+
+    function addExcludeFromInput() {
+        const input = document.getElementById('excludeInput');
+        const q = input.value.trim();
+        if (!q) { input.focus(); return; }
+        const box = document.getElementById('excludeSuggest');
+        if (box.classList.contains('show') && suggestItems[suggestActive]) {
+            addExclude(suggestItems[suggestActive].ma);
+            return;
+        }
+        const matches = findNccMatches(q);
+        const exact = matches.find(n => n.ma === q || n.ten.toLowerCase() === q.toLowerCase());
+        if (exact) addExclude(exact.ma);
+        else if (matches.length === 1) addExclude(matches[0].ma);
+        else renderSuggest(q);   // nhiều kết quả → để người dùng chọn
+    }
+
+    function addExclude(ma) {
+        if (!excludeItems.some(x => x.ma === ma)) excludeItems.push({ ma, checked: true });
+        const input = document.getElementById('excludeInput');
+        input.value = '';
+        hideSuggest();
+        saveExclude();
+        renderExcludeList();
+        applyFilters();
+        input.focus();
+    }
+
+    function removeExclude(ma) {
+        excludeItems = excludeItems.filter(x => x.ma !== ma);
+        saveExclude();
+        renderExcludeList();
+        applyFilters();
+    }
+
+    function setAllExclude(checked) {
+        excludeItems.forEach(x => x.checked = checked);
+        saveExclude();
+        renderExcludeList();
+        applyFilters();
+    }
+
+    function clearExclude() {
+        if (excludeItems.length && !confirm('Xoá toàn bộ danh sách NCC loại trừ?')) return;
+        excludeItems = [];
+        saveExclude();
+        renderExcludeList();
+        applyFilters();
+    }
+
+    function saveExclude() {
+        localStorage.setItem(EXCLUDE_KEY, JSON.stringify(excludeItems));
+    }
+
+    function getExcludedSet() {
+        return new Set(excludeItems.filter(x => x.checked).map(x => x.ma));
+    }
+
+    function renderExcludeHeader() {
+        const header = document.getElementById('excludeHeader');
+        const text = document.getElementById('excludeSelectText');
+        const total = excludeItems.length;
+        const active = excludeItems.filter(x => x.checked);
+        if (!total) text.textContent = 'Chưa có NCC loại trừ';
+        else if (!active.length) text.textContent = `Không loại trừ (0/${total} NCC được chọn)`;
+        else if (active.length === 1) {
+            const n = nccIndex.find(x => x.ma === active[0].ma);
+            text.textContent = `Đang loại trừ: ${n ? nccDisplayName(n) : active[0].ma}` + (total > 1 ? ` (1/${total})` : '');
+        } else text.textContent = `Đang loại trừ ${active.length}/${total} NCC`;
+        header.classList.toggle('active', active.length > 0);
+        header.title = active.map(x => {
+            const n = nccIndex.find(y => y.ma === x.ma);
+            return n ? `${n.ma} - ${n.ten}` : x.ma;
+        }).join('\n');
+    }
+
+    function renderExcludeList() {
+        const list = document.getElementById('excludeList');
+        if (!excludeItems.length) {
+            list.innerHTML = '<div class="exclude-empty">Chưa có NCC nào. Nhập tên/mã ở ô phía trên rồi bấm “＋ Thêm”.</div>';
+        } else {
+            const actions = `<div class="exclude-actions">
+                    <button type="button" data-action="all">Chọn tất cả</button>
+                    <button type="button" data-action="none">Bỏ chọn tất cả</button>
+                    <button type="button" class="danger" data-action="clear">Xoá danh sách</button>
+                </div>`;
+            const items = excludeItems.map(x => {
+                const n = nccIndex.find(y => y.ma === x.ma) || { ma: x.ma, ten: x.ma, ncc: '' };
+                return `<div class="exclude-item">
+                    <label title="${escHtml(n.ma + ' - ' + n.ten)}">
+                        <input type="checkbox" data-ma="${escHtml(x.ma)}"${x.checked ? ' checked' : ''}>
+                        <span class="exclude-name">${escHtml(nccDisplayName(n))}</span>
+                        <span class="exclude-code">${escHtml(n.ma)}</span>
+                    </label>
+                    <button type="button" class="exclude-remove" data-remove="${escHtml(x.ma)}" title="Xoá khỏi danh sách">✕</button>
+                </div>`;
+            }).join('');
+            list.innerHTML = actions + items;
+        }
+        renderExcludeHeader();
+    }
+
     function applyFilters() {
         const search = document.getElementById('searchNCC').value.toLowerCase().trim();
         const nhom = document.getElementById('filterNhom').value;
@@ -1055,8 +1389,11 @@
 
         const fromDate = dateFrom ? new Date(dateFrom) : null;
         const toDate = dateTo ? new Date(dateTo) : null;
+        const excluded = getExcludedSet();
 
         filteredData = DATA.transactions.filter(t => {
+            // Exclude NCC
+            if (excluded.has(t.ma)) return false;
             // Search
             if (search) {
                 const searchIn = (t.ncc + ' ' + t.ten + ' ' + t.ma + ' ' + t.dien_giai).toLowerCase();
@@ -1262,6 +1599,11 @@
         document.getElementById('filterDateTo').value = '';
         document.getElementById('cbYear2025').checked = true;
         document.getElementById('cbYear2026').checked = true;
+        // Bỏ chọn loại trừ nhưng vẫn giữ danh sách NCC đã thêm
+        excludeItems.forEach(x => x.checked = false);
+        saveExclude();
+        renderExcludeList();
+        document.getElementById('excludeInput').value = '';
         applyFilters();
     }
 
