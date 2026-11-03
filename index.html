@@ -618,6 +618,8 @@
             white-space: nowrap;
             color: var(--green);
         }
+        .amount.negative,
+        .mobile-card-amount.negative { color: var(--red); }
 
         /* Date column */
         .date-cell {
@@ -1484,7 +1486,7 @@
                     </div>
                 </td>
                 <td>${renderNhomSelect(t, start + i)}</td>
-                <td class="amount">${formatMoney(t.so_tien)}</td>
+                <td class="amount${t.so_tien < 0 ? ' negative' : ''}">${formatMoney(t.so_tien)}</td>
                 <td class="desc-cell">${escHtml(t.dien_giai)}</td>
                 <td class="date-cell">${escHtml(t.ngay)}</td>
             </tr>`;
@@ -1519,7 +1521,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mobile-card-amount">${formatMoney(t.so_tien)}</div>
+                    <div class="mobile-card-amount${t.so_tien < 0 ? ' negative' : ''}">${formatMoney(t.so_tien)}</div>
                 </div>
                 <div class="mobile-card-desc">${escHtml(t.dien_giai)}</div>
                 <div class="mobile-card-footer">
@@ -1617,10 +1619,12 @@
     }
 
     function formatMoneyShort(n) {
-        if (n >= 1e12) return (n/1e12).toFixed(1) + ' nghìn tỷ';
-        if (n >= 1e9) return (n/1e9).toFixed(1) + ' tỷ';
-        if (n >= 1e6) return (n/1e6).toFixed(1) + ' tr';
-        return Number(n).toLocaleString('vi-VN');
+        const sign = n < 0 ? '-' : '';
+        const a = Math.abs(n);
+        if (a >= 1e12) return sign + (a/1e12).toFixed(1) + ' nghìn tỷ';
+        if (a >= 1e9) return sign + (a/1e9).toFixed(1) + ' tỷ';
+        if (a >= 1e6) return sign + (a/1e6).toFixed(1) + ' tr';
+        return sign + Math.round(a).toLocaleString('vi-VN');
     }
 
     function getNhomClass(nhom) {

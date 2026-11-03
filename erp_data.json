@@ -1081,24 +1081,6 @@
       "ngay": "31/12/2025"
     },
     {
-      "ma": "14025",
-      "ten": "Công Ty Cổ Phần Cáp Điện Và Hệ Thống Ls-Vina",
-      "ncc": "Cáp LS Vina",
-      "nhom": "VTTB",
-      "so_tien": 241220400,
-      "dien_giai": "",
-      "ngay": "31/03/2026"
-    },
-    {
-      "ma": "14025",
-      "ten": "Công Ty Cổ Phần Cáp Điện Và Hệ Thống Ls-Vina",
-      "ncc": "Cáp LS Vina",
-      "nhom": "VTTB",
-      "so_tien": -241220400,
-      "dien_giai": "",
-      "ngay": "31/03/2026"
-    },
-    {
       "ma": "14049",
       "ten": "Công ty TNHH TV XD Nguyên Việt",
       "ncc": "NCC Khác",
@@ -2066,24 +2048,6 @@
       "ten": "CN Tổng công ty Điện lực miền Nam TNHH - Công ty Dịch vụ điện lực miền Nam",
       "ncc": "Dịch Vụ ĐLMN",
       "nhom": "Nội Bộ",
-      "so_tien": -624114963,
-      "dien_giai": "",
-      "ngay": "01/10/2025"
-    },
-    {
-      "ma": "15287",
-      "ten": "CN Tổng công ty Điện lực miền Nam TNHH - Công ty Dịch vụ điện lực miền Nam",
-      "ncc": "Dịch Vụ ĐLMN",
-      "nhom": "Nội Bộ",
-      "so_tien": 624114963,
-      "dien_giai": "",
-      "ngay": "01/10/2025"
-    },
-    {
-      "ma": "15287",
-      "ten": "CN Tổng công ty Điện lực miền Nam TNHH - Công ty Dịch vụ điện lực miền Nam",
-      "ncc": "Dịch Vụ ĐLMN",
-      "nhom": "Nội Bộ",
       "so_tien": 559326686,
       "dien_giai": "Chuyển TT phần còn lại tiền MBA cấp nguồn 1 pha theo HĐồng 192/2023/HĐMB-PCBRVT-DVĐLMN + PLHĐ 01-1/7/25 , HĐơn 2033-21/12/2023 + hđơn 26-11/01/2024",
       "ngay": "28/11/2025"
@@ -2204,24 +2168,6 @@
       "so_tien": 69130800,
       "dien_giai": "Chuyển TT tiền mua LBFCO 24KV theo hợp đồng 05-25/HĐ-PCBRVT-TTL/ĐTXD-17/5/25, theo hoá đơn 00000843-19/5/25",
       "ngay": "05/09/2025"
-    },
-    {
-      "ma": "15421",
-      "ten": "Công ty TNHH SX TM Điện Sài Gòn TTL",
-      "ncc": "Điện Sài Gòn TTL",
-      "nhom": "VTTB",
-      "so_tien": -121936500,
-      "dien_giai": "",
-      "ngay": "01/10/2025"
-    },
-    {
-      "ma": "15421",
-      "ten": "Công ty TNHH SX TM Điện Sài Gòn TTL",
-      "ncc": "Điện Sài Gòn TTL",
-      "nhom": "VTTB",
-      "so_tien": 121936500,
-      "dien_giai": "",
-      "ngay": "01/10/2025"
     },
     {
       "ma": "15421",
@@ -4910,15 +4856,6 @@
       "ten": "CÔNG TY CỔ PHẦN ĐIỆN LỰC THANH HÓA",
       "ncc": "XDD Thanh Hoá",
       "nhom": "Xây Lắp",
-      "so_tien": 2396971388,
-      "dien_giai": "CT25007_Phải trả cty Thanh Hóa (hóa đơn 172/28.11.25) KLHT đợt 2",
-      "ngay": "01/12/2025"
-    },
-    {
-      "ma": "20437",
-      "ten": "CÔNG TY CỔ PHẦN ĐIỆN LỰC THANH HÓA",
-      "ncc": "XDD Thanh Hoá",
-      "nhom": "Xây Lắp",
       "so_tien": 1198485694,
       "dien_giai": "CT25007_Điều chỉnh SDDK gắn mã CT",
       "ngay": "01/12/2025"
@@ -4958,15 +4895,6 @@
       "so_tien": 1198485694,
       "dien_giai": "Điều chỉnh AP25044/28.11.25 số dư do áp tạm ứng SDĐK",
       "ngay": "31/12/2025"
-    },
-    {
-      "ma": "20437",
-      "ten": "CÔNG TY CỔ PHẦN ĐIỆN LỰC THANH HÓA",
-      "ncc": "XDD Thanh Hoá",
-      "nhom": "Xây Lắp",
-      "so_tien": -2396971388,
-      "dien_giai": "CT25007_Phải trả cty Thanh Hóa (hóa đơn 172/28.11.25) KLHT đợt 2",
-      "ngay": "08/01/2026"
     },
     {
       "ma": "20437",
@@ -5973,7 +5901,7 @@
       "ncc": "MTMN",
       "nhom": "Khác",
       "so_tien": 14280043842,
-      "dien_giai": "",
+      "dien_giai": "Chứng từ Manual số R0226AG013 (TK 33111000000)",
       "ngay": "27/02/2026"
     },
     {
@@ -6036,7 +5964,7 @@
       "ncc": "MTMN",
       "nhom": "Khác",
       "so_tien": 3985013482,
-      "dien_giai": "",
+      "dien_giai": "Chứng từ Manual số R0426AG021A. (TK 33111000000)",
       "ngay": "21/04/2026"
     },
     {
@@ -6605,24 +6533,6 @@
       "so_tien": 308286555,
       "dien_giai": "T/toán 5% còn lại Hđơn 9/28.10.23-HĐ 12/03.11.22-HĐ 3+4/03.03.23\"DD THT & TBA n/cấp TL44B L.điền. Đ.Đỏ năm 2023\"",
       "ngay": "26/12/2025"
-    },
-    {
-      "ma": "20566",
-      "ten": "Công ty TNHH XD-TM- Kỹ Thuật T&T",
-      "ncc": "T&T",
-      "nhom": "Chưa",
-      "so_tien": -806171757,
-      "dien_giai": "",
-      "ngay": "31/12/2025"
-    },
-    {
-      "ma": "20566",
-      "ten": "Công ty TNHH XD-TM- Kỹ Thuật T&T",
-      "ncc": "T&T",
-      "nhom": "Chưa",
-      "so_tien": 806171757,
-      "dien_giai": "",
-      "ngay": "31/12/2025"
     },
     {
       "ma": "20566",
@@ -7444,24 +7354,6 @@
       "ngay": "08/08/2025"
     },
     {
-      "ma": "20757",
-      "ten": "CÔNG TY ĐIỆN LỰC BÀ RỊA VŨNG TÀU",
-      "ncc": "NCC Khác",
-      "nhom": "Chưa",
-      "so_tien": -5373041,
-      "dien_giai": "CẤN TRỪ CÔNG NỢ",
-      "ngay": "24/10/2025"
-    },
-    {
-      "ma": "20757",
-      "ten": "CÔNG TY ĐIỆN LỰC BÀ RỊA VŨNG TÀU",
-      "ncc": "NCC Khác",
-      "nhom": "Chưa",
-      "so_tien": 5373041,
-      "dien_giai": "CẤN TRỪ CÔNG NỢ",
-      "ngay": "24/10/2025"
-    },
-    {
       "ma": "20769",
       "ten": "Viettel Bà Rịa Vũng Tàu- CN Tập Đoàn Viễn Thông Quân Đội",
       "ncc": "Viettel",
@@ -7647,7 +7539,7 @@
       "ncc": "Ngân Hàng Quân Đội",
       "nhom": "Khác",
       "so_tien": -7603009148,
-      "dien_giai": "",
+      "dien_giai": "Điều chỉnh giảm – Chứng từ Quick số B0326K001 (TK 33111000000)",
       "ngay": "31/03/2026"
     },
     {
