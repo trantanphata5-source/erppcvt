@@ -458,6 +458,8 @@
         .exclude-actions button:hover { border-color: var(--accent); color: var(--accent); }
         .exclude-actions button.danger:hover { border-color: var(--red); color: var(--red); }
         .exclude-item { display: flex; align-items: center; gap: 4px; }
+        .nhom-exclude-list { min-width: 220px; }
+        .nhom-exclude-list .nhom-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; background: currentColor; }
         .exclude-item label { flex: 1; min-width: 0; }
         .exclude-remove {
             background: transparent;
@@ -469,6 +471,54 @@
             border-radius: 4px;
         }
         .exclude-remove:hover { color: var(--red); background: rgba(239, 68, 68, 0.08); }
+
+        /* Thống kê NCC (khung khi chọn NCC + tooltip khi lia chuột) */
+        .search-wrap { position: relative; display: flex; flex-direction: column; }
+        .search-suggest-meta { color: var(--text-muted); font-size: 0.75rem; flex-shrink: 0; text-align: right; }
+        .ncc-summary {
+            display: none; margin-bottom: 20px; padding: 18px 22px;
+            background: var(--bg-card); border: 1px solid var(--accent); border-radius: var(--radius);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+        .ncc-summary.show { display: block; animation: slideDown 0.2s ease; }
+        .ncc-summary-head { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+        .ncc-summary-title { flex: 1; min-width: 0; }
+        .ncc-summary-title h3 { font-size: 1.05rem; font-weight: 700; color: var(--text-primary); }
+        .ncc-summary-title p { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+        .ncc-summary-close {
+            background: none; border: 1px solid var(--border); color: var(--text-secondary); border-radius: 6px;
+            padding: 4px 10px; font: inherit; font-size: 0.78rem; cursor: pointer; flex-shrink: 0;
+        }
+        .ncc-summary-close:hover { border-color: var(--red); color: var(--red); }
+        .ncc-summary-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+        .ncc-kpi { background: var(--bg-input); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 10px 14px; }
+        .ncc-kpi .v { font-size: 1.15rem; font-weight: 700; color: var(--text-primary); font-variant-numeric: tabular-nums; }
+        .ncc-kpi .l { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 2px; }
+        .ncc-kpi .s { font-size: 0.75rem; color: var(--text-secondary); margin-top: 4px; font-variant-numeric: tabular-nums; }
+        .ncc-years { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; font-size: 0.78rem; color: var(--text-secondary); }
+        .ncc-years span { background: var(--bg-input); border: 1px solid var(--border); border-radius: 999px; padding: 3px 10px; font-variant-numeric: tabular-nums; }
+        .ncc-name[data-ma] { cursor: help; }
+        .ncc-name[data-ma]:hover { color: var(--accent); }
+        .ncc-tip {
+            position: fixed; z-index: 1000; display: none; pointer-events: none;
+            width: 300px; max-width: calc(100vw - 24px);
+            background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-lg); padding: 12px 14px; font-size: 0.8rem; color: var(--text-secondary);
+        }
+        .ncc-tip.show { display: block; }
+        .ncc-tip h4 { font-size: 0.88rem; color: var(--text-primary); font-weight: 700; margin-bottom: 2px; }
+        .ncc-tip .sub { color: var(--text-muted); font-size: 0.72rem; margin-bottom: 8px; }
+        .ncc-tip .row { display: flex; justify-content: space-between; gap: 10px; padding: 2px 0; }
+        .ncc-tip .row b { color: var(--text-primary); font-variant-numeric: tabular-nums; text-align: right; }
+        .ncc-tip .note { margin-top: 6px; font-size: 0.7rem; color: var(--text-muted); }
+        @media (max-width: 900px) { .ncc-summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 600px) {
+            .ncc-summary { padding: 14px; }
+            .ncc-summary-grid { gap: 8px; }
+            .ncc-kpi { padding: 8px 10px; }
+            .ncc-kpi .v { font-size: 0.92rem; word-break: break-word; }
+            .ncc-kpi .l { font-size: 0.62rem; }
+        }
 
         /* Table */
         .table-wrapper {
@@ -654,6 +704,7 @@
         .nhom-kiemtoan { background: rgba(236,72,153,0.12); color: #f472b6; }
         .nhom-khac { background: rgba(107,114,128,0.12); color: #9ca3af; }
         .nhom-chua { background: rgba(75,85,99,0.12); color: #6b7280; }
+        .nhom-dichvucong { background: rgba(20,184,166,0.12); color: #2dd4bf; }
 
         /* Light mode badge adjustments */
         [data-theme="light"] .nhom-noibo { background: rgba(37,99,235,0.1); color: #1d4ed8; }
@@ -663,6 +714,7 @@
         [data-theme="light"] .nhom-kiemtoan { background: rgba(219,39,119,0.1); color: #be185d; }
         [data-theme="light"] .nhom-khac { background: rgba(107,114,128,0.1); color: #4b5563; }
         [data-theme="light"] .nhom-chua { background: rgba(75,85,99,0.1); color: #374151; }
+        [data-theme="light"] .nhom-dichvucong { background: rgba(13,148,136,0.1); color: #0f766e; }
 
         /* No results */
         .no-results {
@@ -890,6 +942,7 @@
         .nhom-select.nhom-vttb { background: rgba(245,158,11,0.1); color: var(--orange); border-color: rgba(245,158,11,0.3); }
         .nhom-select.nhom-kiemtoan { background: rgba(6,182,212,0.1); color: var(--cyan); border-color: rgba(6,182,212,0.3); }
         .nhom-select.nhom-khac { background: rgba(107,114,128,0.1); color: var(--text-muted); border-color: rgba(107,114,128,0.3); }
+        .nhom-select.nhom-dichvucong { background: rgba(20,184,166,0.1); color: #14b8a6; border-color: rgba(20,184,166,0.3); }
         .nhom-select.nhom-chua { background: rgba(239,68,68,0.08); color: var(--red); border-color: rgba(239,68,68,0.2); }
 
         /* Save notification */
@@ -987,7 +1040,10 @@
         <div class="filter-bar">
             <div class="filter-group search-group">
                 <label>Tìm nhà cung cấp</label>
-                <input type="text" id="searchNCC" placeholder="Nhập tên NCC, mã NCC...">
+                <div class="search-wrap" id="searchWrap">
+                    <input type="text" id="searchNCC" placeholder="Nhập tên NCC, mã NCC... (chọn 1 NCC để xem thống kê)" autocomplete="off">
+                    <div class="exclude-suggest" id="searchSuggest"></div>
+                </div>
                 <label class="sub-label">Loại trừ nhà cung cấp</label>
                 <div class="exclude-row">
                     <div class="exclude-input-wrap" id="excludeInputWrap">
@@ -1008,6 +1064,13 @@
                 <select id="filterNhom">
                     <option value="">Tất cả nhóm</option>
                 </select>
+                <label class="sub-label">Loại trừ nhóm</label>
+                <div class="dropdown-check exclude-dropdown" id="nhomExcludeDropdown" style="margin-top:0">
+                    <div class="dropdown-check-header" id="nhomExcludeHeader">
+                        <span id="nhomExcludeText">Không loại trừ nhóm</span> <span style="font-size: 0.7em">▼</span>
+                    </div>
+                    <div class="dropdown-check-list exclude-list nhom-exclude-list" id="nhomExcludeList"></div>
+                </div>
             </div>
             <div class="filter-group dropdown-check" id="yearDropdown">
                 <label>Năm</label>
@@ -1029,6 +1092,9 @@
                 <button class="btn-reset" id="btnReset">✕ Xóa lọc</button>
             </div>
         </div>
+
+        <!-- Thống kê NCC đang chọn -->
+        <div class="ncc-summary" id="nccSummary"></div>
 
         <!-- Table -->
         <div class="table-wrapper">
@@ -1059,6 +1125,7 @@
             <div class="pagination" id="pagination"></div>
         </div>
     </div>
+    <div class="ncc-tip" id="nccTip"></div>
     <div class="save-toast" id="saveToast">✅ Đã lưu thay đổi Nhóm!</div>
 
     <script>
@@ -1069,7 +1136,7 @@
     // ============================================
     const API_URL = 'https://script.google.com/macros/s/AKfycbxl41JQ6BrR6Uyfek5UEuqq8MBAZBH6NfZEazkVQ3wBRxmgIBG8pyk3e9mqED1t2Mg/exec';
     const STATIC_URL = 'erp_data.json';
-    const NHOM_DEFAULT = ['Nội Bộ', 'Tư Vấn', 'Xây Lắp', 'VTTB', 'Kiểm Toán', 'Khác', 'Chưa'];
+    const NHOM_DEFAULT = ['Nội Bộ', 'Tư Vấn', 'Xây Lắp', 'VTTB', 'Kiểm Toán', 'Dịch Vụ Công', 'Khác', 'Chưa'];
     let NHOM_OPTIONS = NHOM_DEFAULT.slice();
     let ONLINE = false;
     let lastLoad = 0;
@@ -1115,7 +1182,10 @@
                 if (!t.nhom || t.nhom === 'Chưa') t.nhom = a.nhom;
             }
         });
-        if (Array.isArray(data.nhom_options) && data.nhom_options.length) NHOM_OPTIONS = data.nhom_options;
+        // Danh sách nhóm = nhóm mặc định + nhóm do Google Sheet trả về (sheet "Nhóm" nếu có) + nhóm đang dùng
+        const extra = (Array.isArray(data.nhom_options) ? data.nhom_options : []).concat(data.transactions.map(t => t.nhom));
+        NHOM_OPTIONS = Array.from(new Set(NHOM_DEFAULT.filter(n => n !== 'Khác' && n !== 'Chưa')
+            .concat(extra.filter(n => n && n !== 'Khác' && n !== 'Chưa'), ['Khác', 'Chưa'])));
         return data;
     }
 
@@ -1254,10 +1324,73 @@
     function refreshNhomFilter() {
         const sel = document.getElementById('filterNhom');
         const cur = sel.value;
-        const list = Array.from(new Set([...(DATA.nhom_list || []), ...DATA.transactions.map(t => t.nhom)]));
+        const used = new Set(DATA.transactions.map(t => t.nhom));
+        const list = NHOM_OPTIONS.filter(n => used.has(n)).concat([...used].filter(n => !NHOM_OPTIONS.includes(n)));
         sel.innerHTML = '<option value="">Tất cả nhóm</option>' +
             list.map(n => `<option value="${escHtml(n)}">${escHtml(n)}</option>`).join('');
         if (list.includes(cur)) sel.value = cur;
+        renderNhomExclude();
+    }
+
+    // ============================================
+    // LOẠI TRỪ NHÓM (lưu trên trình duyệt từng máy, giống loại trừ NCC)
+    // ============================================
+    const NHOM_EXCLUDE_KEY = 'erp-exclude-nhom';
+    let nhomExcluded = new Set();
+    try { nhomExcluded = new Set(JSON.parse(localStorage.getItem(NHOM_EXCLUDE_KEY) || '[]')); } catch (e) {}
+
+    function saveNhomExclude() { lsSet(NHOM_EXCLUDE_KEY, JSON.stringify([...nhomExcluded])); }
+
+    function renderNhomExclude() {
+        const counts = {};
+        DATA.transactions.forEach(t => { counts[t.nhom] = (counts[t.nhom] || 0) + 1; });
+        const all = NHOM_OPTIONS.concat(Object.keys(counts).filter(n => !NHOM_OPTIONS.includes(n)));
+        const list = document.getElementById('nhomExcludeList');
+        list.innerHTML = `<div class="exclude-actions">
+                <button type="button" data-nx="all">Loại trừ tất cả</button>
+                <button type="button" data-nx="none">Bỏ loại trừ</button>
+            </div>` + all.map(n => `<label>
+                <input type="checkbox" data-nhom="${escHtml(n)}"${nhomExcluded.has(n) ? ' checked' : ''}>
+                <span class="nhom-dot ${getNhomClass(n)}"></span>
+                <span class="exclude-name">${escHtml(n)}</span>
+                <span class="exclude-code">${counts[n] || 0} GD</span>
+            </label>`).join('');
+        renderNhomExcludeHeader();
+    }
+
+    function renderNhomExcludeHeader() {
+        const on = [...nhomExcluded];
+        const text = document.getElementById('nhomExcludeText');
+        text.textContent = !on.length ? 'Không loại trừ nhóm'
+            : on.length <= 2 ? 'Loại trừ: ' + on.join(', ') : `Đang loại trừ ${on.length} nhóm`;
+        const header = document.getElementById('nhomExcludeHeader');
+        header.classList.toggle('active', on.length > 0);
+        header.title = on.length ? 'Đang loại trừ: ' + on.join(', ') : '';
+    }
+
+    function initNhomExclude() {
+        const dd = document.getElementById('nhomExcludeDropdown');
+        const list = document.getElementById('nhomExcludeList');
+        document.getElementById('nhomExcludeHeader').addEventListener('click', () => {
+            list.style.display = list.style.display === 'flex' ? 'none' : 'flex';
+        });
+        list.addEventListener('change', e => {
+            if (e.target.type !== 'checkbox') return;
+            const n = e.target.dataset.nhom;
+            if (e.target.checked) nhomExcluded.add(n); else nhomExcluded.delete(n);
+            saveNhomExclude(); renderNhomExcludeHeader(); applyFilters();
+        });
+        list.addEventListener('click', e => {
+            const b = e.target.closest('button[data-nx]');
+            if (!b) return;
+            e.preventDefault();
+            if (b.dataset.nx === 'all') list.querySelectorAll('input[data-nhom]').forEach(c => nhomExcluded.add(c.dataset.nhom));
+            else nhomExcluded.clear();
+            saveNhomExclude(); renderNhomExclude(); applyFilters();
+        });
+        document.addEventListener('click', e => {
+            if (!e.composedPath().includes(dd)) list.style.display = 'none';
+        });
     }
 
     function buildYearList() {
@@ -1267,11 +1400,13 @@
     }
 
     function init() {
+        initNhomExclude();
         refreshNhomFilter();
         buildYearList();
 
         // Event listeners
-        document.getElementById('searchNCC').addEventListener('input', debounce(applyFilters, 200));
+        initSearchSuggest();
+        initNccTip();
         document.getElementById('filterNhom').addEventListener('change', applyFilters);
         document.getElementById('filterDateFrom').addEventListener('change', applyFilters);
         document.getElementById('filterDateTo').addEventListener('change', applyFilters);
@@ -1336,6 +1471,7 @@
             if (!map.has(t.ma)) map.set(t.ma, { ma: t.ma, ten: t.ten, ncc: t.ncc });
         });
         nccIndex = [...map.values()].sort((a, b) => a.ten.localeCompare(b.ten, 'vi'));
+        nccStatsAll = buildNccStats(DATA.transactions);
 
         try {
             const saved = JSON.parse(localStorage.getItem(EXCLUDE_KEY) || '[]');
@@ -1557,26 +1693,32 @@
         const toDate = dateTo ? new Date(dateTo) : null;
         const excluded = getExcludedSet();
 
+        // Bộ lọc thời gian (năm + từ ngày/đến ngày) — dùng chung cho bảng và thống kê NCC
+        inTime = t => {
+            const d = parseDate(t.ngay);
+            if (!d) return false;
+            if (!yearsOn.has(String(d.getFullYear()))) return false;
+            if (fromDate && d < fromDate) return false;
+            if (toDate && d > toDate) return false;
+            return true;
+        };
+        timeFiltered = !!(fromDate || toDate || yearsOn.size !== yearBoxes.length);
+        nccStatsTime = buildNccStats(DATA.transactions.filter(inTime));
+
         filteredData = DATA.transactions.filter(t => {
             // Exclude NCC
             if (excluded.has(t.ma)) return false;
-            // Search
-            if (search) {
+            // NCC đã chọn từ gợi ý → lọc đúng mã; nếu không thì tìm theo chữ
+            if (selectedNcc) {
+                if (t.ma !== selectedNcc) return false;
+            } else if (search) {
                 const searchIn = (t.ncc + ' ' + t.ten + ' ' + t.ma + ' ' + t.dien_giai).toLowerCase();
                 if (!searchIn.includes(search)) return false;
             }
             // Nhóm
             if (nhom && t.nhom !== nhom) return false;
-            // Year filter
-            const d = parseDate(t.ngay);
-            if (!d) return false;
-            if (!yearsOn.has(String(d.getFullYear()))) return false;
-            // Date range
-            if (fromDate || toDate) {
-                if (fromDate && d < fromDate) return false;
-                if (toDate && d > toDate) return false;
-            }
-            return true;
+            if (nhomExcluded.has(t.nhom)) return false;
+            return inTime(t);
         });
 
         // Sort
@@ -1603,6 +1745,7 @@
         } else currentPage = 1;
         renderTable();
         updateStats();
+        renderNccSummary();
     }
 
     function renderTable() {
@@ -1631,7 +1774,7 @@
                     <div class="ncc-cell">
                         <div class="ncc-toggle" onclick="toggleNCC('${id}')" id="toggle-${id}">▶</div>
                         <div>
-                            <div class="ncc-name">${escHtml(t.ncc)}</div>
+                            <div class="ncc-name" data-ma="${escHtml(t.ma)}">${escHtml(t.ncc)}</div>
                             <div class="ncc-details" id="details-${id}">
                                 <div class="detail-row">
                                     <span class="detail-label">Mã NCC:</span>
@@ -1641,6 +1784,7 @@
                                     <span class="detail-label">Tên đầy đủ:</span>
                                     <span class="detail-value">${escHtml(t.ten)}</span>
                                 </div>
+                                ${nccDetailStats(t.ma)}
                             </div>
                         </div>
                     </div>
@@ -1668,7 +1812,7 @@
                     <div class="mobile-card-ncc">
                         <div class="ncc-toggle" onclick="toggleNCC('${id}')" id="toggle-${id}">▶</div>
                         <div>
-                            <div class="ncc-name">${escHtml(t.ncc)}</div>
+                            <div class="ncc-name" data-ma="${escHtml(t.ma)}">${escHtml(t.ncc)}</div>
                             <div class="ncc-details" id="details-${id}">
                                 <div class="detail-row">
                                     <span class="detail-label">Mã NCC:</span>
@@ -1678,6 +1822,7 @@
                                     <span class="detail-label">Tên đầy đủ:</span>
                                     <span class="detail-value">${escHtml(t.ten)}</span>
                                 </div>
+                                ${nccDetailStats(t.ma)}
                             </div>
                         </div>
                     </div>
@@ -1730,6 +1875,179 @@
         document.querySelector('.table-wrapper').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
+    // ============================================
+    // THỐNG KÊ NCC: chọn NCC ở ô tìm kiếm + tooltip khi lia chuột vào tên NCC
+    // ============================================
+    let selectedNcc = null;          // mã NCC đã chọn từ gợi ý
+    let inTime = () => true;          // bộ lọc thời gian hiện tại
+    let timeFiltered = false;         // đang lọc năm / ngày?
+    let nccStatsAll = {};             // thống kê toàn kỳ dữ liệu
+    let nccStatsTime = {};            // thống kê theo bộ lọc thời gian
+    let searchItems = [], searchActive = -1;
+
+    function buildNccStats(list) {
+        const m = {};
+        list.forEach(t => {
+            const s = m[t.ma] || (m[t.ma] = { ma: t.ma, ten: t.ten, ncc: t.ncc, nhom: t.nhom, n: 0, nAm: 0, total: 0, max: 0, first: null, last: null, years: {} });
+            s.nhom = t.nhom; s.ncc = t.ncc;
+            s.total += t.so_tien || 0;
+            if ((t.so_tien || 0) > 0) { s.n++; s.max = Math.max(s.max, t.so_tien); } else s.nAm++;
+            const d = parseDate(t.ngay);
+            if (d) {
+                if (!s.first || d < s.first) s.first = d;
+                if (!s.last || d > s.last) s.last = d;
+                const y = d.getFullYear(), ys = s.years[y] || (s.years[y] = { n: 0, total: 0 });
+                ys.total += t.so_tien || 0; if ((t.so_tien || 0) > 0) ys.n++;
+            }
+        });
+        return m;
+    }
+    function fmtD(d) { return d ? d.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' }) : '—'; }
+    function lanText(s) { return s.n.toLocaleString('vi-VN') + ' lần' + (s.nAm ? ` (+${s.nAm} điều chỉnh âm)` : ''); }
+    function curNhom(ma) { const t = DATA.transactions.find(x => x.ma === ma); return t ? t.nhom : ''; }
+
+    // --- Gợi ý NCC ở ô tìm kiếm ---
+    function initSearchSuggest() {
+        const input = document.getElementById('searchNCC');
+        const box = document.getElementById('searchSuggest');
+        const run = debounce(applyFilters, 200);
+        input.addEventListener('input', () => { selectedNcc = null; renderSearchSuggest(input.value); run(); });
+        input.addEventListener('focus', () => { if (input.value.trim() && !selectedNcc) renderSearchSuggest(input.value); });
+        input.addEventListener('keydown', e => {
+            if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+                if (!box.classList.contains('show')) renderSearchSuggest(input.value);
+                if (!searchItems.length) return;
+                e.preventDefault();
+                searchActive = (searchActive + (e.key === 'ArrowDown' ? 1 : -1) + searchItems.length) % searchItems.length;
+                box.querySelectorAll('.exclude-suggest-item').forEach((el, i) => el.classList.toggle('active', i === searchActive));
+                const a = box.querySelectorAll('.exclude-suggest-item')[searchActive]; if (a) a.scrollIntoView({ block: 'nearest' });
+            } else if (e.key === 'Enter') {
+                if (box.classList.contains('show') && searchItems[searchActive]) { e.preventDefault(); selectNcc(searchItems[searchActive].ma); }
+            } else if (e.key === 'Escape') hideSearchSuggest();
+        });
+        box.addEventListener('mousedown', e => {
+            const it = e.target.closest('.exclude-suggest-item'); if (!it) return;
+            e.preventDefault(); selectNcc(it.dataset.ma);
+        });
+        document.addEventListener('click', e => { if (!e.composedPath().includes(document.getElementById('searchWrap'))) hideSearchSuggest(); });
+    }
+    function renderSearchSuggest(q) {
+        const box = document.getElementById('searchSuggest');
+        q = q.toLowerCase().trim();
+        if (!q) { hideSearchSuggest(); return; }
+        searchItems = nccIndex.filter(n => n.ma.includes(q) || n.ten.toLowerCase().includes(q) || (n.ncc || '').toLowerCase().includes(q))
+            .map(n => nccStatsAll[n.ma] || n)
+            .sort((a, b) => (b.total || 0) - (a.total || 0)).slice(0, 30);
+        searchActive = -1;
+        box.innerHTML = searchItems.length ? searchItems.map(s => `<div class="exclude-suggest-item" data-ma="${escHtml(s.ma)}">
+                <span class="exclude-name">${escHtml(nccDisplayName(s))}</span>
+                <span class="search-suggest-meta">${escHtml(s.ma)} · ${(s.n || 0)} lần · ${formatMoneyShort(s.total || 0)}</span>
+            </div>`).join('') : '<div class="exclude-empty">Không có NCC khớp — đang tìm theo nội dung giao dịch</div>';
+        box.classList.add('show');
+    }
+    function hideSearchSuggest() {
+        document.getElementById('searchSuggest').classList.remove('show');
+        searchItems = []; searchActive = -1;
+    }
+    function selectNcc(ma) {
+        const s = nccStatsAll[ma] || nccIndex.find(n => n.ma === ma);
+        selectedNcc = ma;
+        document.getElementById('searchNCC').value = s ? (s.ncc && s.ncc !== s.ten ? s.ncc : s.ten) + ' — ' + ma : ma;
+        hideSearchSuggest();
+        applyFilters();
+    }
+    function clearNccSelection() {
+        selectedNcc = null;
+        document.getElementById('searchNCC').value = '';
+        applyFilters();
+    }
+
+    // --- Khung thống kê NCC (khi đã chọn 1 NCC, hoặc kết quả tìm chỉ còn 1 NCC) ---
+    function renderNccSummary() {
+        const el = document.getElementById('nccSummary');
+        let ma = selectedNcc;
+        if (!ma && document.getElementById('searchNCC').value.trim()) {
+            const set = new Set(filteredData.map(t => t.ma));
+            if (set.size === 1) ma = [...set][0];
+        }
+        const s = ma && nccStatsTime[ma];
+        const all = ma && nccStatsAll[ma];
+        if (!ma || !all) { el.classList.remove('show'); el.innerHTML = ''; return; }
+        const st = s || { n: 0, nAm: 0, total: 0, max: 0, first: null, last: null, years: {} };
+        const shown = filteredData.length;
+        const shownTotal = filteredData.reduce((a, t) => a + (t.so_tien || 0), 0);
+        const years = Object.keys(st.years).sort().map(y =>
+            `<span>${y}: <b>${st.years[y].n}</b> lần · ${formatMoney(st.years[y].total)}</span>`).join('');
+        el.innerHTML = `
+            <div class="ncc-summary-head">
+                <div class="ncc-summary-title">
+                    <h3>${escHtml(all.ncc || all.ten)} <span class="nhom-badge ${getNhomClass(curNhom(ma))}">${escHtml(curNhom(ma))}</span></h3>
+                    <p>Mã ${escHtml(ma)} · ${escHtml(all.ten)}${timeFiltered ? ' · <b>theo bộ lọc năm/ngày đang chọn</b>' : ''}</p>
+                </div>
+                <button class="ncc-summary-close" onclick="clearNccSelection()" title="Bỏ chọn NCC">✕ Bỏ chọn</button>
+            </div>
+            <div class="ncc-summary-grid">
+                <div class="ncc-kpi"><div class="v">${st.n.toLocaleString('vi-VN')}</div><div class="l">Số lần thanh toán</div>
+                    <div class="s">${st.nAm ? `+${st.nAm} dòng điều chỉnh âm` : '&nbsp;'}</div></div>
+                <div class="ncc-kpi"><div class="v">${formatMoney(st.total)}</div><div class="l">Tổng tiền</div>
+                    <div class="s">${timeFiltered ? 'Toàn kỳ: ' + formatMoney(all.total) + ' · ' + all.n + ' lần' : '&nbsp;'}</div></div>
+                <div class="ncc-kpi"><div class="v">${formatMoney(st.n ? Math.round(st.total / st.n) : 0)}</div><div class="l">Trung bình / lần</div>
+                    <div class="s">Lớn nhất: ${formatMoney(st.max)}</div></div>
+                <div class="ncc-kpi"><div class="v" style="font-size:0.95rem">${fmtD(st.first)} → ${fmtD(st.last)}</div><div class="l">Lần đầu → gần nhất</div>
+                    <div class="s">${shown !== st.n + st.nAm ? `Bảng đang hiện ${shown} dòng · ${formatMoney(shownTotal)}` : '&nbsp;'}</div></div>
+            </div>
+            ${years ? `<div class="ncc-years">${years}</div>` : ''}`;
+        el.classList.add('show');
+    }
+
+    // --- Thống kê trong phần chi tiết (▶) — dùng được trên điện thoại ---
+    function nccDetailStats(ma) {
+        const s = nccStatsTime[ma];
+        if (!s) return '';
+        return `<div class="detail-row"><span class="detail-label">Số lần TT:</span><span class="detail-value">${lanText(s)}</span></div>
+                <div class="detail-row"><span class="detail-label">Tổng tiền:</span><span class="detail-value">${formatMoney(s.total)}</span></div>`;
+    }
+
+    // --- Tooltip khi lia chuột vào tên NCC ---
+    function initNccTip() {
+        const tip = document.getElementById('nccTip');
+        const host = document.querySelector('.table-wrapper');
+        host.addEventListener('mouseover', e => {
+            const el = e.target.closest('.ncc-name[data-ma]');
+            if (!el) return;
+            const ma = el.dataset.ma, s = nccStatsTime[ma], all = nccStatsAll[ma];
+            if (!all) return;
+            const st = s || { n: 0, nAm: 0, total: 0, first: null, last: null, years: {} };
+            const ys = Object.keys(st.years).sort().map(y =>
+                `<div class="row"><span>Năm ${y}</span><b>${st.years[y].n} lần · ${formatMoneyShort(st.years[y].total)}</b></div>`).join('');
+            tip.innerHTML = `<h4>${escHtml(all.ncc || all.ten)}</h4>
+                <div class="sub">Mã ${escHtml(ma)} · ${escHtml(curNhom(ma))}</div>
+                <div class="row"><span>Số lần thanh toán</span><b>${lanText(st)}</b></div>
+                <div class="row"><span>Tổng tiền</span><b>${formatMoney(st.total)}</b></div>
+                <div class="row"><span>Lần đầu</span><b>${fmtD(st.first)}</b></div>
+                <div class="row"><span>Gần nhất</span><b>${fmtD(st.last)}</b></div>
+                ${Object.keys(st.years).length > 1 ? ys : ''}
+                ${timeFiltered ? `<div class="note">Theo bộ lọc năm/ngày đang chọn · Toàn kỳ: ${all.n} lần · ${formatMoney(all.total)}</div>` : ''}`;
+            tip.classList.add('show');
+            moveTip(e);
+        });
+        host.addEventListener('mousemove', e => { if (tip.classList.contains('show')) moveTip(e); });
+        host.addEventListener('mouseout', e => {
+            const el = e.target.closest('.ncc-name[data-ma]');
+            if (el && !el.contains(e.relatedTarget)) tip.classList.remove('show');
+        });
+        window.addEventListener('scroll', () => tip.classList.remove('show'), { passive: true });
+    }
+    function moveTip(e) {
+        const tip = document.getElementById('nccTip');
+        const w = tip.offsetWidth, h = tip.offsetHeight;
+        let x = e.clientX + 16, y = e.clientY + 16;
+        if (x + w > window.innerWidth - 8) x = e.clientX - w - 16;
+        if (y + h > window.innerHeight - 8) y = e.clientY - h - 16;
+        tip.style.left = Math.max(8, x) + 'px';
+        tip.style.top = Math.max(8, y) + 'px';
+    }
+
     function updateStats() {
         const total = filteredData.reduce((s, t) => s + (t.so_tien || 0), 0);
         const count = filteredData.length;
@@ -1760,10 +2078,12 @@
 
     function resetFilters() {
         document.getElementById('searchNCC').value = '';
+        selectedNcc = null; hideSearchSuggest();
         document.getElementById('filterNhom').value = '';
         document.getElementById('filterDateFrom').value = '';
         document.getElementById('filterDateTo').value = '';
         document.querySelectorAll('#yearDropdownList .cbYear').forEach(c => c.checked = true);
+        nhomExcluded.clear(); saveNhomExclude(); renderNhomExclude();
         // Bỏ chọn loại trừ nhưng vẫn giữ danh sách NCC đã thêm
         excludeItems.forEach(x => x.checked = false);
         saveExclude();
@@ -1793,6 +2113,7 @@
             'Xây Lắp': 'nhom-xaylap',
             'VTTB': 'nhom-vttb',
             'Kiểm Toán': 'nhom-kiemtoan',
+            'Dịch Vụ Công': 'nhom-dichvucong',
             'Khác': 'nhom-khac',
             'Chưa': 'nhom-chua'
         };
